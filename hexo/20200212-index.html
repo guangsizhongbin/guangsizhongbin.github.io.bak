@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="hexo 配置记录">
@@ -29,7 +29,7 @@
 <meta property="og:description" content="hexo 配置记录">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-12T04:04:10.000Z">
-<meta property="article:modified_time" content="2020-02-16T02:33:25.543Z">
+<meta property="article:modified_time" content="2020-02-17T02:22:04.156Z">
 <meta property="article:author" content="Fego">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="install">
@@ -122,6 +122,11 @@
     <a href="https://fengqigang.cn/" rel="noopener" target="_blank"><i class="fa fa-fw fa-heart"></i>Love</a>
 
   </li>
+        <li class="menu-item menu-item-wife">
+
+    <a href="/wife/" rel="section"><i class="fa fa-fw fa-home"></i>Wife</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
 
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
@@ -132,9 +137,14 @@
     <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
-        <li class="menu-item menu-item-reading">
+        <li class="menu-item menu-item-archives">
 
-    <a href="/books" rel="section"><i class="fa fa-fw fa-book"></i>Reading</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -220,7 +230,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-16 10:33:25" itemprop="dateModified" datetime="2020-02-16T10:33:25+08:00">2020-02-16</time>
+                <time title="Modified: 2020-02-17 10:22:04" itemprop="dateModified" datetime="2020-02-17T10:22:04+08:00">2020-02-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -240,7 +250,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>7.7k</span>
+              <span>8.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -332,7 +342,15 @@
 <p><span id="inline-toc">13.</span> Open markdown file after running hexo new</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> mdir scripts in hexo<span class="string">'s root.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2. in scripts'</span> js</span><br><span class="line"><span class="keyword">var</span> spawn = <span class="keyword">require</span>(<span class="string">'child_process'</span>).spawn;</span><br><span class="line"> <span class="comment">// Hexo 3</span></span><br><span class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span></span>&#123;</span><br><span class="line">spawn(<span class="string">'nvim'</span>, [data.path], &#123; stdio: <span class="string">'inherit'</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>&lt;++&gt;</p>
+<p><span id="inline-toc">14.</span> Abstract picture</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; theme&#39;s _macro &#39;s post.swig  </span><br><span class="line">+   </span><br><span class="line">+   &#123;% if post.image %&#125;</span><br><span class="line">+   &lt;div class&#x3D;&quot;out-img-topic&quot;&gt;</span><br><span class="line">+     &lt;img src&#x3D;&#123;&#123; post.image &#125;&#125; class&#x3D;&quot;img-topic&quot; &#x2F;&gt;</span><br><span class="line">+   &lt;&#x2F;div&gt;</span><br><span class="line">+   &#123;% endif %&#125;</span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">&gt;&gt; _data</span><br><span class="line">img.img-topic &#123;</span><br><span class="line"> width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt; post-matter</span><br><span class="line">image: url</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h4 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h4><p><span id="inline-toc">1.</span> Local-search</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&gt;&gt;</span> <span class="attr">root:</span></span><br><span class="line"><span class="string">sudo</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-searchdb</span> <span class="string">-save</span></span><br><span class="line"></span><br><span class="line"><span class="string">&gt;&gt;</span>  <span class="string">themes/config.yml</span></span><br><span class="line"><span class="string">--:</span></span><br><span class="line"><span class="attr">Local_Search:</span></span><br><span class="line"><span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="string">++:</span></span><br><span class="line"><span class="attr">Local_Search:</span></span><br><span class="line"><span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="string">&gt;&gt;</span> <span class="string">hexo's</span> <span class="string">_config.yml</span></span><br><span class="line"><span class="string">++:</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line"><span class="attr">field:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">format:</span> <span class="string">html</span></span><br><span class="line"><span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
 
@@ -470,17 +488,19 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
         <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -525,13 +545,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">Symbols count total: </span>
-    <span title="Symbols count total">24k</span>
+    <span title="Symbols count total">25k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">Reading time total &asymp;</span>
-    <span title="Reading time total">22 mins.</span>
+    <span title="Reading time total">23 mins.</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
   </div>

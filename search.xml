@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>5</title>
+    <url>/english/20200217-5.html</url>
+    <content><![CDATA[<p><span id="inline-yellow">005</span><br>In theory, the U.S. patent system, which gives manufacturers sole rights to a drug formulation for 20 years, should eventually enable other drug producers to bring cheaper versions of the same medication to the market. But companies skirt this by “evergreening” their drugs–adjusting drug formulas slightly, often making gradual improvements, to renew the patent and prevent generics from entering the market.</p>
+<p><span id="inline-blue">Q</span><br>The practice of “evergreening” their drugs shows __<br>A. the inadequacy of U.S. patent system.<br>B. the ineffectiveness of generics.<br>C. the fierce competition of drug market.<br>D. the lower price of patented drugs.</p>
+<a id="more"></a>
+
+]]></content>
+      <categories>
+        <category>english</category>
+      </categories>
+      <tags>
+        <tag>kaikai</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>4</title>
     <url>/english/20200216-4.html</url>
     <content><![CDATA[<p><span id="inline-yellow">004</span><br>The recently published Build Yourself Happy: The joy of Lego Play promises that getting hands-on can improve you cognitive skills and allow you to practise mindfulness. For many,it is a reaction to the stresses of modern adult life, a relief from the constant mediation of experience through a screen, and a rare opportunity to be in undisputed charge of things.</p>
@@ -852,7 +867,15 @@ Root: mkfs.ext4 /dev/sdxY</code></pre></blockquote>
 <p><span id="inline-toc">13.</span> Open markdown file after running hexo new</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> mdir scripts in hexo<span class="string">'s root.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2. in scripts'</span> js</span><br><span class="line"><span class="keyword">var</span> spawn = <span class="keyword">require</span>(<span class="string">'child_process'</span>).spawn;</span><br><span class="line"> <span class="comment">// Hexo 3</span></span><br><span class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span></span>&#123;</span><br><span class="line">spawn(<span class="string">'nvim'</span>, [data.path], &#123; stdio: <span class="string">'inherit'</span> &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>&lt;++&gt;</p>
+<p><span id="inline-toc">14.</span> Abstract picture</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt; theme&#39;s _macro &#39;s post.swig  </span><br><span class="line">+   </span><br><span class="line">+   &#123;% if post.image %&#125;</span><br><span class="line">+   &lt;div class&#x3D;&quot;out-img-topic&quot;&gt;</span><br><span class="line">+     &lt;img src&#x3D;&#123;&#123; post.image &#125;&#125; class&#x3D;&quot;img-topic&quot; &#x2F;&gt;</span><br><span class="line">+   &lt;&#x2F;div&gt;</span><br><span class="line">+   &#123;% endif %&#125;</span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">&gt;&gt; _data</span><br><span class="line">img.img-topic &#123;</span><br><span class="line"> width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&gt;&gt; post-matter</span><br><span class="line">image: url</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h4 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h4><p><span id="inline-toc">1.</span> Local-search</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">&gt;&gt;</span> <span class="attr">root:</span></span><br><span class="line"><span class="string">sudo</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-searchdb</span> <span class="string">-save</span></span><br><span class="line"></span><br><span class="line"><span class="string">&gt;&gt;</span>  <span class="string">themes/config.yml</span></span><br><span class="line"><span class="string">--:</span></span><br><span class="line"><span class="attr">Local_Search:</span></span><br><span class="line"><span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="string">++:</span></span><br><span class="line"><span class="attr">Local_Search:</span></span><br><span class="line"><span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="string">&gt;&gt;</span> <span class="string">hexo's</span> <span class="string">_config.yml</span></span><br><span class="line"><span class="string">++:</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line"><span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line"><span class="attr">field:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">format:</span> <span class="string">html</span></span><br><span class="line"><span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
 
