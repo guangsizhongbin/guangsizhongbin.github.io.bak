@@ -6,7 +6,7 @@ tags:
 	- Archlinux
 categories:
 	- Archlinux
-image: http://cdn.jsdelivr.net/gh/guangsizhongbin/picture/dssarchlinux.png
+image: https://cdn.jsdelivr.net/gh/guangsizhongbin/picture/dssarchlinux.png
 ---
 
 ## Pre-installation
@@ -122,6 +122,7 @@ check:
 
 ### Install networkmanager
 > sudo pacman -S networkmanager
+> systemctl enable NetworkManager
 
 ### Install sddm
 > sudo pacman -S sddm sddm-kcm
@@ -148,50 +149,47 @@ umcomment `#` #%wheel ALL=(ALL)
 >> /etc/pacman.conf
 
 [archlinuxcn]
+SigLevel = Optional TrustedOnly
 Server = https://mirrors.tuna.tsinghua.edu.con/archlinuxcn/$arch
 
 >> bash:
 sudo pacman -S archlinuxcn-keyring
 ```
 
-### base_softwares
+<span id="inline-toc">1.</span>  base_softwares
 sudo pacman -S git node npm python3-pip
 
-### nvim
+<span id="inline-toc">2.</span>  nvim
 sudo pacman -S neovim
 
-sudo pacman -S python-pip
-sudo pacman -S pynvim
+sudo pip3 install pynvim
 
 sudo pacman -S nodejs
 sudo pacman -S npm
-sudo npm install -g neovim
 sudo pacman -S nerd-fonts-complete
 
-### fzf
+<span id="inline-toc">3.</span>  fzf
 sudo pacman -S fzf
 
-### music
+<span id="inline-toc">4.</span> music
 sudo pacman -S netease-cloud-music
 
-### office
-sudo pacman -S wps-office ttf-wps-fonts
-
-### zsh & oh-my-zsh
+<span id="inline-toc">5.</span> terminal
+1. zsh && oh-my-zsh
+ 
 sudo pacman -S zsh
 sh -C "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-### google-chrome
+
+<span id="inline-toc">6.</span> chrome
 sudo pacman -S google-chrome
 
 
-### input method
+<span id="inline-toc">7.</span> input menthod
 
 ```
-sudo pacman -S fcitx-googlepinyin
-sudo pacman -S fcitx-im
-sudo pacman -S fcitx-configtool
-sudo pacman -S fcitx-skin-material
+sudo pacman -S fcitx-googlepinyin  fcitx-lilydjwg-git 
+sudo pacman -S kcm-fcitx
 
 >> ~/.xprofile
 export GTK_IM_MODULE=fcitx
@@ -200,7 +198,7 @@ export XMODIFIERS="@im=fcitx"
 ```
 
 
-### yay
+<span id="inline-toc">8.</span> yay
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -208,61 +206,71 @@ sudo pacman -S base-devel
 makepkg -si
 
 
-### proxy
+<span id="inline-toc">9.</span> proxy
 sudo pacman -S trojan
 sudo pacman -S proxychains-ng
 > /etc/proxychains.conf
 
-### you-get
-sudo pacman -S you-get
+<span id="inline-toc">10.</span> video
+sudo pacman -S mpv
 
-### ranger
-sudo pacman -S ranger
+<span id="inline-toc">11.</span>  screen
+sudo pacman -S deepin-screen-recorder deepin-screenshot
 
-### video
-sudo pacman -S vlc
-
-### screenshot
-yay deepin-screenshot
-
-### screen-recoder
-sudo pacman -S deepin-screen-recorder
-
-### pdf
+<span id="inline-toc">12.</span> pdf
 sudo pacman -S okular
 
-### dictionary
+<span id="inline-toc">13.</span> dictionary
 sudo pacman -S goldendict
-sudo pacman -S mplayer
 
-### fonts
+<span id="inline-toc">14.</span>  fonts
 sudo pacman -S wqy-zenhei wqy-bitmapfont wqy-microhei ttf-wps-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
 
-### tools
-sudo pacman -S neofetch
-sudo pacman -S net-tools
-
-### download
+<span id="inline-toc">15.</span> download
 sudo pip3 install you-get
+sudo pacman -S baidunetdisk-bin
 
-### beautify
-sudo pacman -S gnome-tweak-tool
+<span id="inline-toc">16.</span> picbed
+1. yay -S picgo-appimage
 
-### picbed
-yay -S picgo-appimage
+2. http://cdn.jsdelivr.net/gh/guangsizhongbin/picture
 
-#### jsDeliver
-http://cdn.jsdelivr.net/gh/guangsizhongbin/picture
-
-#### xclip
+<span id="inline-toc">17.</span> tool
 sudo pacmans -S xclip
 
+<span id="inline-toc">18.</span> QQ && wechat
+```
+>> QQ 
+sudo pacman -S deepin.com.qq.office 
+or
+sudo pacman -S deepin.com.qq.im
 
 
-### baiduyun
-sudo pacman -S baidunnetdisk-bin
+sudo pacman -S gnome-settings-daemon
+`/usr/lib/gsd-xsettings`
+[设置自动启动](<https://wiki.archlinux.org/index.php/KDE_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%90%AF%E5%8A%A8>) 
+
+>> wechat
+
+>> /etc/pacman.conf
+uncommet [multilib]
+yay -S deepin-wine-wechat
+```
+
+
+## shutdown fater
+``` diff /etc/systemd/system.conf
+- #DefaultTimeoutStartSec=90s
+- #DefaultTimeoutStopSec=90s
+
++ DefaultTimeoutStartSec=10s
++ DefaultTimeoutStartSec=10s
+```
+
+`systemctl daemon-reload`
 
 
 
-## pacman help
+
+
 
