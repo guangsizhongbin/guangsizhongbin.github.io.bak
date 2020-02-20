@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Fego
+title: TLP
 subtitle: ''
 description: ''
 keywords:
-author: Fego
+author: TLP
 language: en
 timezone: ''
 
@@ -103,12 +103,6 @@ deploy:
   repository: https://github.com/guangsizhongbin/guangsizhongbin.github.io.git
   branch: master
 
-# Browsersync:
-browsersync:
-  logLevel: "warn"
-  ghostMode:
-    scroll: true
-  instanceName: "uniqueString"
 
 # search:
 search:

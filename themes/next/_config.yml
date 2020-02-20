@@ -419,10 +419,10 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: true
+  enable:
 
   # Uri of fonts host, e.g. //fonts.googleapis.com (Default).
-  host: fonts.useso.com
+  host:
 
   # Font options:
   # `external: true` will load this font family from `host` above.

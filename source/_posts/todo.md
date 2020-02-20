@@ -6,7 +6,7 @@ tags:
  - todo
 categories:
  - todo
-urlname:
+urlname: todo
 image:
 
 ---
