@@ -126,7 +126,7 @@ menu:
   Tags: /tags/ || tags
   Categories: /categories/ || th
   Archives: /archives/ || archive
-  About: /about/ || user
+  replay: /categories/replay || sitemap
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
