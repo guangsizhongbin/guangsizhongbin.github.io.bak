@@ -25,6 +25,7 @@ image:
 ```
 
 <span id="inline-toc">3.</span> date
+
 ```
 # date "+%Y-%m-%d %H:%M:%S"
 
@@ -36,6 +37,7 @@ date "+%Y-%m-%d %H:%M:%S"
 <span id="inline-toc">5.</span> poweroff
 
 <span id="inline-toc">6.</span> wget
+
 | 参数 | 作用                                 |
 |------|--------------------------------------|
 | - b  | 后台下载模式                         |
@@ -45,12 +47,14 @@ date "+%Y-%m-%d %H:%M:%S"
 | - r  | 递归下载                             |
 
 <span id="inline-toc">7.</span> ps
+
 ```
 # ps aux
 ```
 <span id="inline-toc">8.</span> top
 
 <span id="inline-toc">9.</span> pidof
+
 **显示某个指定服务进程的PID** 
 ```
 # pidof trojan
@@ -65,6 +69,7 @@ killall [参数][进程名称]
 
 ## 系统状态检测命令
 <span id="inline-toc">1.</span> ifconfig
+
 ```
 # ifconfig
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
@@ -99,18 +104,21 @@ wlp2s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>
 ```
 
 <span id="inline-toc">2.</span> uname
+
 ```
 # uname -a
 Linux feng 5.5.4-arch1-1 #1 SMP PREEMPT Sat, 15 Feb 2020 00:36:29 +0000 x86_64 GNU/Linux
 ```
 
 <span id="inline-toc">3.</span> uptime
+
 ```
 # uptime
  19:08:39 up  1:00,  7 users,  load average: 0.46, 0.55, 0.43
 ```
 
 <span id="inline-toc">4.</span> free
+
 ```
 # free -h
               总计         已用        空闲      共享    缓冲/缓存    可用
@@ -119,6 +127,7 @@ Linux feng 5.5.4-arch1-1 #1 SMP PREEMPT Sat, 15 Feb 2020 00:36:29 +0000 x86_64 G
 ```
 
 <span id="inline-toc">5.</span> who
+
 ```
 # who
 feng     tty1         2020-02-21 18:09 (:0)
@@ -164,13 +173,16 @@ cat xxx.cf | tr [a-z] [A-Z]
 
 <span id="inline-toc">6.</span> wc
 **统计指定文本的行数、字数、字节数**
+
 | 参数 | 作用         |
+|------|--------------|
 | -l   | 只显示行数   |
 | -w   | 只显示单词数 |
 | -c   | 只显示字节数 |
 
 <span id="inline-toc">7.</span> stat
 用于查看文件的具体存储信息和时间等信息。
+
 ```
   文件：blog
   大小：4096            块：8          IO 块：4096   目录
@@ -230,6 +242,7 @@ diff -c 1024.c 20148.c
 
 ## 文件目录管理命令
 <span id="inline-toc">1.</span> touch
+
 | 参数 | 作用                    |
 |------|-------------------------|
 | - a  | 仅修改“读取时间”(atime) |
@@ -247,6 +260,7 @@ ls -l 1024.c
 
 <span id="inline-toc">3.</span> cp
 cp [选项] 源文件 目标文件
+
 | 参数 | 作用                                         |
 |------|----------------------------------------------|
 | -p   | 保留原始文件的属性                           |
@@ -264,6 +278,7 @@ mv [选项] 源文件 [目标路径|目标文件名]
 
 <span id="inline-toc">6.</span> dd
 按照大小和个数的数据块来复制文件或转换文件
+
 | 参数  | 作用                 |
 |-------|----------------------|
 | if    | 输入的文件名称       |
@@ -286,6 +301,7 @@ file 1024.c
 
 ## 打包压缩与搜索命令
 <span id="inline-toc">1.</span> tar
+
 | 参数 | 作用                   |
 |------|------------------------|
 | -c   | 创建压缩文件           |
@@ -304,7 +320,9 @@ file 1024.c
 
 
 <span id="inline-toc">2.</span> grep
+
 | 参数 | 作用                                           |
+|------|------------------------------------------------|
 | -b   | 将可执行文件（binary）当作文本文件(text)来搜索 |
 | -c   | 仅显示找到的行数                               |
 | -i   | 忽略大小写                                     |
@@ -319,6 +337,7 @@ systemd-journal-remote:x:982:982:systemd Journal Remote:/:/usr/bin/nologin
 ```
 
 <span id="inline-toc">3.</span> find
+
 | 参数               | 作用                                                                                   |
 |--------------------|----------------------------------------------------------------------------------------|
 | -name              | 匹配名称                                                                               |
@@ -340,5 +359,121 @@ systemd-journal-remote:x:982:982:systemd Journal Remote:/:/usr/bin/nologin
 # find / -user feng -exec cp -a {} ~/findresults/ \;
 ```
 
+## 管道符、重定向与环境变量
+
+### 重定向
+标准输入重定向：STDIN (文件描述符为0)
+标准输出重定向：STDOUT (文件符号为1)
+标准输出错误重定向: STDERR (文件符号为2)
+
+**输入重定向** 
+| 符号                 | 作用                                         |
+|----------------------|----------------------------------------------|
+| 命令 >  文件         | 将文件作为命令的标准输入                     |
+| 命令 >> 分界符号     | 从标准输入中读入，直到遇见分界符才停止       |
+| 命令 < 文件1 > 文件2 | 将文件1作为命令的标准输入，并标准输出到文件2 |
+
+**输出重定向** 
+| 符号         | 作用                                 |
+|--------------|--------------------------------------|
+| 命令 > 文件  | 标准输出重定向到一个文件             |
+| 命令2> 文件  | 将错误输出到一个文件中               |
+| 命令 >> 文件 | 标准输入重定向到一个文件(追加)       |
+| 命令2>> 文件 | 将错误输出到一个文件中(追加)         |
+| 命令&>> 文件 | 将标准输出和错误输出共同写入到文件中 |
 
 
+### 管道符
+**把前一个命令将要输出到屏幕的数据当作是后一个命令的标准输入** 
+
+### 环境变量
+[0-9] 匹配0-9
+? 匹配单个字符
+
+## vim && shell
+### vim
+?字符串 自下而上的搜索
+/字符串 自上而下的搜索
+
+### shell
+$0 shell脚本名称
+$* 所有位置的参数值
+$# 总共有几个参数
+$? 显示上一命令执行的返回值
+
+&& 逻辑与
+|| 逻辑或
+！ 逻辑非
+
+```
+\# [ ! $USER = root ] && echo "user" || echo "root"
+
+user
+```
+
+
+**整数运算比较**
+| 运算符 | 作用       |
+|--------|------------|
+| -eq    | 是否等于   |
+| -ne    | 是否不等于 |
+| -gt    | 是否大于   |
+| -lt    | 是否小于   |
+| -le    | 小于等于   |
+| -ge    | 大于等于   |
+
+**字符串比较运算符**
+| 运算符 | 作用                   |
+|--------|------------------------|
+| =      | 比较字符串内容是否相同 |
+| !=     | 比较字符串内容是否不同 |
+| -z     | 字符串内容是否为空     |
+
+**判断ip是否能够连的通**
+```bash
+\#!/bin/bash
+ping -c 3 -i 0.2 -w 3 $1 &> /dev/null
+if [ $? -eq 0 ]
+then
+echo "Host $1 is on-line."
+else
+echo "Host $1 is off-line."
+fi
+```
+
+**判断用户是否存在，不存在则添加用户**
+```bash
+\#!/bin/bash
+read -p "Enter The Users Password:" PASSWD
+for UNAME in 'cat users.txt'
+do
+id $UNAME &> /dev/null
+if [ $? -eq 0 ]
+then
+echo "Already exists"
+else
+useradd $UNAME &> /dev/null
+echo "$PASSWD" | passwd --stdin $UNAME &> /dev/null
+if [ $? -eq 0 ]
+then
+echo "$UNAME, Create success"
+else
+echo "$UNAME, Create failure"
+fi
+fi
+done
+```
+
+## crontab
+sudo pacman -S cronie
+systemctl enable cronie.service
+systemctl start cronie.service
+
+"分、时、日、月、星期 命令"
+
+```
+# crontab -e
+1 * * * * * echo "hello" > /home/feng/abc.txt
+```
+
+所有命令使用绝对路径
