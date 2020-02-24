@@ -100,7 +100,9 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: 
   type: git
-  repository: https://github.com/guangsizhongbin/guangsizhongbin.github.io.git
+  repository: 
+    github: git@github.com:guangsizhongbin/guangsizhongbin.github.io.git
+    coding: git@e.coding.net:guangsizhongbin/guangsizhongbin/
   branch: master
 
 
