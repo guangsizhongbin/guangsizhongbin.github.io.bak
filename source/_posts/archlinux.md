@@ -150,22 +150,21 @@ umcomment `#` #%wheel ALL=(ALL)
 
 [archlinuxcn]
 SigLevel = Optional TrustedOnly
-Server = https://mirrors.tuna.tsinghua.edu.con/archlinuxcn/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 
 >> bash:
 sudo pacman -S archlinuxcn-keyring
 ```
 
 <span id="inline-toc">1.</span>  base_softwares
-sudo pacman -S git node npm python3-pip
+sudo pacman -S git npm python-pip
 
 <span id="inline-toc">2.</span>  nvim
 sudo pacman -S neovim
+sudo pacman -S cags
 
 sudo pip3 install pynvim
 
-sudo pacman -S nodejs
-sudo pacman -S npm
 sudo pacman -S nerd-fonts-complete
 
 <span id="inline-toc">3.</span>  fzf
@@ -185,10 +184,11 @@ sh -C "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 sudo pacman -S google-chrome
 
 
+## shutdown fater
 <span id="inline-toc">7.</span> input menthod
 
 ```
-sudo pacman -S fcitx-googlepinyin  fcitx-lilydjwg-git 
+sudo pacman -S fcitx-lilydjwg-git fcitx-sogoupinyin 
 sudo pacman -S kcm-fcitx
 
 >> ~/.xprofile
@@ -196,6 +196,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 ```
+
 
 
 <span id="inline-toc">8.</span> yay
@@ -258,16 +259,12 @@ yay -S deepin-wine-wechat
 ```
 
 
-## shutdown fater
-``` diff /etc/systemd/system.conf
-- #DefaultTimeoutStartSec=90s
-- #DefaultTimeoutStopSec=90s
+## beautify
+sudo pacman -S variety
+yay mcmojave
 
-+ DefaultTimeoutStartSec=10s
-+ DefaultTimeoutStartSec=10s
-```
-
-`systemctl daemon-reload`
+## GPU
+sudo pacman -S nvida bbswitch optimus-manager-qt-kde
 
 
 
