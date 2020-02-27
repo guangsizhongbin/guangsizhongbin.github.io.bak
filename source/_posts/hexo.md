@@ -429,6 +429,7 @@ hexo douban -b
 
 
 <span id="inline-toc">8.</span> hexo-browsersync
+
 ```
 >> root:
 npm install hexo-browsersync --save
@@ -441,7 +442,38 @@ browsersync:
   instanceName: "uniqueString"
 ```
 
+<span id="inline-toc">9.</span> top
+
+```
+npm uninstall hexo-generator-index --save
+npm install hexo-generator-index-pin-top --save
+
+
+>> themes\next\layout\_macro's post
+/ post-meta.
+
+{% if post.top %}
+	<i class="fa fa-thumb-tack"></i>
+	<font color=7D26CD>置顶</font>
+	<span class="post-meta-divider">|</span>
+{% endif %}
+```
+
+
+<span id="inline-toc">10.</span> math_support
+
+```
+npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-kramed --save
+
+>> themes' _config
+enable math
+
+
+```
+
 <++>
+
 
 
 

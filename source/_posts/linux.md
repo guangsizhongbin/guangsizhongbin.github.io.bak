@@ -70,37 +70,31 @@ killall [参数][进程名称]
 ## 系统状态检测命令
 <span id="inline-toc">1.</span> ifconfig
 
+sudo pacman -S net-tools
+
 ```
 # ifconfig
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
-        inet6 ::1  prefixlen 128  scopeid 0x10<hos
-t>
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
         loop  txqueuelen 1000  (Local Loopback)
-        RX packets 21557  bytes 38847491 (37.0 MiB
-)
-        RX errors 0  dropped 0  overruns 0  frame 
-0
-        TX packets 21557  bytes 38847491 (37.0 MiB
-)
-        TX errors 0  dropped 0 overruns 0  carrier
- 0  collisions 0
+        RX packets 903  bytes 83248 (81.2 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 903  bytes 83248 (81.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-wlp2s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>
-  mtu 1500
-        inet 192.168.0.101  netmask 255.255.255.0 
- broadcast 192.168.0.255
-        inet6 fe80::1b6a:9567:5536:d3c1  prefixlen
- 64  scopeid 0x20<link>
-        ether d4:25:8b:84:99:d2  txqueuelen 1000  
-(Ethernet)
-        RX packets 47339  bytes 61312431 (58.4 MiB
-)
-        RX errors 0  dropped 0  overruns 0  frame 
-0
-        TX packets 25363  bytes 2978054 (2.8 MiB)
-        TX errors 0  dropped 0 overruns 0  carrier
- 0  collisions 0
+wlp2s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.103  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::d867:4afc:2669:aa56  prefixlen 64  scopeid 0x20<link>
+        ether d4:25:8b:84:99:d2  txqueuelen 1000  (Ethernet)
+        RX packets 1485897  bytes 1946655368 (1.8 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1239346  bytes 183909644 (175.3 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+
+
 ```
 
 <span id="inline-toc">2.</span> uname
@@ -367,13 +361,15 @@ systemd-journal-remote:x:982:982:systemd Journal Remote:/:/usr/bin/nologin
 标准输出错误重定向: STDERR (文件符号为2)
 
 **输入重定向** 
+
 | 符号                 | 作用                                         |
 |----------------------|----------------------------------------------|
-| 命令 >  文件         | 将文件作为命令的标准输入                     |
-| 命令 >> 分界符号     | 从标准输入中读入，直到遇见分界符才停止       |
+| 命令 <  文件         | 将文件作为命令的标准输入                     |
+| 命令 << 分界符号     | 从标准输入中读入，直到遇见分界符才停止       |
 | 命令 < 文件1 > 文件2 | 将文件1作为命令的标准输入，并标准输出到文件2 |
 
 **输出重定向** 
+
 | 符号         | 作用                                 |
 |--------------|--------------------------------------|
 | 命令 > 文件  | 标准输出重定向到一个文件             |
@@ -413,6 +409,7 @@ user
 
 
 **整数运算比较**
+
 | 运算符 | 作用       |
 |--------|------------|
 | -eq    | 是否等于   |
@@ -423,6 +420,7 @@ user
 | -ge    | 大于等于   |
 
 **字符串比较运算符**
+
 | 运算符 | 作用                   |
 |--------|------------------------|
 | =      | 比较字符串内容是否相同 |
@@ -477,3 +475,278 @@ systemctl start cronie.service
 ```
 
 所有命令使用绝对路径
+
+
+## 用户身份与文件权限
+
+### 用户身份
+
+<span id="inline-toc">1.</span> 用户身份：
+- 管理员UID为0： 系统的管理员用户
+- 系统用户为1~999
+- 普通用户UID从1000开始
+
+<span id="inline-toc">2.</span> useradd
+
+| 参数 | 作用                                     |
+|------|------------------------------------------|
+| - d  | 指定用户的家目录（默认为/home/username） |
+| - e  | 账户的到期时间，格式为YYYY-MM-DD.        |
+| - u  | 指定该用户的默认id                       |
+| - g  | 指定一个出事的用户基本组（必须已存在）   |
+| - G  | 指定一个或多个扩展用户组                 |
+| - N  | 不创建与用户同名的基本用户组             |
+| - s  | 指定该用户的默认Shell 解释器             |
+
+```
+# useradd -d /home/linux -u 8888 -s /sbin/nologin linuxprobe
+# id feng
+uid=1000(feng) gid=1000(feng) groups=1000(feng),998(wheel)
+```
+
+<span id="inline-toc">3.</span> groupadd
+group [ 选项 ] 群组名
+
+<span id="inline-toc">4.</span> usermod
+
+| 参数    | 作用                                                               |
+|---------|--------------------------------------------------------------------|
+| - c     | 填写用户账户的备注信息                                             |
+| - d - m | 参数-m与参数-d连用，可重新指定用户的家目录并自动把旧的数据转移过去 |
+| - e     | 账户的到期时间，格式为YYYY-MM-DD                                   |
+| - g     | 变更所属用户组                                                     |
+| - G     | 变更扩展用户组                                                     |
+| - L     | 锁定用户禁止其登录系统                                             |
+| - U     | 解锁用户，允许其登录系统                                           |
+| - s     | 变更默认终端                                                       |
+| - u     | 修改用户的UID                                                      |
+
+```
+➜  ~ id feng
+uid=1000(feng) gid=1000(feng) groups=1000(feng),998(wheel)
+➜  ~ sudo usermod -G root feng
+➜  ~ id feng
+uid=1000(feng) gid=1000(feng) groups=1000(feng),0(root)
+```
+
+<span id="inline-toc">5.</span> passwd
+passwd [选项] [用户名]
+
+| 参数    | 作用                                                   |
+|---------|--------------------------------------------------------|
+| - l     | 锁定用户，禁止其登录                                   |
+| - u     | 解除锁定，允许用户登录                                 |
+| --stdin | 允许通过标准输入修改用户密码，                         |
+| - d     | 使该用户可用空密码登录系统                             |
+| - e     | 强制用户在下次登录时修改密码                           |
+| - S     | 显示用户的密码是否被锁定，以及密码所采用的加密算法名称 |
+
+```
+# passwd -l feng
+```
+
+
+<span id="inline-toc">6.</span> userdel
+userdel [选项] 用户名
+
+| 参数 | 作用                     |
+|------+--------------------------|
+| -f   | 强制删除用户             |
+| -r   | 同时删除用户及用户家目录 |
+
+```
+# userdel -r feng
+```
+
+
+
+### 文件权限与归属
+-: 普通文件
+d: 目录文件
+l: 链表文件
+b: 块设备文件
+c: 字符设备文件
+p: 管道文件
+
+### 文件的特殊权限
+<span id="inline-toc">1.</span> SUID
+对二进制程序进行设置的特殊权限，可以让二进制程序的执行者临时拥有属主的权限。
+
+```
+➜  ~ ls -l /etc/shadow
+-rw------- 1 root root 788 Feb 27 13:25 /etc/shadow
+➜  ~ ls -l /bin/passwd 
+-rwsr-xr-x 1 root root 63640 Feb  4 20:31 /bin/passwd
+```
+使用passwd命令时如果加上SUID特殊权限位，就可让普通用户临时获得程序所有这身份，把变更的密码信息写入到shadow文件中。
+
+<span id="inline-toc">2.</span> SGID
+让执行者实现如下两种功能
+1. 让执行者临时拥有属组的权限（对拥有执行权限的二进制程序进行设置）
+2. 在某个目录中创建的文件自动继承该目录的用户组（只可以对目录进行设置）
+
+<span id="inline-toc">3.</span> SBIT
+当对某个目录设置了SBIT位权限后，那么该目录中的文件就只能被其所有这执行删除操作了。
+
+### 文件的隐藏属性
+<span id="inline-toc">1.</span> chattr
+用于设置文件的隐藏权限
+
+| 参数                                                                                           | 作用                                                                                  |
+| ------|--------------------------------------------------------------------------------------- |
+| i                                                                                              | 无法对文件修改；若对目录设置了该参数，则仅能修改其中的子文件内容而不能新建或删除文件 |
+| a                                                                                              | 仅允许补充（追加）内容，无法覆盖、删除内容（Append Only）                             |
+| S                                                                                              | 文件内容在变更后立即同步到硬盘（sync）                                                |
+| s                                                                                              | 彻底从硬盘中删除，不可回复（用0填充原文件所在硬盘区域）                               |
+| A                                                                                              | 不再修改这个文件或目录的最后访问时间（atime）                                         |
+| b                                                                                              | 不再修改文件或目录的存取时间                                                          |
+| D                                                                                              | 检查压缩文件中的错误                                                                  |
+| d                                                                                              | 使用dump命令备份时忽略本文件、目录                                                    |
+| c                                                                                              | 默认将文件或目录进行压缩                                                              |
+| u                                                                                              | 当删除该文件后依然保留其在硬盘中的数据，方便日后恢复                                  |
+| t                                                                                              | 让文件系统支持尾部合并（tail-merging）                                                |
+| x                                                                                              | 可以直接访问压缩文件中的内容                                                          |
+
+```
+[root@feng feng]# chattr +a linuxprobe 
+[root@feng feng]# rm linuxprobe 
+rm: cannot remove 'linuxprobe': Operation not permitted
+```
+
+<span id="inline-toc">2.</span> lsattr
+需要使用lsattr命令，文件的隐藏权限才能看到
+
+```
+[root@feng feng]# lsattr linuxprobe 
+-----a--------e----- linuxprobe
+```
+
+
+### 文件访问控制列表
+指定某一类用户设置权限。
+<span id="inline-toc">1.</span> setfacl
+-R 针对目录文件
+-m 针对普通文件
+-b 删除某个文件的ACL
+
+```
+[root@feng feng]# setfacl -Rm u:feng:rwx /root
+[root@feng feng]# ls -ld /root/
+drwxrwx---+ 10 root root 4096 Feb 27 13:24 /root/
+```
+文件的权限(+),这就意味着该文件已经设置了ACL了。
+
+<span id="inline-toc">2.</span> getfacl
+
+```
+➜  ~ getfacl /root 
+getfacl: Removing leading '/' from absolute path names
+# file: root
+# owner: root
+# group: root
+user::rwx
+user:feng:rwx
+group::r-x
+mask::rwx
+other::---
+```
+
+## 存储结构与磁盘划分
+
+**Linux 系统中常见的目录名称以及相应内容**
+
+| 目录名称     | 应放置文件的内容                                            |
+|--------------|-------------------------------------------------------------|
+| /boot        | 开机所需文件--内核、开机菜单以及所需配置文件等              |
+| /dev         | 以文件形式存放任何设备与接口                                |
+| /etc         | 配置文件                                                    |
+| /home        | 用户家目录                                                  |
+| /bin         | 存放单用户模式下还可以操作的命令                            |
+| /lib         | 开机时用到的函数库，以及/bin 与/sbin 下面的命令要调用的函数 |
+| /sbin        | 开机过程中需要的命令                                        |
+| /media       | 用于挂载设备文件的目录                                      |
+| /opt         | 放置第三方的软件                                            |
+| /root        | 系统管理员的家目录                                          |
+| /srv         | 一些网络服务的数据文件目录                                  |
+| /tmp         | 任何人均可使用的"共享"临时目录                              |
+| /proc        | 虚拟文件系统，例如系统内核、进程、外部设备及网络状态等      |
+| /usr/local   | 用户自行安装的软件                                          |
+| /usr/sbin    | Linux 系统开机时不会用到的软件、命令、脚本                  |
+| /usr/share   | 帮助与说明文件，也可放置共享文件                            |  | /var | 主要存放经常变化的文件，如日志 |
+| /lost+found/ | 当文件系统发生错误是，将一些丢失的片段存放在这里            |
+
+
+
+### 物理设备的命名规则
+
+| 硬件设备      | 文件名称           |
+|---------------|--------------------|
+| IDE设备       | /dev/hd[a-d]       |
+| SCSI/SATA/U盘 | /dev/sd[a-p]       |
+| 软驱          | /dev/fd[0-1]       |
+| 打印机        | /dev/lp[0-15]      |
+| 光驱          | /dev/cdrom         |
+| 鼠标          | /dev/mouse         |
+| 磁带机        | /dev/st0或/dev/ht0 |
+
+![](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200227160340.png) 
+/dev/ 目录中保存的应当是硬件设备文件
+sd 表示存储设备
+a 表示系统中同类接口中第一个被识别到的设备
+5 表示这个设备是一个逻辑分区
+/dev/sda5 这是系统中第一块被识别到的硬件设备中分区编号为5的逻辑分区的设备文件
+
+<span id="inline-toc">1.</span> mount
+
+| 参数 | 作用                               |
+|------|------------------------------------|
+| -a   | 挂载所在/etc/fstab中定义的文件系统 |
+| -t   | 指定文件系统的类型                 |
+
+
+**/etc/fstab** 
+
+| 字段     | 意义                                                                     |
+|----------|--------------------------------------------------------------------------|
+| 设备文件 | 一般为设备的路径+设备名称，也可以些唯一的识别码（UUID）                  |
+| 挂载目录 | 指定要挂载到的目录，需在挂载钱创建好                                     |
+| 格式类型 | 指定文件系统的格式                                                       |
+| 权限选项 | 若设置为defaults, 则默认权限为：rw, suid, dev, exec, auto, nouser, async |
+| 自检     | 若为1则开机后进行磁盘自检，为0则不自检                                   |
+| 优先级   | 若“自检”字段为1，则可对多块磁盘进行自检优先设置                          |
+
+
+<span id="inline-toc">2.</span> umout
+
+
+<span id="inline-toc">3.</span> fdisk
+
+
+<span id="inline-toc">4.</span> du
+
+```
+➜  ~ du -sh /boot
+82M     /boot
+```
+
+
+
+
+<span id="inline-toc">5.</span> edquota
+sudo pacman -S quota-tools
+
+限制用户的硬盘可用容量或所能创建的最大文件个数
+
+-u 表示针对哪个用户进行设置
+-g 表示要对哪个用户组进行设置
+
+
+
+<span id="inline-toc">6.</span> ln
+
+| 参数 | 作用                                               |
+|------|----------------------------------------------------|
+| -s   | 创建"符号链接"（如果不带-s参数，则默认创建硬链接） |
+| -f   | 强制创建文件或目录的链接                           |
+| -i   | 覆盖前先询问                                       |
+| -v   | 显示创建链接的过程                                 |
