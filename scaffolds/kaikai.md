@@ -35,6 +35,7 @@ D.
 <span id="inline-green">状语</span>
 <span id="inline-red">定语</span>
 <span id="inline-blue">灵活</span>
+<span id="inline-purple">同位语</span>
 
 <span id="inline-toc">1.</span>
 
