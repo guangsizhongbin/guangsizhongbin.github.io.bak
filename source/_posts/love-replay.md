@@ -3,7 +3,9 @@ title: love_replay
 date: 2020-02-25 08:46:28
 description:
 tags:
+	- love
 categories:
+	- replay
 urlname: love_replay
 image:
 ---

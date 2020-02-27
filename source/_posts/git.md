@@ -6,7 +6,7 @@ description: Introduce how to work with git
 tags:
 	- git
 categories:
-	- git
+	- linux
 ---
 
 ## Install Git and config Git

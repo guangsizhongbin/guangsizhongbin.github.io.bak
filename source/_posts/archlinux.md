@@ -1,12 +1,13 @@
 ---
-title: Archlinux
+title: how to install archlinux
 copyright: true
 date: 2020-02-12 18:26:53
 tags:
-	- Archlinux
+	- install
 categories:
-	- Archlinux
+	- linux
 image: https://cdn.jsdelivr.net/gh/guangsizhongbin/picture/dssarchlinux.png
+
 ---
 
 ## Pre-installation

@@ -3,8 +3,9 @@ title: kaikai-1-10-replay
 date: 2020-02-21 09:53:14
 description:
 tags:
+	- kaikai
 categories:
-	- replay
+	- english
 urlname:
 image:
 ---

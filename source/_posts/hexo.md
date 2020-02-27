@@ -7,7 +7,7 @@ tag:
 	- hexo
 	- install
 categories:
-	- hexo
+	- linux
 ---
 
 ## 安装 hexo

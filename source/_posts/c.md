@@ -5,7 +5,7 @@ description:
 tags:
 	- c
 categories:
-	- c
+	- programming
 urlname: c
 image:
 ---

@@ -1,12 +1,12 @@
 ---
-title: cplus
+title: c++
 date: 2020-02-19 18:59:08
 description:
 tags:
-	- cplus
+	- c++
 categories:
-	- cplus
-urlname: cplus
+	- programming
+urlname: c++
 image:
 ---
 
