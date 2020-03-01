@@ -750,3 +750,243 @@ sudo pacman -S quota-tools
 | -f   | 强制创建文件或目录的链接                           |
 | -i   | 覆盖前先询问                                       |
 | -v   | 显示创建链接的过程                                 |
+
+## iptables 与 firewalld 防火墙
+
+### iptables
+
+**规则** 
+在进行路由选择钱处理数据包（PREROUTING）
+处理流入的数据包（INPUT）
+处理流出的数据包（OUTPUT）
+处理转发的数据包（FORWARD）
+在进行路由选择后处理数据包（POSTROUTING）
+
+**动作** 
+允许流量通过（ACCEPT）
+拒绝流量通过（REJECT） 流量发送方会看到端口不可达的响应
+记录日志信息（LOG）
+拒绝流量通过（DROP）流量方会看到响应超时的提醒，但是流量发送方无法判断流量是被拒绝，还是接收方主机当前不在线
+
+**iptables中常用的参数以及作用** 
+| 参数        | 作用                                    |
+|-------------|-----------------------------------------|
+| -P          | 设置默认策略                            |
+| -F          | 清空规则链                              |
+| -L          | 查看规则链                              |
+| -A          | 在规则链的末尾加入新规则                |
+| -I num      | 在规则链的末尾的头部加入新规则          |
+| -D num      | 删除某一条规则                          |
+| -s          | 匹配来源地址 IP/MASK,加叹号“！”表示IP外 |
+| -d          | 匹配目标地址                            |
+| -i 网卡名称 | 匹配从这块网卡流入的数据                |
+| -o 网卡名称 | 匹配从这块网卡流出的数据                |
+| -p          | 匹配协议，如TCP、UDP、ICMP              |
+| --dport num | 匹配目标端口号                          |
+| --sport num | 匹配来源端口号                          |
+
+
+### 远程传输命令
+scp(secure copy) 是一个基于SSH协议在网络之间进行安全传输的命令
+
+**scp命令中可用的参数及作用**
+| 参数 | 作用                     |
+|------|--------------------------|
+| -v   | 显示详细的连接进度       |
+| -p   | 指定远程主机的sshd端口号 |
+| -r   | 用于传送文件夹           |
+| -6   | 使用IPv6协议             |
+
+
+传送文件到远程服务器
+-r 进行递归操作
+
+```
+~ scp ~/readme.txt root@123.57.209.109:/root
+readme.txt                                 100%   26     0.7KB/s   00:00  
+```
+
+```
+~ scp 192.168.10.20:/etc/redhat-release /root
+```  
+
+### 不间断会话服务
+
+screen 可用实现的功能：
+会话恢复： 即便网络中断，也可让会话随时恢复，确保用户不会失去对远程会话的控制
+多窗口： 每个会话都是独立运行的，拥有各自独立的输入输出终端窗口，终端窗口内显示过的信息也将被分开隔离保持，以便下次使用依然能看到之前的操作记录。
+会话共享： 当多个用户同时登录到远程服务器时，便可以使用会话共享功能让用户之间的输入输出信息共享。
+
+```
+// 创建linux会话
+screen -S linux
+
+// 查看会话列表
+screen -ls
+
+// 恢复会话
+screen -r
+
+// 获取远程会话
+screen -x (Attach to a not detached screen session.(Multi display mode))
+```
+
+## vsftpd
+Ftp 是一种在互联网中进行文件传输的协议，基于客户端、服务器模式，默认使用20,21号端口。
+20 数据端口: 用于进行数据传输。
+21 命令端口：用于接受客户端发出的相关FTP命令与参数。
+
+ftp的两种工作模式：
+**主动模式** FTP服务器主动向客户端发起连接请求
+**被动模式** FTP服务器等待客户端发起连接请求(FTP的默认工作模式)
+
+### 安装
+```
+sudo pacman -S vsftpd
+```
+
+**vsftpd服务程序常用的参数以及作用** 
+
+| 参数                              | 作用                                                         |
+|-----------------------------------|--------------------------------------------------------------|
+| listen=[YES][NO]                  | 是否以独立允许的方式监听服务                                 |
+| listen_address=IP 地址            | 设置要监听的IP地址                                           |
+| listen_port=21                    | 设置FTP服务的监听端口                                        |
+| download_enable=[YES][NO]         | 是否允许下载文件                                             |
+| userlist_enhable=[YES][NO]        | 用户列表“允许"                                               |
+| userlist_deny=[YES][NO]           | 用户列表”禁止“                                               |
+| max_clients=0                     | 最大客户端连接数，0为不限制                                  |
+| max_per_ip=0                      | 同一IP地址的最大连接数，0为不限制                            |
+| anonymous_enable=[YES][NO]        | 是否允许匿名用户访问                                         |
+| anno_upload_enable=[YES][NO]      | 是否允许匿名用户上传文件                                     |
+| anno_umask=022                    | 匿名用户上传文件的umask值                                    |
+| anno_root=/var/ftp                | 匿名用户的FTP根目录                                          |
+| anno_mkdir_write_enable=[YES][NO] | 是否允许匿名用户创建目录                                     |
+| anno_other_write_enable=[YES][NO] | 是否开放匿名用户的其他写入权限（包括重命名，删除等操作权限） |
+| anno_max_rate=0                   | 匿名用户的最大传输速率（字节/秒），0为不限制                 |
+| local_enable=[YES][NO]            | 是否允许本地用户登录FTP                                      |
+| local_umask=022                   | 本地用户上传文件的umask值                                    |
+| local_root=/var/ftp               | 本地用户的FTP根目录                                          |
+| chroot_local_user=[YES][NO]       | 是否将用户权限禁锢在FTP目录，以确保安全                      |
+| local_max_rate=0                  | 本地用户最大传输速率（字节/秒），0为不限制                   |
+
+### vsftpd 服务程序
+**匿名开放模式** 是一种最不安全的认证模式，任何人都可以无需密码验证而直接登录到FTP服务器。
+**本地用户模式** 是通过Linux系统本地的账户密码信息进行认证的模式,相较于匿名开放模式更安全，而且配置起来也很简单。但是如果被黑客破解了账户的信息，就可以畅通无阻地登录FTP服务器，从而完全控制整台服务器。
+**虚拟用户模式** 是这三种模式中最安全的一种认证模式，它需要为FTP服务单独建立用户数据文件，虚拟出用来进行口令验证的账户信息，而这些账户信息在服务器系统中实际上是不存在，仅供FTP服务程序进行认证使用。这样，即使黑客破解了账户信息也无法登录服务器，从而有效降低了破坏范围和影响。
+
+
+### 匿名开放模式
+
+可以向匿名用户开放的权限参数以及作用
+
+| 参数                        | 作用                               |
+|-----------------------------|------------------------------------|
+| annoymous_enable=YES        | 允许匿名访问模式                   |
+| anno_umask=022              | 匿名用户上传文件的umask值          |
+| anno_upload_enable=YES      | 允许匿名用户上传文件               |
+| anno_mkdir_write_enable=YES | 允许匿名用户创建目录               |
+| anno_other_write_enable=YES | 允许匿名用户修改目录名称或删除目录 |
+
+默认访问目录是`/var/ftp`
+
+**赋权**
+chown -Rf ftp /var/ftp/pub
+
+
+### 本地用户模式
+
+| 参数                | 作用                                             |
+|---------------------|--------------------------------------------------|
+| annoymous_enable=NO | 静止匿名访问模式                                 |
+| local_enable=YES    | 允许本地用户模式                                 |
+| write_enable=YES    | 设置可写权限                                     |
+| local_umask=022     | 本地用户创建文件的umask值                        |
+| userlist_enable=YES | 启用“静止用户名单”,名单文件为ftpusers和user_list |
+| userlist_deny=YES   | 开启用户作用名单文件功能                         |
+
+
+/etc/vsftpd/usr_list
+
+### 虚拟用户模式
+1. 创建用于进行FTP认证的用于数据库文件，其中奇数行为账户名，偶数行为密码。
+
+2. 创建vsftpd服务程序用于存储文件的根目录以及虚拟用户的映射的系统本地用户。FTP服务用于存储文件的根目录指的是，当虚拟用户登录后访问的默认位置
+
+3. 建立用于支持虚拟用户的PAM文件
+
+4. 在vsftpd服务程序的主配置文件中通过 pam_service_name 参数将PAM认证文件的名称修改为 vsftpd.vu, pam作为应用程序层与鉴别模块层的连接纽带，可以让应用程序根据需求灵活地在自身插入所需的鉴别功能模块。当应用程序需要PAM认证时，则需要在应用程序中定义负责认证的PAM配置文件，实现所需的认证功能。
+
+5. 为虚拟用户设置不同的权限。
+
+6. 设置SELinux域允许策略，然后虚拟用户模式登录FTP服务器。
+
+## 使用Samba 或 NFS实现文件共享
+sudo pacman -S samba
+
+`/etc/samba/private/smb.conf`
+
+Samba : window 与 linux 文件共享
+NFS: linux 与 linux 文件共享
+
+**Samba 服务程序中的参数以及作用** 
+
+| [global]   | 参数                                     | 作用                                                      |
+|------------|------------------------------------------|-----------------------------------------------------------|
+|            | workgroup = MYGROUP                      | #工作组名称                                               |
+|            | server string = Samba Server Versinon %v | #服务器介绍信息，参数%v为显示SMB版本号                    |
+|            | lon file = /var/log/samba/log.%m         | #定义日志文件的存放位置与名称，参数%m为来访的主机名       |
+|            | max log size                             | #定义日志文件的最大容量为50KB                             |
+|            | security = user                          | #安全验证的方式，共有四种： share, user, server, domain   |
+|            | passdb backend = tdbsam                  | #定义用户后台的类型, 共有三种: smbpassed, tdbsam, ldapsam |
+|            | load printers = yes                      | #设置在Samba服务启动时是否共享打印机设备                  |
+|            | cups options = raw                       | # 打印机的选项                                            |
+| [homes]    |                                          | # 共享参数                                                |
+|            | comment = Home Directories               | # 描述信息                                                |
+|            | browseable = no                          | #指定共享信息是否在”网上邻居“中可见                       |
+|            | writable = yes                           | #定义是否可以执行写入操作，与”read only“相反              |
+| [printers] |                                          | #打印机共享参数
+
+
+### 配置共享资源
+
+**用于设置Samba服务程序的参数以及租用** 
+
+| 参数                                                  | 作用                       |
+|-------------------------------------------------------|----------------------------|
+| [database]                                            | 共享名称为database         |
+| comment = Do not arbitrarily modify the database file | 警告用户不要随意修改数据库 |
+| path = /home/database                                 | 共享目录为/home/databse/   |
+| public = no                                           | 关闭”所用人可见“           |
+| writable = yes                                        | 允许写入操作               |
+
+<span id="inline-toc">1.</span> 创建用于访问共享资源的账户信息。
+
+**用于pdbedit 命令的参数以及作用** 
+
+| 参数      | 作用                   |
+|-----------|------------------------|
+| -a 用户名 | 建立Samba账户          |
+| -x 用户名 | 删除Samba账户          |
+| -L        | 列出账户列表           |
+| -Lv       | 列出账户详细信息的列表 |
+
+<span id="inline-toc">2.</span> 创建用户共享资源的文件目录
+
+<span id="inline-toc">3.</span> 设置SELinux 服务与策略
+
+<span id="inline-toc">4.</span> 在Samba 服务程序的主配置文件中，安装格式写入共享信息。
+
+<span id="inline-toc">5.</span> Samba 服务程序的配置工作基本完毕。
+
+
+
+### NFS(网络文件系统)
+
+<span id="inline-toc">1.</span> 为了检验NFS服务配置的效果，需要两台Linux主机（一台充当NFS服务器，一台充当NFS客户端）
+
+<span id="inline-toc">2.</span> 在NFS服务器上建立用于NFS文件共享的目录，并设置足够的权限确保其他人也有写入权限。
+
+<span id="inline-toc">3.</span> NFS服务程序的配置文件为/etc/exports, 默认情况下里面没有任何内容。
+
+<span id="inline-toc">4.</span> 启动和启用NFS服务程序。

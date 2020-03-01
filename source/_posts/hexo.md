@@ -8,6 +8,7 @@ tag:
 	- install
 categories:
 	- linux
+urlname: hexo
 ---
 
 ## 安装 hexo

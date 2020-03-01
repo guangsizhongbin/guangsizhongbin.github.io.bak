@@ -6,6 +6,8 @@ tags:
 	- install
 categories:
 	- linux
+urlname: archlinux
+
 image: https://cdn.jsdelivr.net/gh/guangsizhongbin/picture/dssarchlinux.png
 
 ---
