@@ -834,6 +834,98 @@ setenforce 0 [0 为禁用，1为启用]
 ```
 
 
+**原因分析**
+`httpd`服务程序的功能是允许用户访问网站的内容，因此SELinux肯定会默认放行用户对网站的请求操作。但是，我们将数据的默认保持目录修改为了`home/wwwroot/` 这就产生了问题了。`home`目录是用来存放普通用户的家目录数据的，而现在，`httpd`提供的网站服务却要获取普通用户家目录中的数据了，这显然违反了SELinux的监管原则。
+
+### semanage
+用于管理SELinux的策略，格式为 semanage [选项] [文件]
+-l 参数用于查询
+-a 参数用于添加
+-m 参数用于修改
+-d 参数用于删除
+
+```
+semanage fcontext -a -t httpd_sys_content_t /home/wwwroot
+semanage fcontext -a -t httpd_sys_content_t /home/wwwroot/*
+```
+
+**restorecon** 命令将设置好的SELinux安全上下文立即生效。
+- Rv 参数对指定的目录进行递归操作。
+
+```
+restorecon -Rv /home/wwwroot/
+```
+
+### 个人用户主页功能
+
+1. httpd服务程序中，开启个人用户主页功能
+
+``` diff
+- userDir disable
++ # userDir disable
+
+- # UserDir public_html 
++ UserDir public_html 
+```
+
+2. 在用户家目录中建立用于保持网站数据的目录及首页面文件。另外，还需要把家目录的权限修改为755,保证其他人也有权限读取里面的内容
+
+```
+su - feng
+
+mkdir public_html
+ehco "This is feng's website" > public_html/index.html
+
+chmod -RF 755 /home/feng
+```
+
+
+
+3. 重新启动http服务程序
+systemctl restart httpd
+
+4. 修改SELinux安全上下文
+
+```
+getsebool -a | grep http
+```
+
+setsebool 
+
+-P 使修改后的SELinux策略规则永久生效且立即生效。
+
+```
+setsebool -P httpd_enable_homedirs=on
+```
+
+### 通过身份验证访问网站
+
+1. 使用 htpasswd 命令生成密码数据库
+-c 参数表示第一次生成
+用户名称（该用户不必是系统中已有的本地账户）
+
+```
+htpasswd -c /etc/httpd/passwd feng
+```
+
+2. 编辑个人用户主页功能的配置文件
+
+```
+vim /etc/httpd/conf.d/userdir.conf
+
+<Directory "/home/*/public_html">
+AllowOverride all
+# 刚刚生成出来的密码验证文件保持路径
+authuserfile "/etc/httpd/passwd"
+#当用户尝试访问个人用户网站时的提示信息
+authname "My privately website"
+authtype basic
+#用户进行账户密码登录时需要验证的用户名称
+require user feng
+</Directory>
+```
+
+
 
 
 
