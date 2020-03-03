@@ -402,7 +402,7 @@ $? 显示上一命令执行的返回值
 ！ 逻辑非
 
 ```
-\# [ ! $USER = root ] && echo "user" || echo "root"
+# [ ! $USER = root ] && echo "user" || echo "root"
 
 user
 ```
@@ -429,7 +429,7 @@ user
 
 **判断ip是否能够连的通**
 ```bash
-\#!/bin/bash
+#!/bin/bash
 ping -c 3 -i 0.2 -w 3 $1 &> /dev/null
 if [ $? -eq 0 ]
 then
@@ -441,7 +441,7 @@ fi
 
 **判断用户是否存在，不存在则添加用户**
 ```bash
-\#!/bin/bash
+#!/bin/bash
 read -p "Enter The Users Password:" PASSWD
 for UNAME in 'cat users.txt'
 do
@@ -550,7 +550,7 @@ passwd [选项] [用户名]
 userdel [选项] 用户名
 
 | 参数 | 作用                     |
-|------+--------------------------|
+|------|--------------------------|
 | -f   | 强制删除用户             |
 | -r   | 同时删除用户及用户家目录 |
 
@@ -672,7 +672,8 @@ other::---
 | /proc        | 虚拟文件系统，例如系统内核、进程、外部设备及网络状态等      |
 | /usr/local   | 用户自行安装的软件                                          |
 | /usr/sbin    | Linux 系统开机时不会用到的软件、命令、脚本                  |
-| /usr/share   | 帮助与说明文件，也可放置共享文件                            |  | /var | 主要存放经常变化的文件，如日志 |
+| /usr/share   | 帮助与说明文件，也可放置共享文件                            | 
+| /var | 主要存放经常变化的文件，如日志 |
 | /lost+found/ | 当文件系统发生错误是，将一些丢失的片段存放在这里            |
 
 
@@ -751,6 +752,96 @@ sudo pacman -S quota-tools
 | -i   | 覆盖前先询问                                       |
 | -v   | 显示创建链接的过程                                 |
 
+
+## Apache
+
+### 安装Apache
+
+```
+1. 将光盘设备中的系统镜像挂载到/media/cdrom目录。
+mkdir -p /media/cdrom
+mount /dev/cdrom /media/cdrom
+
+2. 使用Vim 创建仓库的配置文件
+vim /etc/yum.repos.d/rhe17.repo
+[rhe17]
+name=rhe17
+baseurl=file:///media/cdrom
+enabled=1
+gpgcheck=0
+
+3. 安装Apache服务程序
+yum install httpd
+
+4. 启动httpd服务程序
+systemd start httpd
+systemd enable httpd
+```
+
+
+### 配置服务文件参数
+
+**Linux 系统中的配置文件** 
+
+| 配置文件的名称 | 存放位置                  |
+|----------------|---------------------------|
+| 服务目录       | /etc/httpd                |
+| 主配置目录     | /etc/httpd/conf/httpd.cof |
+| 网站数据目录   | /var/www/html             |
+| 访问日志       | /var/log/httpd/access_log |
+| 错误日志       | /var/log/httpd/error_log  |
+
+
+**配置httpd服务程序时最常用的参数以及用途描述** 
+
+| 参数           | 用途                      |
+|----------------|---------------------------|
+| ServerRoot     | 服务目录                  |
+| ServerAdmin    | 服务员邮箱                |
+| User           | 运行服务的用户            |
+| Group          | 允许服务的用户组          |
+| ServerName     | 网站服务器的域名          |
+| DocumetRoot    | 网站数据目录              |
+| Directory      | 网站数据目录的权限        |
+| Listen         | 监听的IP地址与端口号      |
+| DirectoryIndex | 默认的索引页页面          |
+| ErrorLog       | 错误日志文件              |
+| Timeout        | 网页超时时间，默认为300秒 |
+
+
+### SELinux 安全子系统
+使用此系统的目的是，让各个服务进程都受到约束，使其仅获取到本应获取的资源。
+
+**SELinux服务有三种配置模式** 
+
+1. enforcing : 强制启用安全策略模式，将拦截服务的不合法请求
+2. permissive: 遇到服务越权访问时，只发出警告而不强制拦截。
+3. disable: 对于越权的行为不警告也不拦截。
+
+
+<span id="inline-toc">1.</span> **getenforce**
+获取当前SELinux服务的运行模式：
+
+```
+# getenforce
+Enforcing
+```
+
+<span id="inline-toc">2.</span> setenforce
+
+```
+setenforce 0 [0 为禁用，1为启用]
+```
+
+
+
+
+
+
+
+
+
+
 ## iptables 与 firewalld 防火墙
 
 ### iptables
@@ -769,6 +860,7 @@ sudo pacman -S quota-tools
 拒绝流量通过（DROP）流量方会看到响应超时的提醒，但是流量发送方无法判断流量是被拒绝，还是接收方主机当前不在线
 
 **iptables中常用的参数以及作用** 
+
 | 参数        | 作用                                    |
 |-------------|-----------------------------------------|
 | -P          | 设置默认策略                            |
@@ -790,6 +882,7 @@ sudo pacman -S quota-tools
 scp(secure copy) 是一个基于SSH协议在网络之间进行安全传输的命令
 
 **scp命令中可用的参数及作用**
+
 | 参数 | 作用                     |
 |------|--------------------------|
 | -v   | 显示详细的连接进度       |
@@ -832,6 +925,7 @@ screen -x (Attach to a not detached screen session.(Multi display mode))
 ```
 
 ## vsftpd
+
 Ftp 是一种在互联网中进行文件传输的协议，基于客户端、服务器模式，默认使用20,21号端口。
 20 数据端口: 用于进行数据传输。
 21 命令端口：用于接受客户端发出的相关FTP命令与参数。
@@ -841,6 +935,7 @@ ftp的两种工作模式：
 **被动模式** FTP服务器等待客户端发起连接请求(FTP的默认工作模式)
 
 ### 安装
+
 ```
 sudo pacman -S vsftpd
 ```
