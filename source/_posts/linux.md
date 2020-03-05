@@ -753,8 +753,154 @@ sudo pacman -S quota-tools
 | -v   | 显示创建链接的过程                                 |
 
 
-## Apache
+## 使用RAID与LVM磁盘阵列技术
+**RAID** 独立冗余磁盘阵列技术方案的特性，并通过实际部署RAID10，RAID5+备份盘等方案来更直观地查看RAID的强大效果，以便进一步满足生存环境对磁盘设备IO读写速度与数据冗余备份机制的需求。
 
+### RAID（独立冗余磁盘阵列）
+RAID 0: 把两块物理磁盘设备（至少两块）通过硬件或软件的方式串联在一起，组成一个大的卷组，并将数据依次写入到各个物理硬盘中。这样依赖，在最理想的状态下，硬盘设备的读写性能会提升数倍，但是若任意一块硬盘发生故障将导致整个系统的数据都受到破坏。
+[RAID](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305092538.png)
+
+RAID 1: 它是把两块以上的硬盘设备进行绑定，在写入数据时，是将数据同时写入到多块硬盘设备上。当其中一块硬盘发生故障后，一般会立即自动以热交换的方式来恢复数据的正常使用。
+[RAID1](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091029.png)
+
+RAID 5： (兼顾读写速度，数据安全性，成本)是把磁盘设备的奇偶效验信息保存到其他硬盘设备中。RAID5磁盘阵列组中的数据的奇偶效验信息并不是单独保存到某一块硬盘设备中，而是存储到除自身意外的其他每一块硬盘设备上，这样的好处是其中任何一设备损坏后不至于出现致命缺陷。
+[RAID5](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091553.png)
+
+RAID 10: 是RAID1和RAID0技术的一个组合体。 RAID10技术需要至少4块硬盘来组建，其中先分别两两制作成RAID1磁盘整列，以保证数据的安全性，然后再对两个RAID1磁盘阵列实施RAID0技术，进一步提高硬盘设备的读写。从理论上来将，只要坏的不是同一组的所有硬盘，那么最多可以损坏50%的硬盘设备而不丢失数据。
+[RAID10](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091920.png)
+
+
+### 部署磁盘整列
+
+**mdadm** 用于管理Linux系统中的软件RAID磁盘阵列.
+mdadm[模式]<RAID 设备名称>[选项][成员设备名称]
+
+**mdadm命令的常用参数和作用** 
+
+| 参数 | 作用             |
+|------|------------------|
+| -a   | 检测设备名称     |
+| -n   | 指定设备数量     |
+| -l   | 指定RAID级别     |
+| -C   | 创建             |
+| -v   | 显示过程         |
+| -f   | 模拟设备损坏     |
+| -r   | 移除设备         |
+| -Q   | 查看摘要信息     |
+| -D   | 查看详细信息     |
+| -S   | 停止RAID磁盘阵列 |
+
+
+<span id="inline-toc">1.</span> 使用mdadm命令创建RAID 10，名称为"/dev/md0"
+
+`mdadm -Cv /dev/md0 -a yes -n 4 -l 10 /dev/sdb /dev/sdc /dev/sdd /dev/sde`
+
+<span id="inline-toc">2.</span> 把制作号的RAID磁盘整列格式化为ext4格式。
+
+`mkfs.ext4 /dev/md0`
+
+<span id="inline-toc">3.</span> 创建挂载点然后把磁盘设备进行挂载操作
+
+```
+mkdir /RAID
+mount /dev/md0 /RAID
+df -h
+```
+
+<span id="inline-toc">4.</span> 查看/dev/md0磁盘阵列的详细信息，并把挂载信息写入到配置文件中，并把挂载信息写入到配置文件中，使其永久生效。
+
+```
+madadm -D /dev/md0
+
+echo "/dev/md0 /RAID ext4 defaults 0 0" >> /etc/fstab
+```
+
+### 损坏磁盘整列及修复
+
+**模拟设备损坏** 
+
+```
+mdadm /dev/md0 -f /dev/sdb
+
+madam -D /dev/md0
+/dev/md0:
+        Version : 1.2
+  Creation Time : Thu Mar  5 09:58:27 2020
+     Raid Level : raid10
+     Array Size : 4191232 (4.00 GiB 4.29 GB)
+  Used Dev Size : 2095616 (2046.84 MiB 2145.91 MB)
+   Raid Devices : 4
+  Total Devices : 4
+    Persistence : Superblock is persistent
+
+    Update Time : Thu Mar  5 10:07:51 2020
+          State : clean, degraded 
+ Active Devices : 3
+Working Devices : 3
+ Failed Devices : 1
+  Spare Devices : 0
+
+         Layout : near=2
+     Chunk Size : 512K
+
+           Name : localhost.localdomain:0  (local to host localhost.localdomain)
+           UUID : bdf4a631:f2a3651f:32d0fc2c:01dd60fe
+         Events : 19
+
+    Number   Major   Minor   RaidDevice State
+       0       0        0        0      removed
+       1       8       32        1      active sync   /dev/sdc
+       2       8       48        2      active sync   /dev/sdd
+       3       8       64        3      active sync   /dev/sde
+
+       0       8       16        -      faulty   /dev/sdb
+
+```
+
+**重启系统，然后再把新的硬盘添加到RAID磁盘阵列中**
+
+```
+umount /RAID
+mdadm /dev/md0 0a /dev/sdb
+mdadm -D /dev/md0
+/dev/md0:
+        Version : 1.2
+  Creation Time : Thu Mar  5 09:58:27 2020
+     Raid Level : raid10
+     Array Size : 4191232 (4.00 GiB 4.29 GB)
+  Used Dev Size : 2095616 (2046.84 MiB 2145.91 MB)
+   Raid Devices : 4
+  Total Devices : 4
+    Persistence : Superblock is persistent
+
+    Update Time : Thu Mar  5 10:13:07 2020
+          State : clean 
+ Active Devices : 4
+Working Devices : 4
+ Failed Devices : 0
+  Spare Devices : 0
+
+         Layout : near=2
+     Chunk Size : 512K
+
+           Name : localhost.localdomain:0  (local to host localhost.localdomain)
+           UUID : bdf4a631:f2a3651f:32d0fc2c:01dd60fe
+         Events : 46
+
+    Number   Major   Minor   RaidDevice State
+       4       8       16        0      active sync   /dev/sdb
+       1       8       32        1      active sync   /dev/sdc
+       2       8       48        2      active sync   /dev/sdd
+       3       8       64        3      active sync   /dev/sde
+
+mount -a
+```
+
+### 磁盘阵列+备份盘
+
+
+
+## Apache
 ### 安装Apache
 
 ```
