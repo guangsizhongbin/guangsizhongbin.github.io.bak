@@ -758,16 +758,16 @@ sudo pacman -S quota-tools
 
 ### RAID（独立冗余磁盘阵列）
 RAID 0: 把两块物理磁盘设备（至少两块）通过硬件或软件的方式串联在一起，组成一个大的卷组，并将数据依次写入到各个物理硬盘中。这样依赖，在最理想的状态下，硬盘设备的读写性能会提升数倍，但是若任意一块硬盘发生故障将导致整个系统的数据都受到破坏。
-[RAID](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305092538.png)
+![](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305092538.png)
 
 RAID 1: 它是把两块以上的硬盘设备进行绑定，在写入数据时，是将数据同时写入到多块硬盘设备上。当其中一块硬盘发生故障后，一般会立即自动以热交换的方式来恢复数据的正常使用。
-[RAID1](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091029.png)
+![](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091029.png)
 
 RAID 5： (兼顾读写速度，数据安全性，成本)是把磁盘设备的奇偶效验信息保存到其他硬盘设备中。RAID5磁盘阵列组中的数据的奇偶效验信息并不是单独保存到某一块硬盘设备中，而是存储到除自身意外的其他每一块硬盘设备上，这样的好处是其中任何一设备损坏后不至于出现致命缺陷。
-[RAID5](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091553.png)
+![](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091553.png)
 
 RAID 10: 是RAID1和RAID0技术的一个组合体。 RAID10技术需要至少4块硬盘来组建，其中先分别两两制作成RAID1磁盘整列，以保证数据的安全性，然后再对两个RAID1磁盘阵列实施RAID0技术，进一步提高硬盘设备的读写。从理论上来将，只要坏的不是同一组的所有硬盘，那么最多可以损坏50%的硬盘设备而不丢失数据。
-[RAID10](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091920.png)
+![](https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091920.png)
 
 
 ### 部署磁盘整列
