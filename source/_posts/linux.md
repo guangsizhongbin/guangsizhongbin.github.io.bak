@@ -1299,6 +1299,66 @@ require user feng
 | --sport num | 匹配来源端口号                          |
 
 
+## 使用ssh服务管理远程主机
+### 配置网络服务
+`nmtui`
+
+```
+vim /etc/sysconfig/network-scripts/ifcfg-enoxxxx
+
+TYPE=Ethernet 
+BOOTPROTO=none 
+DEFROUTE=yes 
+IPV4_FAILURE_FATAL=no 
+IPV6INIT=yes 
+IPV6_AUTOCONF=yes 
+IPV6_DEFROUTE=yes 
+IPV6_FAILURE_FATAL=no 
+NAME=eno16777736 
+UUID=ec77579b-2ced-481f-9c09-f562b321e268 
+ONBOOT=yes
+IPADDR0=192.168.10.10
+HWADDR=00:0C:29:C4:A4:09 
+PREFIX0=24 
+IPV6_PEERDNS=yes 
+IPV6_PEERROUTES=yes
+
+
+systemctl restart network
+ping -c 4 192.168.10.10
+```
+
+### 创建网络会话
+`numcli`
+
+```
+// 查看网络信息
+numcli connection show
+// 查看网络状态
+numcli coc show enp0s3
+```
+
+`connection add con-name type ifname` 创建网络会话。
+
+
+```
+numcli connection add con-name house type ethernet ifname
+```
+
+- ifname 参数指定本机的网卡名称
+- con-name 参数指定公司所使用的网络会话名称company
+
+### 绑定两块网卡
+
+<span id="inline-toc">1.</span> 在虚拟机系统中添加一块网卡设备，确保两块网卡都处于同一个网络连接（级网卡模式相同）
+
+<span id="inline-toc">2.</span> 使用Vim文本编辑器来配置网卡设备的绑定参数。这些原本独立的网卡设备此时需要被配置成一块"从属"网卡，服务与"主"网卡，不应该再有自己的IP地址等信息。
+
+
+
+
+
+
 ### 远程传输命令
 scp(secure copy) 是一个基于SSH协议在网络之间进行安全传输的命令
 
