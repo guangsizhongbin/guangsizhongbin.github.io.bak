@@ -241,7 +241,7 @@ diff -c 1024.c 20148.c
 |------|-------------------------|
 | - a  | 仅修改“读取时间”(atime) |
 | - m  | 仅修改“修改时间”(mtime) |
-| - d  | 同事修改 atime 与 mtime |
+| - d  | 同时修改 atime 与 mtime |
 
 ```
 touch -d "2017-05-04 15:44" 1024.c
@@ -493,7 +493,7 @@ systemctl start cronie.service
 | - d  | 指定用户的家目录（默认为/home/username） |
 | - e  | 账户的到期时间，格式为YYYY-MM-DD.        |
 | - u  | 指定该用户的默认id                       |
-| - g  | 指定一个出事的用户基本组（必须已存在）   |
+| - g  | 指定一个初始的用户基本组（必须已存在）   |
 | - G  | 指定一个或多个扩展用户组                 |
 | - N  | 不创建与用户同名的基本用户组             |
 | - s  | 指定该用户的默认Shell 解释器             |
@@ -1254,6 +1254,12 @@ require user feng
 </Directory>
 ```
 
+### 虚拟主机功能
+#### 基于IP地址
+#### 基于主机域名
+#### 基于端口号
+
+### Apache 的访问控制
 
 
 
@@ -1350,12 +1356,69 @@ numcli connection add con-name house type ethernet ifname
 
 ### 绑定两块网卡
 
-<span id="inline-toc">1.</span> 在虚拟机系统中添加一块网卡设备，确保两块网卡都处于同一个网络连接（级网卡模式相同）
+<span id="inline-toc">1.</span> 在虚拟机系统中添加一块网卡设备，确保两块网卡都处于同一个网络连接（即网卡模式相同）
+
+
 
 <span id="inline-toc">2.</span> 使用Vim文本编辑器来配置网卡设备的绑定参数。这些原本独立的网卡设备此时需要被配置成一块"从属"网卡，服务与"主"网卡，不应该再有自己的IP地址等信息。
 
+```
+vim /etc/sysconfig/network-scripts/ifcfg-xxx
+
+TYPE=Ethernet
+BOOTPROTO=none
+ONBOOT=yes
+USERCTL=no
+DEVICE=xxxx
+MASTER=bond0
+SLAVE=yes
 
 
+vim /etc/sysconfig/network-scripts/ifcfg-xxx
+
+TYPE=Ethernet
+BOOTPROTO=none
+ONBOOT=yes
+USERCTL=no
+DEVICE=xxxx
+MASTER=bond0
+SLAVE=yes
+```
+
+还需要将绑定后的设备命名为bond0并把IP地址等信息填写进去，这样当用户访问相应服务的时候，实际上就是由这两块设备共同提供服务
+
+```
+vim /etc/sysconfig/network-scripts/ifcfg-bond0
+
+TYPE=Ethernet
+BOOTPROTO=none
+ONBOOT=yes
+USERCTL=no
+DEVICE=bond0
+IPADDR=192.168.56.101
+PREFIX=24
+DNS=255.255.255.0
+NM_CONTROLLED=no
+```
+
+
+<span id="inline-toc">3.</span> 让Linux内核支持网卡绑定驱动。
+- mode0 (平衡负载模式): 平时两块均工作，且自动备援，但需要咋与服务器本地网卡相连的交换机设备上进行端口聚合来支持绑定技术。
+- mode1 (自动备援模式):平时只有一块网卡工作，在它故障后自动替换另外的网卡.
+- mode6 (平衡负载模式): 平时两块网卡均工作，且自动备援，无须交换机设备提供辅助支持。
+
+```
+vim /etc/modprode.d/bond.conf
+alias bond0 bonding
+options bond0 miimon=100 mode=6
+```
+
+<span id="inline-toc">4.</span> 重启网络服务后网卡绑定操作即可成功，正常情况下只有bond0网卡设备才会有IP地址等信息。
+
+```
+systemctl restart network
+ifconfig
+```
 
 
 

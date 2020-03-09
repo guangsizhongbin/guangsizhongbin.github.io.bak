@@ -261,6 +261,17 @@ uncommet [multilib]
 yay -S deepin-wine-wechat
 ```
 
+<span id="inline-toc">19.</span> bluetooth
+
+```
+sudo pacman -S  pulseaudio-alsa pulseaudio-bluetooth bluez bluez-libs bluez-utils
+
+yay -S bluez-firmware
+
+systemctl enable bluetooth
+systemctl start bluetooth
+```
+
 
 ## beautify
 sudo pacman -S variety

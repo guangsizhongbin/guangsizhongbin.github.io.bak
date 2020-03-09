@@ -206,7 +206,7 @@ C.
 
 
 <span id="inline-toc">2.</span> 
-<span id="inline-green"> For many</span>,<span id="inline-yellow">it is a reaction</span> to the stresses of modern adult life, <span id="inline-yellow">a relief</span> from the constant mediation of experience through a screen, <span id="inline-yellow">and a rare opportunity</span> to be in undisputed charge of things.
+<span id="inline-green"> For many</span>,<span id="inline-yellow">it is a reaction</span> <span id="inline-red">to the stresses of modern adult life</span>, <span id="inline-yellow">a relief</span> <span id="inline-red">from the constant mediation of experience through a screen</span>, <span id="inline-yellow">and a rare opportunity</span><span id="inline-red">to be in undisputed charge of things.</span> 
 对于大多数的人来说，对于现代成年人来说，缓解来自屏幕的城市生活的压力是一件很愉快的事情，并拥有少有机会的去不受干扰的控制一些事情。
 
 
@@ -246,12 +246,26 @@ A.
 
 
 <span id="inline-toc">1.</span>
-In theory, the U.S. patent system, which gives manufacturers sole rights to a drug formulation for 20 years, should eventually enable other drug producers to bring cheaper versions of the same medication to the market.
-理论上，美国专利系统，只给药品生产厂家单独生产20年的时间，最终使得其他的药品生产商能够带来更加便宜的相同的药品。
-
+<span id="inline-green">In theory</span>, <span id="inline-yellow">the U.S. patent system</span> , <span id="inline-red">which gives manufacturers sole rights to a drug formulation for 20 years,</span><span id="inline-yellow">should eventually enable other drug producers to bring cheaper versions of the same medication to the market.</span> 
+~~理论上，美国专利系统，只给药品生产厂家单独生产20年的时间，最终使得其他的药品生产商能够带来更加便宜的相同的药品。~~
+在理论上,美国专利系统，只会给药品生产厂家单独生产20年的权利，以使得药品被其他的生产厂家以低价同质的药品所代替。
 <span id="inline-toc">2.</span>
-But companies skirt this by "evergreening" their drugs--adjusting drug formulas slightly, often making gradual improvements, to renew the patent and prevent generics from entering the market.
-但是厂家们通过evergereening 这种方式，轻微的调整药品的成分，使得药品的疗效取得逐渐的提高，去更新专利从而防止其它竞争者进入市场。
+<span id="inline-yellow">But companies skirt this</span> <span id="inline-green">by "evergreening" their drugs</span>--<span id="inline-red">adjusting drug formulas slightly, often making gradual improvements,</span> <span id="inline-green">to renew the patent and prevent generics from entering the market.</span>
+~~但是厂家们通过evergereening 这种方式，轻微的调整药品的成分，使得药品的疗效取得逐渐的提高，去更新专利从而防止其它竞争者进入市场。 ~~
+但是公司们通过不断更新它的药品来逃过这种监管，例如轻微的调整药品的成分，使作用有稍微的提升，然后去更新专利，使得其他的竞争者无法进入这一市场。
+
+
+<span id="inline-green">mediation</span>
+the process of talking to two separate people or  groups involved in a disagreement to try to help them to agree or find a solution to their problems.
+
+<span id="inline-green">sole</span>
+The sole thing or person of a particular type is the only one of that type.
+
+
+<span id="inline-green">skirt</span>
+If you skirt a problem or questions, you avoid dealing with it.
+
+[005](https://mp.weixin.qq.com/s/0ZufGtMB2H3K4JpNtM0J0Q)
 
 
 ---
@@ -267,15 +281,17 @@ D. Infrastructure improvement.
 
 <!--more-->
 
+C
+
 <span id="inline-toc">1.</span>
-Much has been written about the trash problem created by the billions of disposable plastic drinking-water bottles sold each year in the U.S.
+<span id="inline-yellow">Much has been written</span> <span id="inline-red">about the trash problem created</span> <span id="inline-red">by the billions of disposable plastic drinking-water bottles sold each year in the U.S.</span> 
 ~~在美国每年都有大量关于数以百万计的一次性塑料瓶所带来的垃圾问题的文章出现.~~
 
 <span id="inline-red">调整语序</span>
 <span id="inline-red">美国每年销售数十亿个一次性塑料饮用水瓶，很多人写过它们造成的垃圾问题</span>
 
 <span id="inline-toc">2.</span>
- Far less is understood about the contents of those bottles. Bottled water was an $18.5 billion(wholesale) industry in the U.S. in 2017, but under Presidents of both parties, FDA oversight has been lightly staffed.
+ <span id="inline-yellow">Far less is understood</span> <span id="inline-red"> about the contents of those bottles</span>. <span id="inline-yellow">Bottled water was an $18.5 billion(wholesale) industry</span> <span id="inline-green"> in the U.S. in 2017</span>,<span id="inline-green">but under Presidents of both parties</span>, <span id="inline-yellow">FDA oversight has been lightly staffed.</span> 
 但是很少有文章关注到瓶子里水的质量的问题。在美国瓶装水的市场价值$18.5亿. 但是在2017年，在美国两党的带领之下，美国食品和药物管理局却很少关注瓶装水中水的质量问题。
 
  <span id="inline-green">FDA</span>
@@ -289,6 +305,11 @@ Much has been written about the trash problem created by the billions of disposa
 
 Oer-staffed = overmanned
 Slightly staffed = understaffed
+
+<span id="inline-green">oversight</span>
+reponsiblity for a job or activity and for making sure it is being done correctly.
+
+[006](https://mp.weixin.qq.com/s/m4DTBwTHIyJRgMZKbg7t8A)
 
 ---
 <span id="inline-yellow">007</span>
@@ -326,6 +347,7 @@ A psychologist is a person who studies the human mind and tries to explain why p
 the state of feeling every unhappy and without hope for the future.
 
 <span id="inline-green">however small</span> 无论多么微不足道
+
 
 ---
 <span id="inline-yellow">008</span>
