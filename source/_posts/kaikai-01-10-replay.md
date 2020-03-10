@@ -326,13 +326,16 @@ D. It makes people feel better to ignore anxiety.
 
 C.
 <span id="inline-toc">1.</span>
-While it makes sense to be worried about the climate emergency, becoming overwhelmed is counterproductive.
-虽然去担忧~~紧急的事情~~ 是有意义的，但是过度的担忧是有害的。
+<span id="inline-green">While it makes sense to be worried about the climate emergency,</span> <span id="inline-yellow">becoming overwhelmed is counterproductive</span>.
+~~虽然去担忧~~紧急的事情~~ 是有意义的，但是过度的担忧是有害的。~~
+虽然去担心气候的变暖是有意义的，但是过度的担心会产生相反的效果。
 
 
 <span id="inline-toc">2.</span>
-The sound advice from psychologists that actions, however small, can help to alleviate feelings of distress and powerlessness echoes the experiences of activists, that "the minute you start doing something, the depression goes away".
-~~人类学家~~关于行动的建议,~~通过一系列很小的活动~~，可以对减轻沮丧和无力的感觉，也就是说，当你开始做某事的时候，沮丧已经离开。
+The sound advice from psychologists that <span id="inline-yellow">actions</span>, however small, <span id="inline-yellow">can help to alleviate feelings</span> <span id="inline-red">of distress and powerlessness</span><span id="inline-blue">echoes the experiences of activists, that "the minute you start doing something, the depression goes away".</span>  
+~~人类学家关于行动的建议,通过一系列很小的活动，可以对减轻沮丧和无力的感觉，也就是说，当你开始做某事的时候，沮丧已经离开。~~
+来自心理学家的建议： 无论多么微不足道的行动都能够减轻来自无助和无力的感觉，如同行动学家的说法一旦你开始做事，沮丧就离开了。
+
 
 <span id="inline-green">sound advice</span>
 Sound advice, reasoning , or evidence is reliable and sensible.
@@ -346,8 +349,13 @@ A psychologist is a person who studies the human mind and tries to explain why p
 <span id="inline-green">depression</span>
 the state of feeling every unhappy and without hope for the future.
 
+<span id="inline-green">emergency</span>
+soomething dangerous or serious, such as an accident, that happens suddenly or unexpectedly and needs fast action in order to avoid harmful results.
+
 <span id="inline-green">however small</span> 无论多么微不足道
 
+Reference:
+[007](https://mp.weixin.qq.com/s/UAYNYxHYqEtNXWRnceEX6A)
 
 ---
 <span id="inline-yellow">008</span>
