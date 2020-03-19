@@ -93,7 +93,7 @@ Sexual misconduct complaints about Weinstein, an Oscar-winning producer of films
 <span id="inline-green">floodgates</span>
 a gate that can be opened or closed to control a flow of water.
 
-<span id="inline-toc">7.</span> <++>
+<span id="inline-toc">7.</span> 
 Scores of women went public with accusations that Weinstein had sexually assaulted or harassed them, while thousands more shared similar stories on social media about abuse by powerful men. Weinstein quickly became a symbol not just of Hollywood’s casting-couch culture, but also of what women had endured in all kinds of workplaces for years.
 
 <span id="inline-green">harassed</span>

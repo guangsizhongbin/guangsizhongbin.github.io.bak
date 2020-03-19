@@ -272,6 +272,15 @@ systemctl enable bluetooth
 systemctl start bluetooth
 ```
 
+<span id="inline-toc">20.</span> mobilephone
+
+```
+sudo pacman -S libmtp mtpfs
+sudo pacman -S kio-extras
+sudo pacman -S android-file-transfer
+```
+
+
 
 ## beautify
 sudo pacman -S variety

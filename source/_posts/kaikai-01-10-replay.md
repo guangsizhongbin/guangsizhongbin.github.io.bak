@@ -223,7 +223,7 @@ Hands-on experience or work involves actually doing a particular thing, rather t
 If you describe a fact or opinion as undisputed, you are trying to persuade someone that it is generally accepted as true or correct.
 
 <span id="inline-green">indispensable</span>
-Something or someone that is indispensable is so good or important that you could not manage withour it, him, or her.
+Something or someone that is indispensable is so good or important that you could not manage without it, him, or her.
 
 
 [004](https://mp.weixin.qq.com/s/wXiHZLEikAQqf5E4_wi6XA)
@@ -307,7 +307,7 @@ Oer-staffed = overmanned
 Slightly staffed = understaffed
 
 <span id="inline-green">oversight</span>
-reponsiblity for a job or activity and for making sure it is being done correctly.
+responsibility for a job or activity and for making sure it is being done correctly.
 
 [006](https://mp.weixin.qq.com/s/m4DTBwTHIyJRgMZKbg7t8A)
 
@@ -371,31 +371,51 @@ D. It is primarily composed of sprawling suburbs.
 <!--more-->
 C.
 <span id="inline-toc">1.</span>
-Ironically, urbanization is good, even crucial, for the survival of a human-populated planet.
-讽刺性的是，城市化是好的，对于一个人口众多的地球来说，是至关重要的。
+<span id="inline-green">Ironically,</span>  <span id="inline-yellow">urbanization is good, even crucial</span> , <span id="inline-green">for the survival of a human-populated planet</span>.
+~~讽刺性的是，城市化是好的，对于一个人口众多的地球来说，是至关重要的。~~
 
+讽刺性的是，城市化对于一个人口爆炸的地球来说是好的，甚至是重要的，
 
 <span id="inline-toc">2.</span>
-Denser cities beat suburban sprawl insofar as they reduce individual carbon footprints.
-密集化的城市抗击城市的外延就如同人们减少个人碳足记一样。
+<span id="inline-yellow">Denser cities beat suburban sprawl</span> <span id="inline-green">insofar as they reduce individual carbon footprints. </span> 
+~~密集化的城市抗击城市的外延就如同人们减少个人碳足记一样。~~
+
+高密度的城市打败了城市的扩张，至少它减少了个体的碳排放量。
 
 
 <span id="inline-toc">3.</span>
- We humans may need exposure to nature, but nature sure as hell doesn't need exposure to us.
-我们人类需要接触大自然，但是大自然根本不需要接触我们。
+<span id="inline-yellow"> We humans may need exposure to nature, but nature <span id="inline-green">sure as hell</span>  doesn't need exposure to us.</span>
+~~我们人类需要接触大自然，但是大自然根本不需要接触我们。~~
+
+
+我们人类或许需要接触自然，但是自然根本不需要与人类接触。
+
 
 <span id="inline-toc">4.</span> 
- The better way forward is to keep living in densely packed places, but use tech and design to weave nature into our indoor world.
-用科技和设计把大自然编织进我们室内的世界是在高密度的地方生活的最好的方式.
+<span id="inline-yellow"> The better way forward is </span><span id="inline-blue">to keep living in densely packed places</span>,<span id="inline-blue">but use tech and design to weave nature into our indoor world.</span>  
+~~用科技和设计把大自然编织进我们室内的世界是在高密度的地方生活的最好的方式.~~
+
+在高密度城市生活的最好的方式就是用科技和设计将自然编制进我们的室内世界。
 
 
-<span id="inline-green">ironically</span> You use ironically to draw attention to a situation which is odd or amusing because it involves a contrast.
-<span id="inline-green">crucial</span> If you describe something as crucial, you mean it is extremely important.
-<span id="inline-green">denser</span> Something that is dense contains a lot of things or people in a small area.
-<span id="inline-green">sprawl</span> You can use sprawl to refer to an area where a city has grown out wards in an uncontrolled way.
 
-<span id="inline-red">insofar as</span> = in so far as. ---> which means 在...方面，就...而言.
-<span id="inline-red">sure as hell</span> = surely ---> which means 当然;确定
+<span id="inline-green">ironically</span>
+You use ironically to draw attention to a situation which is odd or amusing because it involves a contrast.
+<span id="inline-green">crucial</span> 
+If you describe something as crucial, you mean it is extremely important.
+<span id="inline-green">denser</span>
+Something that is dense contains a lot of things or people in a small area.
+<span id="inline-green">sprawl</span>
+You can use sprawl to refer to an area where a city has grown out wards in an uncontrolled way.
+
+<span id="inline-red">insofar as</span>
+= in so far as. ---> which means 在...方面，就...而言.
+<span id="inline-red">sure as hell</span>
+= surely ---> which means 当然;确定
+
+Reference
+[008](https://mp.weixin.qq.com/s/jvX1fzg9-BWhZwzEs35v6A)
+
 
 ---
 <span id="inline-yellow">009</span>
@@ -408,24 +428,38 @@ B. Reading apps.
 C. Reference tools.
 D. Search features.
 <!--more-->
+
 A.
 
 <span id="inline-toc">1.</span>
-Even the most benign forms of convenience afforded by our devices -- like the ability to look something up while reading-- can work against attention conservation.
+<span id="inline-yellow">Even the most benign forms </span><span id="inline-red">of convenience afforded by our devices</span> -- <span id="inline-purple">like the ability to look something up while reading</span>-- <span id="inline-yellow">can work against attention conservation</span>.
 尽管我们的设备提供最温和的方式，如当我们阅读的时候去查找某个东西，都会影响我们注意力的集中。
 
+即使是我们设备提供的最温和的便利方式都会影响我们的注意力的集中，就如让我们查字典的功能。
+
 <span id="inline-toc">2.</span>
-Finishing a book or a long article requires focusing for lengthy stretches of time.
+<span id="inline-yellow">Finishing a book or a long article requires focusing</span> <span id="inline-green">for lengthy stretches of time</span> .
 阅读一本数或者一篇文章需要花费很长的时间。
 
+
 <span id="inline-toc">3.</span>
-But according to one study, it takes us about 25 minutes to return to a task once we've been interrupted.
+<span id="inline-green">But according to one study</span> , <span id="inline-yellow">it takes us about 25 minutes to return to a task </span> <span id="inline-green">once we've been interrupted</span>.
 但是根据一些人的研究，一旦我们受到干扰，就会花费我们25分钟去回到之前的状态。
 
-<span id="inline-green">benign</span> A benign substance or process does not have any harmful.
-<span id="inline-green">lengthy stretches of time = lengthy stretches</span> 长时间
+<span id="inline-green">benign</span>
+A benign substance or process does not have any harmful.
 
-<span id="inline-red">attention conservation</span>注意力保持。
+<span id="inline-green">lengthy stretches of time = lengthy stretches</span>
+长时间
+
+<span id="inline-red">attention conservation</span>
+注意力保持。
+
+<span id="inline-green">malignant</span>
+If you say that someone is malignant, you think they are curuel and like to cause harm.
+
+[009](https://mp.weixin.qq.com/s/5ltnTBieC_90McnuOZ6wfg)
+
 
 ---
 <span id="inline-yellow">010</span>
@@ -439,19 +473,25 @@ C. the weak will
 D. the misleading news.
 
 <!--more-->
-~~C.~~
+~~C.~~ B
 
 <span id="inline-toc">1.</span>
-The truth, but unfortunately, is that few of us really absorb the information we receive.
+<span id="inline-yellow">The truth</span> , <span id="inline-green">but unfortunately</span>, <span id="inline-yellow">is that</span> <span id="inline-blue">few of us really absorb the information</span>  <span id="inline-red">we receive</span>.
 事实上不幸的是，很少有人真正吸收我们接收到的信息。
 
 <span id="inline-toc">2.</span>
- We filter out what we don't expect or want to hear, and this tendency doesn't necessarily improve with age.
-~~我们将信息分成我们不希望听到的信息和想听到的信息~~，但是这种必要的能力并不会随着年龄的增长而增加。
+ <span id="inline-yellow">We filter out</span> <span id="inline-blue">what we don't expect or want to hear</span>, and <span id="inline-yellow">this tendency doesn't </sapn> <span id="inline-green">necessarily</span>  <span id="inline-yellow">improve</span>  <span id="inline-green">with age</span> .
+~~我们将信息分成我们不希望听到的信息和想听到的信息，但是这种必要的能力并不会随着年龄的增长而增加。~~
+
+我们将接受到的信息分成我们所想要的和不想要的新信息，但是这种分类的能力不不会随着年龄的增加而提高。
+
 
 <span id="inline-toc">3.</span>
- As a result, leaders simply miss a great deal of the information that's available -- a weakness to which top performers are especially vulnerable because overconfidence so often comes with success.
+<span id="inline-green"> As a result</span>, <span id="inline-yellow">leaders simply miss a great deal of the information </span> <span id="inline-red">that's available</span>  -- <span id="inline-purple">a weakness</span> <span id="inline-red">to which top performers are especially vulnerable</span><span id="inline-green">because overconfidence so often comes with success.</span
  结果，领导者们会轻易的错过许多信息---这些领导者都特别的脆弱，因为过度的自信经常来自于成功。
+
+结果，领导者会错过一些大量的已经存在的信息，这是领导者特别重要的缺点，主要来自于成功导致的过度自信。
+
 
 <span id="inline-green">filter out</span> 
 to remove words, information etc that you do not need or want.
@@ -459,7 +499,6 @@ to remove words, information etc that you do not need or want.
 <span id="inline-green">available</span>
 If something you want or need is available, you can find it or obtain it.
 
-B
 
 
 ## 目标结果

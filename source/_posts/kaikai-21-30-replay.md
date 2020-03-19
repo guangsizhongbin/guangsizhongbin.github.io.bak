@@ -1,44 +1,17 @@
 ---
 title: kaikai-21-30-replay
 tags:
-  - null
+  - english
 categories:
-  - null
+  - kaikai
 math: false
 date: 2020-03-09 09:01:32
 description:
-urlname:
+urlname: kaikai-21-30
 image:
 top:
 ---
 
-
-
-
-<!--more-->
-
-
-
-
-
-
----
-Reference:
-
----
-title: 21
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-02-29 07:43:41
-description:
-urlname: 021
-image:
-top:
----
 <span id="inline-yellow">021</span>
 The far more important reason we’ve engaged in these energy-intensive activities is our tendency to behave as our peers do. But here is the cause for hope: Where contagion creates a problem, it can also help solve it. Just as in the case of smoking, where peer effects aggravated and then reduced the prevalence of the practice, so too could contagion help us meet the climate challenge.
 
@@ -90,26 +63,6 @@ A condition, practice, or belief that is prevalent is common.
 ---
 
 
-
----
-Reference:
-[kaikai21](https://mp.weixin.qq.com/s/aKbplzWonucDfsQ1xtQOtg)
----
-title: 22
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-01 07:23:13
-description:
-urlname: 22
-image:
-
-top:
-
----
 
 
 <span id="inline-yellow">22</span>
@@ -169,20 +122,6 @@ a family consisting of two parents and their children, but not including aunts, 
 ---
 Reference:
 
----
-title: 23.md
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-02 17:58:26
-description:
-urlname: 23
-image:
-top:
----
 <span id="inline-yellow">23</span>
 As companies try to scale up their online experimentation capacity, they often find that the obstacles are not tools and technology but shared behaviors, beliefs, and values. For every experiment that succeeds, nearly 10 don’t—and in the eyes of many organizations that emphasize efficiency, predictability, and “winning,” those failures are wasteful. To successfully innovate, companies need to make experimentation an integral part of everyday life—even when budgets are tight.
 
@@ -241,20 +180,6 @@ Your budget is the amount of money that you have available to spend.
 ---
 Reference:
 
----
-title: 24
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-03 07:43:53
-description:
-urlname: 24
-image:
-top:
----
 <span id="inline-yellow">24</span>
 What makes Google v. Oracle still more intriguing is that legal scholars are genuinely uncertain of the outcome. Unlike issues such as abortion and gun control, Supreme Court justices’ views on copyright are seldom scrutinized during the appointment process, making it harder to predict how they’ll rule.
 
@@ -320,20 +245,6 @@ to examine something very carefully in order to discover.
 ---
 Reference:
 
----
-title: 25
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-04 07:40:13
-description:
-urlname: 25
-image:
-top:
----
 <span id="inline-red">1.选项中的比较一定要在原文中找到完全对应关系！否则就不对！</span>
 <span id="inline-red">2.所谓过度推理就是指：加了“可能”才能对的选项却没有加“可能”，就叫过渡推理！</span>
 
@@ -404,20 +315,7 @@ Your possessions are the things that you own or have with you at a particular ti
 ---
 Reference:
 [ kaikai 25](https://mp.weixin.qq.com/s/dQg_LnAoS8ksctqEMSAwVQ)
----
-title: 26
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-05 07:24:55
-description:
-urlname: 26
-image:
-top:
----
+
 <span id="inline-yellow">26</span>
 Instead, Harari predicts that the key skills they need to survive and thrive in the 21st century will be emotional intelligence (it is still difficult to imagine a computer caring for a sick person or a child), and the ability to deal with change. If we can predict nothing else about the future, we know that it is going to involve a rapidly accelerating pace of change, from the growth of AI to a warming climate. Coping with this level of uncertainty will require adaptability and psychological resilience.
 
@@ -476,20 +374,6 @@ People and things that are resilient are able to recover easily and quickly from
 Reference:
 [kaikai26](https://mp.weixin.qq.com/s/9ObYFjLL1OQgLrJWjsdWxg)
 
----
-title: 27
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-06 09:11:35
-description:
-urlname: 27
-image:
-top:
----
 <span id="inline-yellow">27</span>
 In November 2013, venture capitalist Aileen Lee published an article coining the term “unicorn” to describe a startup that’s less than a decade old and worth at least $1bn. She chose the word carefully, to convey a mix of rarity and magic power. What Lee seemingly didn’t anticipate was that just a few years later it would have become a misnomer: these days there’s nothing rare about unicorns.
 
@@ -557,20 +441,7 @@ An apt remark, description, or choice is especially suitable.
 ---
 Reference:
 [kakai27](https://mp.weixin.qq.com/s/RIcPh-B_-bRk4yHsrH_hVg)
----
-title: 28
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-07 07:33:01
-description:
-urlname: 28
-image:
-top:
----
+
 <span id="inline-yellow">28</span>
 Charles Darwin’s place in the scientific pantheon is deservedly secure, but he made his share of blunders. One of the gravest was maintaining that the effects of natural selection, the key link of evolution, could not be observed in a single human lifetime.
 
@@ -627,20 +498,6 @@ unassisted vision, without a telescope, microscope, or other device.
 ---
 Reference:
 
----
-title: 29
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-08 07:26:56
-description:
-urlname: 29
-image:
-top:
----
 <span id="inline-yellow">29</span>
 When it comes to building tools that help solve the world’s truly wicked problems, it’s the older visionaries who’ll get it done. Consider the recent findings of a group of academics from MIT who examined the success rates of startups. When they homed in on elite “high-growth” tech firms, they discovered the average age of the founders was 45. 
 
@@ -704,20 +561,7 @@ old-fashioned
 ---
 Reference:
 [29](https://mp.weixin.qq.com/s/u6V6qe9-TBMarMrcossyhg) <++>
----
-title: 30
-copyright: true
-tags:
-  - kaikai
-categories:
-  - english
-math: false
-date: 2020-03-09 07:46:01
-description:
-urlname: 30
-image:
-top:
----
+
 
 <span id="inline-red">归纳不推理</span>
 原文：四十多岁的人和三十多岁的人经营公司的结果是不一样的。
