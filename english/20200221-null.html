@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="复盘是一个不断校正路线的过程，行军打仗，最怕方向和路线错误。方向错误，再努力也到达不了目的地；路线错误，就会徒增到达目的地过程中的困难和险阻，甚至困难会大到让我们达到目的地。而复盘，就如同行军过程中不断检查GPS,校正自己的轨迹是否在正确的航线上。   1. 如何复盘？(1). 目标结果    找出刚开始设定的目标，对照实际达成的结果，对比是否达成了目标？(2). 过程再现    回顾一下，从开始">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kaikai-1-10-Replay">
+<meta property="og:url" content="http://yoursite.com/english/20200221-null.html">
+<meta property="og:site_name" content="TLP">
+<meta property="og:description" content="复盘是一个不断校正路线的过程，行军打仗，最怕方向和路线错误。方向错误，再努力也到达不了目的地；路线错误，就会徒增到达目的地过程中的困难和险阻，甚至困难会大到让我们达到目的地。而复盘，就如同行军过程中不断检查GPS,校正自己的轨迹是否在正确的航线上。   1. 如何复盘？(1). 目标结果    找出刚开始设定的目标，对照实际达成的结果，对比是否达成了目标？(2). 过程再现    回顾一下，从开始">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-21T01:53:14.000Z">
+<meta property="article:modified_time" content="2020-03-21T04:01:53.616Z">
+<meta property="article:author" content="TLP">
+<meta property="article:tag" content="kaikai">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/english/20200221-null.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Kaikai-1-10-Replay | TLP</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TLP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/english/20200221-null.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="TLP">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kaikai-1-10-Replay
+        </h1>
+
+        <div class="post-meta">
+				
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-21 09:53:14" itemprop="dateCreated datePublished" datetime="2020-02-21T09:53:14+08:00">2020-02-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-21 12:01:53" itemprop="dateModified" datetime="2020-03-21T12:01:53+08:00">2020-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/english/" itemprop="url" rel="index">
+                    <span itemprop="name">english</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>14k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>13 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center"><p>复盘是一个不断校正路线的过程，行军打仗，最怕方向和路线错误。方向错误，再努力也到达不了目的地；路线错误，就会徒增到达目的地过程中的困难和险阻，甚至困难会大到让我们达到目的地。而复盘，就如同行军过程中不断检查GPS,校正自己的轨迹是否在正确的航线上。</p>
+</blockquote>
+
+<p><span id="inline-toc">1.</span> 如何复盘？<br>(1). 目标结果<br>    找出刚开始设定的目标，对照实际达成的结果，对比是否达成了目标？<br>(2). 过程再现<br>    回顾一下，从开始到结束整个过程是怎样的？大致分几个阶段？每个阶段都做了什么？又都是如何应对的？<br>(3). 得失分析<br>    在分析过程之中，哪些地方我们做的好？哪些地方做的不好？复盘必须既对事也对人，复盘每个人在事情之中，哪些地方做的不好？为什么？哪些地方做的好，好在哪里？<br>(4). 规律总结<br>    只要我们能够总结出规律，我们就可以掌握和驾驽.</p>
+<p><span id="inline-toc">2.</span> 两个方面的规律:</p>
+<ol>
+<li>认知方面 </li>
+<li>实践方面<a id="more"></a>
+
+</li>
+</ol>
+<hr>
+<p><span id="inline-yellow">001</span><br>Most researchers reported having pride in their institutions and passion for their work, but spoke of the high personal toll of their environment. Many accepted that pressure and long hours came with the territory. But researchers said that the situation was worsening and that the negative aspects were no longer offset by job security and the ability to work autonomously, flexibly and creatively.</p>
+<p><span id="inline-blue">Q</span><br>What can be inferred from the text?<br>A. Most researchers are substantially underpaid.<br>B. Job security cannot cancel out adverse aspects.<br>C. Most researchers have regular working hours.<br>D. Scientists were no longer respected by the public.</p>
+<!--more-->
+
+<hr>
+<p>B.</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-yellow">Most researchers reported</span> <span id="inline-blue">having pride in their institutions and passion for their work</span>, but <span id="inline-yellow">spoke of</span><span id="inline-blue">the high personal toll of their environment.</span><br><del>许多研究者被报道为在他们的研究领域富有成就并且对工作充满激情，但是却饱受生活环境的折磨。</del><br>大多数的研究者表示对他们的所属机构感到自豪并对他们的工作充满激情，但是他们表示个人深受环境的折磨。</p>
+<p><span id="inline-toc">2.</span><br> <span id="inline-yellow">Many accepted that</span> <span id="inline-blue">pressure and long hours came with the territory.</span> <span id="inline-yellow">But researchers said that</span>  <span id="inline-blue">the situation was worsening</span>  and <span id="inline-blue">that the negative aspects were no longer offset</span>  <span id="inline-green">by job security and the ability to work autonomously, flexibly and creatively</span> .<br><del>许多人认为压力和长时间的工作伴随着地位而来。但是，研究者们认为这种状况正在变得糟糕，工作的安全感，工作的独立性，自由性和创造性不再能抵消这种负面的情况。</del><br>许多人接受这个领域的压力和长时间的工作。但是研究者们认为情况正在变差，并且消极的面不再能够通过职业安全，自主，灵活和创造性的工作能力所抵消。</p>
+<hr>
+<p>territory == situation<br>report == spoke of<br>have pride in –&gt; high personal toll of</p>
+<p><span id="inline-green">toll</span><br>a very bad effect that something has on something or someone over a long period of time.</p>
+<p><span id="inline-green">territory</span><br>to be a natural and accepted part of a particular job, situation, place etc.</p>
+<p><span id="inline-green">autonomously</span><br>an autonomous place or organization is free to govern or control itself SYN independent.</p>
+<p><span id="inline-green">underpaid</span><br>earning less money than you deserve for your work.</p>
+<p><span id="inline-green">reported</span><br>表示</p>
+<p><span id="inline-green">in their institutions</span><br>所属机构</p>
+<p><span id="inline-green">accepted that</span><br>generally agreed to be satisfactory or right.</p>
+<p><span id="inline-green">have pride in</span><br>感到自豪</p>
+<p><span id="inline-green">come/ go with the territory</span><br>to be a normal and accepted part of a particular job, situation, etc.</p>
+<p>Reference:<br><a href="https://mp.weixin.qq.com/s/lE4AL1l_SvMzjkn6FZvOuA" target="_blank" rel="noopener">001</a></p>
+<hr>
+<p><span id="inline-yellow">002</span><br>Consider how life-enhacing – and even life-saving – technologies have failed to be taken up. ‘Vaccine hesitancy’ is more a social phenomenon than a technical one, and the main cause of measles return. Solutions depend not on medical breakthroughs, but on insight from anthropologist, who have done much to understand people’s decisions about whether to vaccinate themselves and their children.</p>
+<p><span id="inline-blue">Q</span><br>According to the author,solutions of measles return depends on ___.<br>A. the efforts of social science researchers.<br>B. the novel medical achievements.<br>C. the insight and belief of the public.<br>D. the effects of vaccination.</p>
+<!--more-->
+
+<p><del>c.</del> D</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-yellow">Consider</span> <span id="inline-blue">how life-enhacing – and even life-saving – technologies have failed to be taken up. </span><br><del>鉴于如何提升生活甚至是保护生命，科技已经不能发挥作用。</del><br>想想那些改善生活甚至挽救生命的技术怎样不被采用。</p>
+<p><span id="inline-toc">2.</span><br><span id="inline-yellow">‘Vaccine hesitancy’ is </span> <span id="inline-blue">more a social phenomenon than a technical one, and the main cause of measles return</span> .<br><del>更多的是一个社会问题而不是一个技术问题,造成这个问题的主要原因是measles 的返回</del><br>疫苗犹豫与其说是一个技术现象不如说是一个技术现象，这也是荨麻疹死灰复返的主要原因。</p>
+<p><span id="inline-toc">3.</span><br><span id="inline-yellow">Solutions depend</span>  <span id="inline-blue">not on medical breakthroughs, but on insight from anthropologist,</span>  <span id="inline-red">who have done much to understand people’s decisions about whether to vaccinate themselves and their children.</span><br><del>解决这个问题并不取决于医疗的新突破，而是在于人类学家的视野，他们做了很多事情去理解人类关于为什么关注他们自己和他们的孩子的决定。</del><br>解决方法并不取决于医疗的突破，而是取决于人类学家的视野，取决与他们了解人们是否为他们自己和他们的孩子接种疫苗的程度深度。</p>
+<p><span id="inline-green">measles</span><br>an infectious disease than produces small, red spots all over the body.</p>
+<p><span id="inline-green">infectious</span><br>if a felling is infectious, it spreads to other people.</p>
+<p><span id="inline-green">vaccine</span><br>a substance which contains a weak form of the ↑bacteria or virus that causes a disease and is used to protect people from that disease.</p>
+<p><span id="inline-green">vaccination</span><br>if a person or animal is vaccinated, they are given a vaccine, usually by injection, to prevent the, from getting a disease.</p>
+<p><span id="inline-green">more a than b</span><br>与其说，不如说</p>
+<p><span id="inline-green">take up</span><br>if you take up an activity or a subject, you become interested in it and spend time doing it, either as a hobby or as a career.</p>
+<p><span id="inline-green">the main cause of something return</span><br>…死灰复燃的主要原因</p>
+<p><span id="inline-green">brief</span> 信仰<br><a href="https://mp.weixin.qq.com/s/Ilo48zVelD_zZmaD0MdmXQ" target="_blank" rel="noopener">002</a></p>
+<hr>
+<p><span id="inline-yellow">003</span><br>In a 2018 survey by Internet Retailer, shipping charges were cited as the most common reason shoppers abandon their cart, topping the complaint list for nearly a third of respondents, ahead of things like not wanting to create an account and being unsure of the store’s return policy.</p>
+<p><span id="inline-blue">Q</span><br>According to the text, the foremost reason for shoppers to abandon carts is ___<br>A. the uncertainty of store’s return policy<br>B. the inconvenience of creating an account<br>C. the survey by the magazine of internet Retailer<br>D. the policy of shipping charges</p>
+<!--more-->
+
+<p>D.</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-green">In a 2018 survey by Internet Retailer</span>, <span id="inline-yellow">shipping charges were cited as the most common reason </span><span id="inline-red">shoppers abandon their cart, topping the complaint list for nearly a third of respondents, ahead of things like not wanting to create an account and being unsure of the store’s return policy.</span><br><del>在2018年的一次互联网消费者调查中的调查中，邮费已经位于导致他们放弃购买的三大原因之首，超过了不想创立一个账户和不确定商店的退货政策.</del><br>《互联网消费指南》在2018年的调查中，邮费作为绝大多数共同的理由。有近三分之的消费者将它列为不受欢迎清单之首，排在了不想创建账户和不确定商家的退货政策之前。</p>
+<p><span id="inline-green">respondent</span> A respondent is a person who replies to something such as a survey or set of questions.</p>
+<p><span id="inline-green">Internet Retailer</span> 互联网消费指南</p>
+<p><span id="inline-green">common</span><br>if something is common, it is found in large numbers or it happens often.</p>
+<p><span id="inline-green">abandon the carts</span><br>放弃购物</p>
+<p>Reference:<br><a href="https://mp.weixin.qq.com/s/wXiHZLEikAQqf5E4_wi6XA" target="_blank" rel="noopener">003</a></p>
+<hr>
+<p><span id="inline-yellow">004</span><br>The recently published Build Yourself Happy: The joy of Lego Play promises that getting hands-on can improve you cognitive skills and allow you to practise mindfulness. For many,it is a reaction to the stresses of modern adult life, a relief from the constant mediation of experience through a screen, and a rare opportunity to be in undisputed charge of things.</p>
+<p><span id="inline-yellow">Q</span><br>What is the author’s attitude toward adult Lego playing?<br>A. stressful<br>B. indispensable<br>C. supportive<br>D. dubious</p>
+<!--more-->
+
+<p>C.</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-yellow">The recently published Build Yourself Happy: The joy of Lego Play promises</span> <span id="inline-blue">that getting hands-on can improve you cognitive skills and allow you to practise mindfulness. </span><br><del>最近出版的&lt;给自己快乐&gt;认为，给自己触手可得的许诺可以提升你的认知技巧和允许你去做有意义的练习。</del><br>最近出版的《构建自己的快乐:乐高的快乐》许诺，触手可及的获得可以提升你的认知能力并允许你去做有意义的<del>练习</del>。<br><span id="inline-red">mindfullness</span> 专注力</p>
+<p><span id="inline-toc">2.</span><br><span id="inline-green"> For many</span>,<span id="inline-yellow">it is a reaction</span> <span id="inline-red">to the stresses of modern adult life</span>, <span id="inline-yellow">a relief</span> <span id="inline-red">from the constant mediation of experience through a screen</span>, <span id="inline-yellow">and a rare opportunity</span><span id="inline-red">to be in undisputed charge of things.</span><br>对于大多数的人来说，对于现代成年人来说，缓解来自屏幕的城市生活的压力是一件很愉快的事情，并拥有少有机会的去不受干扰的控制一些事情。</p>
+<p><span id="inline-green">dubious</span><br>not sure something is good or false.</p>
+<p><span id="inline-green">mindfulness</span><br>which is a way of training your mind to concentrate on the present, in order to feel calm and improve your mental state.</p>
+<p><span id="inline-green">hands-on</span><br>Hands-on experience or work involves actually doing a particular thing, rather than just talking about it or getting someone else to do it.</p>
+<p><span id="inline-green">undisputed</span><br>If you describe a fact or opinion as undisputed, you are trying to persuade someone that it is generally accepted as true or correct.</p>
+<p><span id="inline-green">indispensable</span><br>Something or someone that is indispensable is so good or important that you could not manage without it, him, or her.</p>
+<p><a href="https://mp.weixin.qq.com/s/wXiHZLEikAQqf5E4_wi6XA" target="_blank" rel="noopener">004</a></p>
+<hr>
+<p><span id="inline-yellow">005</span><br>In theory, the U.S. patent system, which gives manufacturers sole rights to a drug formulation for 20 years, should eventually enable other drug producers to bring cheaper versions of the same medication to the market. But companies skirt this by “evergreening” their drugs–adjusting drug formulas slightly, often making gradual improvements, to renew the patent and prevent generics from entering the market.</p>
+<p><span id="inline-blue">Q</span><br>The practice of “evergreening” their drugs shows __<br>A. the inadequacy of U.S. patent system.<br>B. the ineffectiveness of generics.<br>C. the fierce competition of drug market.<br>D. the lower price of patented drugs.</p>
+<!--more-->
+
+<p>A.</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-green">In theory</span>, <span id="inline-yellow">the U.S. patent system</span> , <span id="inline-red">which gives manufacturers sole rights to a drug formulation for 20 years,</span><span id="inline-yellow">should eventually enable other drug producers to bring cheaper versions of the same medication to the market.</span><br><del>理论上，美国专利系统，只给药品生产厂家单独生产20年的时间，最终使得其他的药品生产商能够带来更加便宜的相同的药品。</del><br>在理论上,美国专利系统，只会给药品生产厂家单独生产20年的权利，以使得药品被其他的生产厂家以低价同质的药品所代替。<br><span id="inline-toc">2.</span><br><span id="inline-yellow">But companies skirt this</span> <span id="inline-green">by “evergreening” their drugs</span>–<span id="inline-red">adjusting drug formulas slightly, often making gradual improvements,</span> <span id="inline-green">to renew the patent and prevent generics from entering the market.</span><br><del>但是厂家们通过evergereening 这种方式，轻微的调整药品的成分，使得药品的疗效取得逐渐的提高，去更新专利从而防止其它竞争者进入市场。 ~</del><br>但是公司们通过不断更新它的药品来逃过这种监管，例如轻微的调整药品的成分，使作用有稍微的提升，然后去更新专利，使得其他的竞争者无法进入这一市场。</p>
+<p><span id="inline-green">mediation</span><br>the process of talking to two separate people or  groups involved in a disagreement to try to help them to agree or find a solution to their problems.</p>
+<p><span id="inline-green">sole</span><br>The sole thing or person of a particular type is the only one of that type.</p>
+<p><span id="inline-green">skirt</span><br>If you skirt a problem or questions, you avoid dealing with it.</p>
+<p><a href="https://mp.weixin.qq.com/s/0ZufGtMB2H3K4JpNtM0J0Q" target="_blank" rel="noopener">005</a></p>
+<hr>
+<p><span id="inline-yellow">006</span><br>Much has been written about the trash problem created by the billions of disposable plastic drinking-water bottles sold each year in the U.S. Far less is understood about the contents of those bottles. Bottled water was an $18.5 billion(wholesale) industry in the U.S. in 2017, but under Presidents of both parties, FDA oversight has been lightly staffed.</p>
+<p><span id="inline-blue">Q</span><br>What is the most probable topic of this text?<br>A. Trash disposal problems.<br>B. Federal agency reform.<br>C. Safety of bottled water.<br>D. Infrastructure improvement.</p>
+<!--more-->
+
+<p>C</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-yellow">Much has been written</span> <span id="inline-red">about the trash problem created</span> <span id="inline-red">by the billions of disposable plastic drinking-water bottles sold each year in the U.S.</span><br><del>在美国每年都有大量关于数以百万计的一次性塑料瓶所带来的垃圾问题的文章出现.</del></p>
+<p><span id="inline-red">调整语序</span><br><span id="inline-red">美国每年销售数十亿个一次性塑料饮用水瓶，很多人写过它们造成的垃圾问题</span></p>
+<p><span id="inline-toc">2.</span><br> <span id="inline-yellow">Far less is understood</span> <span id="inline-red"> about the contents of those bottles</span>. <span id="inline-yellow">Bottled water was an $18.5 billion(wholesale) industry</span> <span id="inline-green"> in the U.S. in 2017</span>,<span id="inline-green">but under Presidents of both parties</span>, <span id="inline-yellow">FDA oversight has been lightly staffed.</span><br>但是很少有文章关注到瓶子里水的质量的问题。在美国瓶装水的市场价值$18.5亿. 但是在2017年，在美国两党的带领之下，美国食品和药物管理局却很少关注瓶装水中水的质量问题。</p>
+<p> <span id="inline-green">FDA</span><br> Food and Drug Administraction 美国食品和药物管理局 </p>
+<p> <span id="inline-green">billion</span><br> A billion is a thousand million</p>
+<p> <span id="inline-green">infrastructure</span><br> The infrastructure of a country, society, or organization consists of the basic facilities such as transport, communications, power supplies, and buildings, which enable it to function.</p>
+<p>Oer-staffed = overmanned<br>Slightly staffed = understaffed</p>
+<p><span id="inline-green">oversight</span><br>responsibility for a job or activity and for making sure it is being done correctly.</p>
+<p><a href="https://mp.weixin.qq.com/s/m4DTBwTHIyJRgMZKbg7t8A" target="_blank" rel="noopener">006</a></p>
+<hr>
+<p><span id="inline-yellow">007</span><br>While it makes sense to be worried about the climate emergency, becoming overwhelmed is counterproductive. The sound advice from psychologists that actions, however small, can help to alleviate feelings of distress and powerlessness echoes the experiences of activists, that “the minute you start doing something, the depression goes away”.</p>
+<p><span id="inline-blue">Q</span><br>According to the text, the experiences of activists show that__.<br>A. It is not productive to worry about climate.<br>B. It is important to seek professional advice.<br>C. It reduces emotional suffering to take actions.<br>D. It makes people feel better to ignore anxiety.</p>
+<!--more-->
+
+<p>C.<br><span id="inline-toc">1.</span><br><span id="inline-green">While it makes sense to be worried about the climate emergency,</span> <span id="inline-yellow">becoming overwhelmed is counterproductive</span>.<br><del>虽然去担忧</del>紧急的事情<del>~ 是有意义的，但是过度的担忧是有害的。</del><br>虽然去担心气候的变暖是有意义的，但是过度的担心会产生相反的效果。</p>
+<p><span id="inline-toc">2.</span><br>The sound advice from psychologists that <span id="inline-yellow">actions</span>, however small, <span id="inline-yellow">can help to alleviate feelings</span> <span id="inline-red">of distress and powerlessness</span><span id="inline-blue">echoes the experiences of activists, that “the minute you start doing something, the depression goes away”.</span><br><del>人类学家关于行动的建议,通过一系列很小的活动，可以对减轻沮丧和无力的感觉，也就是说，当你开始做某事的时候，沮丧已经离开。</del><br>来自心理学家的建议： 无论多么微不足道的行动都能够减轻来自无助和无力的感觉，如同行动学家的说法一旦你开始做事，沮丧就离开了。</p>
+<p><span id="inline-green">sound advice</span><br>Sound advice, reasoning , or evidence is reliable and sensible.</p>
+<p><span id="inline-green">activists</span><br>An activist is a person who works to bring about political or social changes by campaigning in public or working for an organization.</p>
+<p><span id="inline-green">psychologists</span><br>A psychologist is a person who studies the human mind and tries to explain why people behave in the way that they do.</p>
+<p><span id="inline-green">depression</span><br>the state of feeling every unhappy and without hope for the future.</p>
+<p><span id="inline-green">emergency</span><br>soomething dangerous or serious, such as an accident, that happens suddenly or unexpectedly and needs fast action in order to avoid harmful results.</p>
+<p><span id="inline-green">however small</span> 无论多么微不足道</p>
+<p>Reference:<br><a href="https://mp.weixin.qq.com/s/UAYNYxHYqEtNXWRnceEX6A" target="_blank" rel="noopener">007</a></p>
+<hr>
+<p><span id="inline-yellow">008</span><br>Ironically, urbanization is good, even crucial, for the survival of a human-populated planet. Denser cities beat suburban sprawl insofar as they reduce individual carbon footprints. We humans may need exposure to nature, but nature sure as hell doesn’t need exposure to us. The better way forward is to keep living in densely packed places, but use tech and design to weave nature into our indoor world.</p>
+<p><span id="inline-blue">Q</span><br>According to the author, what can be said of urbanization?<br>A. It encourages human exposure to nature.<br>B. It creates wholesome conditions for residents.<br>C. It is a better way for protecting the environment.<br>D. It is primarily composed of sprawling suburbs.</p>
+<!--more-->
+<p>C.<br><span id="inline-toc">1.</span><br><span id="inline-green">Ironically,</span>  <span id="inline-yellow">urbanization is good, even crucial</span> , <span id="inline-green">for the survival of a human-populated planet</span>.<br><del>讽刺性的是，城市化是好的，对于一个人口众多的地球来说，是至关重要的。</del></p>
+<p>讽刺性的是，城市化对于一个人口爆炸的地球来说是好的，甚至是重要的，</p>
+<p><span id="inline-toc">2.</span><br><span id="inline-yellow">Denser cities beat suburban sprawl</span> <span id="inline-green">insofar as they reduce individual carbon footprints. </span><br><del>密集化的城市抗击城市的外延就如同人们减少个人碳足记一样。</del></p>
+<p>高密度的城市打败了城市的扩张，至少它减少了个体的碳排放量。</p>
+<p><span id="inline-toc">3.</span><br><span id="inline-yellow"> We humans may need exposure to nature, but nature <span id="inline-green">sure as hell</span>  doesn’t need exposure to us.</span><br><del>我们人类需要接触大自然，但是大自然根本不需要接触我们。</del></p>
+<p>我们人类或许需要接触自然，但是自然根本不需要与人类接触。</p>
+<p><span id="inline-toc">4.</span><br><span id="inline-yellow"> The better way forward is </span><span id="inline-blue">to keep living in densely packed places</span>,<span id="inline-blue">but use tech and design to weave nature into our indoor world.</span><br><del>用科技和设计把大自然编织进我们室内的世界是在高密度的地方生活的最好的方式.</del></p>
+<p>在高密度城市生活的最好的方式就是用科技和设计将自然编制进我们的室内世界。</p>
+<p><span id="inline-green">ironically</span><br>You use ironically to draw attention to a situation which is odd or amusing because it involves a contrast.<br><span id="inline-green">crucial</span><br>If you describe something as crucial, you mean it is extremely important.<br><span id="inline-green">denser</span><br>Something that is dense contains a lot of things or people in a small area.<br><span id="inline-green">sprawl</span><br>You can use sprawl to refer to an area where a city has grown out wards in an uncontrolled way.</p>
+<p><span id="inline-red">insofar as</span><br>= in so far as. —&gt; which means 在…方面，就…而言.<br><span id="inline-red">sure as hell</span><br>= surely —&gt; which means 当然;确定</p>
+<p>Reference<br><a href="https://mp.weixin.qq.com/s/jvX1fzg9-BWhZwzEs35v6A" target="_blank" rel="noopener">008</a></p>
+<hr>
+<p><span id="inline-yellow">009</span><br>Even the most benign forms of convenience afforded by our devices – like the ability to look something up while reading– can work against ttention conservation. Finishing a book or a long article requires focusing for lengthy stretches of time. But according to one study, it takes us about 25 minutes to return to a task once we’ve been interrupted.</p>
+<p><span id="inline-blue">Q</span><br>What does the author mean by “benign forms of convenience”?<br>A. Useful functions.<br>B. Reading apps.<br>C. Reference tools.<br>D. Search features.</p>
+<!--more-->
+
+<p>A.</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-yellow">Even the most benign forms </span><span id="inline-red">of convenience afforded by our devices</span> – <span id="inline-purple">like the ability to look something up while reading</span>– <span id="inline-yellow">can work against attention conservation</span>.<br>尽管我们的设备提供最温和的方式，如当我们阅读的时候去查找某个东西，都会影响我们注意力的集中。</p>
+<p>即使是我们设备提供的最温和的便利方式都会影响我们的注意力的集中，就如让我们查字典的功能。</p>
+<p><span id="inline-toc">2.</span><br><span id="inline-yellow">Finishing a book or a long article requires focusing</span> <span id="inline-green">for lengthy stretches of time</span> .<br>阅读一本数或者一篇文章需要花费很长的时间。</p>
+<p><span id="inline-toc">3.</span><br><span id="inline-green">But according to one study</span> , <span id="inline-yellow">it takes us about 25 minutes to return to a task </span> <span id="inline-green">once we’ve been interrupted</span>.<br>但是根据一些人的研究，一旦我们受到干扰，就会花费我们25分钟去回到之前的状态。</p>
+<p><span id="inline-green">benign</span><br>A benign substance or process does not have any harmful.</p>
+<p><span id="inline-green">lengthy stretches of time = lengthy stretches</span><br>长时间</p>
+<p><span id="inline-red">attention conservation</span><br>注意力保持。</p>
+<p><span id="inline-green">malignant</span><br>If you say that someone is malignant, you think they are curuel and like to cause harm.</p>
+<p><a href="https://mp.weixin.qq.com/s/5ltnTBieC_90McnuOZ6wfg" target="_blank" rel="noopener">009</a></p>
+<hr>
+<p><span id="inline-yellow">010</span><br>The truth, but unfortunately, is that few of us really absorb the information we receive. We filter out what we don’t expect or want to hear, and this tendency doesn’t necessarily improve with age. As a result, leaders simply miss a great deal of the information that’s available – a weakness to which top performers are especially vulnerable because overconfidence so often comes with success.</p>
+<p><span id="inline-blue">Q</span><br>The reason that top performers are likely to miss available information is ___?<br>A. the lack of ability<br>B. being overconfident<br>C. the weak will<br>D. the misleading news.</p>
+<!--more-->
+<p><del>C.</del> B</p>
+<p><span id="inline-toc">1.</span><br><span id="inline-yellow">The truth</span> , <span id="inline-green">but unfortunately</span>, <span id="inline-yellow">is that</span> <span id="inline-blue">few of us really absorb the information</span>  <span id="inline-red">we receive</span>.<br>事实上不幸的是，很少有人真正吸收我们接收到的信息。</p>
+<p><span id="inline-toc">2.</span><br> <span id="inline-yellow">We filter out</span> <span id="inline-blue">what we don’t expect or want to hear</span>, and <span id="inline-yellow">this tendency doesn’t </sapn> <span id="inline-green">necessarily</span>  <span id="inline-yellow">improve</span>  <span id="inline-green">with age</span> .<br><del>我们将信息分成我们不希望听到的信息和想听到的信息，但是这种必要的能力并不会随着年龄的增长而增加。</del></p>
+<p>我们将接受到的信息分成我们所想要的和不想要的新信息，但是这种分类的能力不不会随着年龄的增加而提高。</p>
+<p><span id="inline-toc">3.</span><br><span id="inline-green"> As a result</span>, <span id="inline-yellow">leaders simply miss a great deal of the information </span> <span id="inline-red">that’s available</span>  – <span id="inline-purple">a weakness</span> <span id="inline-red">to which top performers are especially vulnerable</span><span id="inline-green">because overconfidence so often comes with success.&lt;/span<br> 结果，领导者们会轻易的错过许多信息—这些领导者都特别的脆弱，因为过度的自信经常来自于成功。</p>
+<p>结果，领导者会错过一些大量的已经存在的信息，这是领导者特别重要的缺点，主要来自于成功导致的过度自信。</p>
+<p><span id="inline-green">filter out</span><br>to remove words, information etc that you do not need or want.</p>
+<p><span id="inline-green">available</span><br>If something you want or need is available, you can find it or obtain it.</p>
+<h2 id="目标结果"><a href="#目标结果" class="headerlink" title="目标结果"></a>目标结果</h2><ol>
+<li>完成时间：完满完成</li>
+<li>完成效果：7/10</li>
+</ol>
+<h2 id="过程再现："><a href="#过程再现：" class="headerlink" title="过程再现："></a>过程再现：</h2><ol>
+<li><del>抄题目</del></li>
+<li><del>作答</del></li>
+<li><del>翻译</del></li>
+<li><del>对答案</del></li>
+</ol>
+<p><span id="inline-red">订正:</span></p>
+<ol>
+<li>抄题目</li>
+<li>看英文句子译成中文，做题练翻译</li>
+<li>根据参考译文修改翻译，对答案订正</li>
+<li>读背景介绍了解相关话题，扩宽视野</li>
+<li>背词汇突破积累单词，强化命题思路</li>
+<li>十句一复盘</li>
+<li>一月一大盘</li>
+</ol>
+<p><span id="inline-red">分析句子表示方法:</span><br><span id="inline-yellow">黄色是主干</span><br><span id="inline-red">红色是定语</span><br><span id="inline-green">绿色是状语</span><br><span id="inline-purple">紫色是同位语</span><br><span id="inline-blue">蓝色是随机表达</span></p>
+<p><span id="inline-green">生词</span><br><span id="inline-red">翻译错误</span></p>
+<ol>
+<li><strong>英语与翻译之间空一格</strong></li>
+<li><strong>写好错误答案的出题出处</strong></li>
+<li><strong>补上参考翻译</strong></li>
+</ol>
+<h2 id="得失分析"><a href="#得失分析" class="headerlink" title="得失分析"></a>得失分析</h2><p><strong>优点</strong></p>
+<ol>
+<li>得分率比较高</li>
+<li>用了英文进行翻译</li>
+<li>在时间内赶上了进度</li>
+<li>初步确定了翻译的格式</li>
+</ol>
+<p><strong>还需努力的地方</strong></p>
+<ol>
+<li>根据上面的要求做好句子</li>
+<li>分析每个选项错误的原因</li>
+<li>分析句子的结构</li>
+<li>勤复习(晚上，第二天开始之前)</li>
+</ol>
+<h2 id="规律总结"><a href="#规律总结" class="headerlink" title="规律总结"></a>规律总结</h2><p><strong>1.不必过于赶上老师的进度，应该最求质量的提升，多复习</strong><br><strong>2.现在的句子难度不高，一般可以在30分钟之内做好两句的分析</strong><br><strong>3.结合背单词的软件来复习</strong></p>
+<h2 id="重做"><a href="#重做" class="headerlink" title="重做"></a>重做</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/kaikai/" rel="tag"><i class="fa fa-tag"></i> kaikai</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/linux/20200221-linux.html" rel="prev" title="Linux">
+      <i class="fa fa-chevron-left"></i> Linux
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/programming/20200219-c++.html" rel="next" title="C++">
+      C++ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标结果"><span class="nav-number">1.</span> <span class="nav-text">目标结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过程再现："><span class="nav-number">2.</span> <span class="nav-text">过程再现：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#得失分析"><span class="nav-number">3.</span> <span class="nav-text">得失分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#规律总结"><span class="nav-number">4.</span> <span class="nav-text">规律总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重做"><span class="nav-number">5.</span> <span class="nav-text">重做</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="TLP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">TLP</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/guangsizhongbin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;guangsizhongbin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/guangzizhongbin@gmail.com" title="E-Mail → guangzizhongbin@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">
+<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="noopener">鲁ICP备18035668号</a> 
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TLP</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">286k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">4:20</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":100},"mobile":{"show":"fasle"},"react":{"opacity":0.7}});</script></body>
+</html>

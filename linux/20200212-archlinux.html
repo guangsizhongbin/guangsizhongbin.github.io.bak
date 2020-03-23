@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Pre-installationUSB flash installation media dd bs&#x3D;4M if&#x3D;path&#x2F;to&#x2F;archlinux.iso of&#x3D;&#x2F;dev&#x2F;sdx status&#x3D;progress oflag&#x3D;sync  InstallingConnect to the internet1. wifi-menu2. select the wifi3. check the wifi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archlinux">
+<meta property="og:url" content="http://yoursite.com/linux/20200212-archlinux.html">
+<meta property="og:site_name" content="TLP">
+<meta property="og:description" content="Pre-installationUSB flash installation media dd bs&#x3D;4M if&#x3D;path&#x2F;to&#x2F;archlinux.iso of&#x3D;&#x2F;dev&#x2F;sdx status&#x3D;progress oflag&#x3D;sync  InstallingConnect to the internet1. wifi-menu2. select the wifi3. check the wifi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-12T10:26:53.000Z">
+<meta property="article:modified_time" content="2020-03-22T13:13:07.947Z">
+<meta property="article:author" content="TLP">
+<meta property="article:tag" content="install">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/linux/20200212-archlinux.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Archlinux | TLP</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TLP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/linux/20200212-archlinux.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="TLP">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Archlinux
+        </h1>
+
+        <div class="post-meta">
+				
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-12 18:26:53" itemprop="dateCreated datePublished" datetime="2020-02-12T18:26:53+08:00">2020-02-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-22 21:13:07" itemprop="dateModified" datetime="2020-03-22T21:13:07+08:00">2020-03-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <a id="more"></a>
+<h2 id="Pre-installation"><a href="#Pre-installation" class="headerlink" title="Pre-installation"></a>Pre-installation</h2><h3 id="USB-flash-installation-media"><a href="#USB-flash-installation-media" class="headerlink" title="USB flash installation media"></a>USB flash installation media</h3><blockquote>
+<p>dd bs=4M if=path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync</p>
+</blockquote>
+<h2 id="Installing"><a href="#Installing" class="headerlink" title="Installing"></a>Installing</h2><h3 id="Connect-to-the-internet"><a href="#Connect-to-the-internet" class="headerlink" title="Connect to the internet"></a>Connect to the internet</h3><p><span id="inline-toc">1.</span> wifi-menu<br><span id="inline-toc">2.</span> select the wifi<br><span id="inline-toc">3.</span> check the wifi  &gt;&gt; ping baidu.com</p>
+<h3 id="Update-the-system-clock"><a href="#Update-the-system-clock" class="headerlink" title="Update the system clock"></a>Update the system clock</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> timedatectl <span class="built_in">set</span>-ntp <span class="literal">true</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Partition-the-disks"><a href="#Partition-the-disks" class="headerlink" title="Partition the disks"></a>Partition the disks</h3><p><span id="inline-toc">1.</span> fdisk -l<br><span id="inline-toc">2.</span>Format the partitions</p>
+<blockquote>
+<pre><code>Boot: mkfs.fat -F32 /dev/sdxY
+Root: mkfs.ext4 /dev/sdxY</code></pre></blockquote>
+<p><span id="inline-toc">3.</span> Root: mount on /mnt<br><span id="inline-toc">4.</span> mkdir /mnt/boot<br><span id="inline-toc">5.</span> Boot: mount on /mnt/boot</p>
+<h3 id="Select-the-fastest-mirrors"><a href="#Select-the-fastest-mirrors" class="headerlink" title="Select the fastest mirrors"></a>Select the fastest mirrors</h3><blockquote>
+<p>vim : /etc/pacman.d/mirrorlist</p>
+</blockquote>
+<h3 id="Install-essential-packages"><a href="#Install-essential-packages" class="headerlink" title="Install essential packages"></a>Install essential packages</h3><blockquote>
+<p>pacstrap /mnt base linux linux-firmware vim visudo vi</p>
+</blockquote>
+<h3 id="Configure-the-system"><a href="#Configure-the-system" class="headerlink" title="Configure the system"></a>Configure the system</h3><h3 id="Fstab"><a href="#Fstab" class="headerlink" title="Fstab"></a>Fstab</h3><blockquote>
+<p>genfstab -L /mnt &gt;&gt; /mnt/etc/fstab</p>
+</blockquote>
+<h3 id="Chroot"><a href="#Chroot" class="headerlink" title="Chroot"></a>Chroot</h3><blockquote>
+<p>arch-chroot /mnt</p>
+</blockquote>
+<h3 id="Time-zone"><a href="#Time-zone" class="headerlink" title="Time zone"></a>Time zone</h3><p><span id="inline-toc">1.</span>Set the time zone:</p>
+<blockquote>
+<p>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</p>
+</blockquote>
+<p><span id="inline-toc">2.</span>Run hwclock </p>
+<blockquote>
+<p>hwclock --systohc</p>
+</blockquote>
+<h3 id="Localization"><a href="#Localization" class="headerlink" title="Localization"></a>Localization</h3><p><span id="inline-toc">1.</span>Uncomment <code>en_US.UTF-8 UTF-8</code> in <code>/etc/locale.gen</code>. and generate it with: <code>locale-gen</code>.</p>
+<p><span id="inline-toc">2.</span>Create the <code>locale.conf</code> file, and set the <code>LANG</code> variable accordingly:</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/locale.conf</span><br><span class="line"><span class="attribute">LANG</span>=<span class="string">"en_US.UTF-8"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Network-configuration"><a href="#Network-configuration" class="headerlink" title="Network configuration"></a>Network configuration</h3><p><span id="inline-toc">1.</span> Create the <code>hostname</code> file</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>hostname</span><br><span class="line">myhostname</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> Add matching entries to hosts</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/etc/hosts</span><br><span class="line"><span class="number">127.0.0.1</span>  localhost</span><br><span class="line">::<span class="number">1</span>        localhost</span><br><span class="line"><span class="number">127.0.1.1</span>  myhostname.localdomain  myhostname</span><br></pre></td></tr></table></figure>
+
+<h3 id="Root-password"><a href="#Root-password" class="headerlink" title="Root password"></a>Root password</h3><blockquote>
+<p> passwd</p>
+</blockquote>
+<h3 id="Boot-loader"><a href="#Boot-loader" class="headerlink" title="Boot loader"></a>Boot loader</h3><blockquote>
+<p>pacman -S os-prober ntfs-3g</p>
+</blockquote>
+<p><strong>EFI/GTP</strong> :</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; pacman -S grub efibootmgr</span><br><span class="line">&gt; grub-install <span class="attribute">--target</span>=x86_64-efi <span class="attribute">--efi-directory</span>=/boot  <span class="attribute">--bootloader-id</span>=grub</span><br><span class="line">&gt; grub-mkconfig -o /boot/grub/grub.cfg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">check:</span><br><span class="line">&gt; vim /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Install-Intel-ucode"><a href="#Install-Intel-ucode" class="headerlink" title="Install Intel-ucode"></a>Install <code>Intel-ucode</code></h3><blockquote>
+<p>pacman -S intel-ucode</p>
+</blockquote>
+<h3 id="Pre-installation-before-Reboot-support-for-wifi-menu"><a href="#Pre-installation-before-Reboot-support-for-wifi-menu" class="headerlink" title="Pre-installation before Reboot(support for wifi-menu)"></a>Pre-installation before Reboot(support for wifi-menu)</h3><blockquote>
+<p>pacman -S iw wpa_supplicant dialog netctl dhcpcd</p>
+</blockquote>
+<h3 id="Reboot"><a href="#Reboot" class="headerlink" title="Reboot"></a>Reboot</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; umount /mnt/boot</span></span><br><span class="line"><span class="quote">&gt; umount /mnt</span></span><br><span class="line"><span class="quote">&gt; reboot</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Install-KDE-Plasma"><a href="#Install-KDE-Plasma" class="headerlink" title="Install KDE Plasma"></a>Install KDE Plasma</h2><h3 id="Install-Xorg"><a href="#Install-Xorg" class="headerlink" title="Install Xorg"></a>Install Xorg</h3><blockquote>
+<p>sudo pacman -S xorg</p>
+</blockquote>
+<h3 id="Install-KDE-applications"><a href="#Install-KDE-applications" class="headerlink" title="Install KDE applications"></a>Install KDE applications</h3><blockquote>
+<p>sudo pacman -S plasma konsole</p>
+</blockquote>
+<h3 id="Install-networkmanager"><a href="#Install-networkmanager" class="headerlink" title="Install networkmanager"></a>Install networkmanager</h3><blockquote>
+<p>sudo pacman -S networkmanager<br>systemctl enable NetworkManager</p>
+</blockquote>
+<h3 id="Install-sddm"><a href="#Install-sddm" class="headerlink" title="Install sddm"></a>Install sddm</h3><blockquote>
+<p>sudo pacman -S sddm sddm-kcm<br>sudo systemctl enable sddm</p>
+</blockquote>
+<h3 id="Add-a-user"><a href="#Add-a-user" class="headerlink" title="Add a user"></a>Add a user</h3><blockquote>
+<p>useradd -m -G wheel -s /bin/bash feng<br>passwd feng</p>
+</blockquote>
+<h3 id="Add-a-user-to-Wheel-group"><a href="#Add-a-user-to-Wheel-group" class="headerlink" title="Add a user to Wheel group"></a>Add a user to Wheel group</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span> sudo pacman -S sudo</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;</span> visudo</span><br><span class="line">umcomment <span class="string">`#`</span> <span class="comment">#%wheel ALL=(ALL)</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="On-KDE-Plasma"><a href="#On-KDE-Plasma" class="headerlink" title="On KDE Plasma"></a>On KDE Plasma</h2><h3 id="Add-Archlinuxcn"><a href="#Add-Archlinuxcn" class="headerlink" title="Add Archlinuxcn"></a>Add Archlinuxcn</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; <span class="regexp">/etc/</span>pacman.conf</span><br><span class="line"></span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/archlinuxcn/</span><span class="variable">$arch</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; bash:</span><br><span class="line">sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>sudo pacman -S git</p>
+<h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><p>sudo pacman -S zsh<br>curl -Lo install.sh <a href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</a><br>sh install.sh<br>sudo pacman thefuck</p>
+<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p>sudo pacman npm<br>sudo npm install -g hexo-cli<br>npm install hexo-deployer-git –save</p>
+<h3 id="yay"><a href="#yay" class="headerlink" title="yay"></a>yay</h3><p>git clone <a href="https://aur.archlinux.org/yay.git" target="_blank" rel="noopener">https://aur.archlinux.org/yay.git</a><br>cd yay<br>sudo pacman -S base-devel<br>makepkg -si</p>
+<h3 id="neovim"><a href="#neovim" class="headerlink" title="neovim"></a>neovim</h3><p>sudo pacman -S neovim<br>sudo pacman -S ctags<br>sudo pacman -S xclip<br>sudo pacman -S nerd-fonts-complete<br>sudo pacman -S yarn</p>
+<h3 id="bluetooth"><a href="#bluetooth" class="headerlink" title="bluetooth"></a>bluetooth</h3><p>sudo pacman -S  pulseaudio-alsa pulseaudio-bluetooth bluez bluez-libs bluez-utils</p>
+<p>systemctl enable bluetooth<br>systemctl start bluetooth</p>
+<h3 id="base-favourite-softwares"><a href="#base-favourite-softwares" class="headerlink" title="base favourite softwares"></a>base favourite softwares</h3><ol>
+<li>sudo pacman -S netease-cloud-music</li>
+<li>sudo pacman -S google-chrome</li>
+<li>sudo pacman -S baidunetdisk-bin</li>
+<li>sudo pacman -S anki</li>
+<li>sudo pacman -S trojan<br>git clone <a href="https://github.com/guangsizhongbin/trojan" target="_blank" rel="noopener">https://github.com/guangsizhongbin/trojan</a></li>
+<li>sudo pacman -S mpv</li>
+<li>sudo pacman -S deepin-screen-recorder deepin-screenshot</li>
+<li>sudo pacman -S goldendict</li>
+<li>yay -S picgo-appimage<br><a href="http://cdn.jsdelivr.net/gh/guangsizhongbin/picture" target="_blank" rel="noopener">http://cdn.jsdelivr.net/gh/guangsizhongbin/picture</a></li>
+<li>sudo pacman -S python-pip<br>sudo pip3 install you-get</li>
+<li>sudo pacman -S fzf</li>
+<li>sudo pacman -S kdeconnect</li>
+<li>sudo pacman -S wps-office wps-office-mui-zh-cn ttf-wps-fonts</li>
+<li>yay -S octopi</li>
+<li>yay telegram</li>
+</ol>
+<h3 id="fonts"><a href="#fonts" class="headerlink" title="fonts"></a>fonts</h3><p>sudo pacman -S wqy-zenhei wqy-bitmapfont wqy-microhei ttf-wps-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts</p>
+<h3 id="beautify"><a href="#beautify" class="headerlink" title="beautify"></a>beautify</h3><p>yay mcmojave</p>
+<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>sudo pacman -S linux-headers<br>sudo pacman -S nvidia bbswitch optimus-manager-qt-kde</p>
+<h3 id="dotfile"><a href="#dotfile" class="headerlink" title="dotfile"></a>dotfile</h3><p>git clone <a href="https://github.com/guangsizhongbin/dotfile" target="_blank" rel="noopener">https://github.com/guangsizhongbin/dotfile</a></p>
+<h3 id="QQ-amp-wechat"><a href="#QQ-amp-wechat" class="headerlink" title="QQ &amp; wechat"></a>QQ &amp; wechat</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S deepin<span class="selector-class">.com</span><span class="selector-class">.qq</span><span class="selector-class">.office</span> or</span><br><span class="line">sudo pacman -S deepin<span class="selector-class">.com</span><span class="selector-class">.qq</span>.im</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo pacman -S gnome-settings-daemon</span><br><span class="line">`/usr/lib/gsd-xsettings`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/etc/pacman.conf</span><br><span class="line">uncommet [multilib]</span><br><span class="line"></span><br><span class="line">yay -S deepin-wine-wechat</span><br></pre></td></tr></table></figure>
+
+<h3 id="sogou-input"><a href="#sogou-input" class="headerlink" title="sogou_input"></a>sogou_input</h3><p>octopi install fcitx-sogoupinyin<br>sogou-qimpanel<br>sudo pacman -S libfcitx-qt</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; ~/.pam_environment</span><br><span class="line"></span><br><span class="line"><span class="attribute">GTK_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="attribute">QT_IM_MODULE</span>=fcitx</span><br><span class="line"><span class="attribute">XMODIFIERS</span>=@im=fcitx</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/install/" rel="tag"><i class="fa fa-tag"></i> install</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/linux/20200213-index.html" rel="prev" title="Git">
+      <i class="fa fa-chevron-left"></i> Git
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/linux/20200212-hexo.html" rel="next" title="Hexo">
+      Hexo <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-installation"><span class="nav-number">1.</span> <span class="nav-text">Pre-installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#USB-flash-installation-media"><span class="nav-number">1.1.</span> <span class="nav-text">USB flash installation media</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Installing"><span class="nav-number">2.</span> <span class="nav-text">Installing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connect-to-the-internet"><span class="nav-number">2.1.</span> <span class="nav-text">Connect to the internet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-the-system-clock"><span class="nav-number">2.2.</span> <span class="nav-text">Update the system clock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Partition-the-disks"><span class="nav-number">2.3.</span> <span class="nav-text">Partition the disks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Select-the-fastest-mirrors"><span class="nav-number">2.4.</span> <span class="nav-text">Select the fastest mirrors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-essential-packages"><span class="nav-number">2.5.</span> <span class="nav-text">Install essential packages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configure-the-system"><span class="nav-number">2.6.</span> <span class="nav-text">Configure the system</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fstab"><span class="nav-number">2.7.</span> <span class="nav-text">Fstab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chroot"><span class="nav-number">2.8.</span> <span class="nav-text">Chroot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-zone"><span class="nav-number">2.9.</span> <span class="nav-text">Time zone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Localization"><span class="nav-number">2.10.</span> <span class="nav-text">Localization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Network-configuration"><span class="nav-number">2.11.</span> <span class="nav-text">Network configuration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Root-password"><span class="nav-number">2.12.</span> <span class="nav-text">Root password</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boot-loader"><span class="nav-number">2.13.</span> <span class="nav-text">Boot loader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Intel-ucode"><span class="nav-number">2.14.</span> <span class="nav-text">Install Intel-ucode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pre-installation-before-Reboot-support-for-wifi-menu"><span class="nav-number">2.15.</span> <span class="nav-text">Pre-installation before Reboot(support for wifi-menu)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reboot"><span class="nav-number">2.16.</span> <span class="nav-text">Reboot</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-KDE-Plasma"><span class="nav-number">3.</span> <span class="nav-text">Install KDE Plasma</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Xorg"><span class="nav-number">3.1.</span> <span class="nav-text">Install Xorg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-KDE-applications"><span class="nav-number">3.2.</span> <span class="nav-text">Install KDE applications</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-networkmanager"><span class="nav-number">3.3.</span> <span class="nav-text">Install networkmanager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-sddm"><span class="nav-number">3.4.</span> <span class="nav-text">Install sddm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-a-user"><span class="nav-number">3.5.</span> <span class="nav-text">Add a user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-a-user-to-Wheel-group"><span class="nav-number">3.6.</span> <span class="nav-text">Add a user to Wheel group</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#On-KDE-Plasma"><span class="nav-number">4.</span> <span class="nav-text">On KDE Plasma</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-Archlinuxcn"><span class="nav-number">4.1.</span> <span class="nav-text">Add Archlinuxcn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git"><span class="nav-number">4.2.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh"><span class="nav-number">4.3.</span> <span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo"><span class="nav-number">4.4.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yay"><span class="nav-number">4.5.</span> <span class="nav-text">yay</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#neovim"><span class="nav-number">4.6.</span> <span class="nav-text">neovim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bluetooth"><span class="nav-number">4.7.</span> <span class="nav-text">bluetooth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#base-favourite-softwares"><span class="nav-number">4.8.</span> <span class="nav-text">base favourite softwares</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fonts"><span class="nav-number">4.9.</span> <span class="nav-text">fonts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#beautify"><span class="nav-number">4.10.</span> <span class="nav-text">beautify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GPU"><span class="nav-number">4.11.</span> <span class="nav-text">GPU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dotfile"><span class="nav-number">4.12.</span> <span class="nav-text">dotfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QQ-amp-wechat"><span class="nav-number">4.13.</span> <span class="nav-text">QQ &amp; wechat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sogou-input"><span class="nav-number">4.14.</span> <span class="nav-text">sogou_input</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="TLP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">TLP</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/guangsizhongbin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;guangsizhongbin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/guangzizhongbin@gmail.com" title="E-Mail → guangzizhongbin@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">
+<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="noopener">鲁ICP备18035668号</a> 
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TLP</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">286k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">4:20</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":100},"mobile":{"show":"fasle"},"react":{"opacity":0.7}});</script></body>
+</html>

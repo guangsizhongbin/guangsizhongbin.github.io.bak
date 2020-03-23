@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="《linux 就该这么学》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux">
+<meta property="og:url" content="http://yoursite.com/linux/20200221-linux.html">
+<meta property="og:site_name" content="TLP">
+<meta property="og:description" content="《linux 就该这么学》">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200227160340.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305092538.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091029.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091553.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091920.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200304101220.png">
+<meta property="article:published_time" content="2020-02-21T10:22:33.000Z">
+<meta property="article:modified_time" content="2020-03-21T04:01:53.620Z">
+<meta property="article:author" content="TLP">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200227160340.png">
+
+<link rel="canonical" href="http://yoursite.com/linux/20200221-linux.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Linux | TLP</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TLP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/linux/20200221-linux.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="TLP">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux
+        </h1>
+
+        <div class="post-meta">
+				
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-21 18:22:33" itemprop="dateCreated datePublished" datetime="2020-02-21T18:22:33+08:00">2020-02-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-21 12:01:53" itemprop="dateModified" datetime="2020-03-21T12:01:53+08:00">2020-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>23k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>21 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>《linux 就该这么学》</p>
+<a id="more"></a>
+
+<h2 id="常用系统命令"><a href="#常用系统命令" class="headerlink" title="常用系统命令"></a>常用系统命令</h2><p><span id="inline-toc">1.</span> man<br>? 从下至上搜索关键词</p>
+<p><span id="inline-toc">2.</span> echo</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$SHELL</span></span></span><br><span class="line"></span><br><span class="line">/usr/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">3.</span> date</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># date "+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"></span><br><span class="line">date <span class="string">"+%Y-%m-%d %H:%M:%S"</span></span><br><span class="line"><span class="number">2020</span>-<span class="number">02</span>-<span class="number">21</span> <span class="number">18</span>:<span class="number">28</span>:<span class="number">30</span></span><br></pre></td></tr></table></figure>
+<p><span id="inline-toc">4.</span> reboot</p>
+<p><span id="inline-toc">5.</span> poweroff</p>
+<p><span id="inline-toc">6.</span> wget</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>- b</td>
+<td>后台下载模式</td>
+</tr>
+<tr>
+<td>- P</td>
+<td>下载到指定目录</td>
+</tr>
+<tr>
+<td>- t</td>
+<td>最大尝试次数</td>
+</tr>
+<tr>
+<td>- p</td>
+<td>下载页面内所有资源，包括图片、视频等</td>
+</tr>
+<tr>
+<td>- r</td>
+<td>递归下载</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">7.</span> ps</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># ps aux</span></span><br></pre></td></tr></table></figure>
+<p><span id="inline-toc">8.</span> top</p>
+<p><span id="inline-toc">9.</span> pidof</p>
+<p><strong>显示某个指定服务进程的PID</strong> </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pidof trojan</span></span><br><span class="line"><span class="number">1414</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">10.</span> kill<br>kill [参数][进程PID]</p>
+<p><span id="inline-toc">11.</span> killall<br>killall [参数][进程名称]</p>
+<h2 id="系统状态检测命令"><a href="#系统状态检测命令" class="headerlink" title="系统状态检测命令"></a>系统状态检测命令</h2><p><span id="inline-toc">1.</span> ifconfig</p>
+<p>sudo pacman -S net-tools</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># ifconfig</span><br><span class="line">lo: flags=<span class="number">73</span>&lt;UP,LOOPBACK,RUNNING&gt;  mtu <span class="number">65536</span></span><br><span class="line">        inet <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>  netmask <span class="number">255.0</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">        inet6 ::<span class="number">1</span>  prefixlen <span class="number">128</span>  scopeid <span class="number">0x10</span>&lt;host&gt;</span><br><span class="line">        loop  txqueuelen <span class="number">1000</span>  (Local Loopback)</span><br><span class="line">        RX packets <span class="number">903</span>  bytes <span class="number">83248</span> (<span class="number">81.2</span> KiB)</span><br><span class="line">        RX errors <span class="number">0</span>  dropped <span class="number">0</span>  overruns <span class="number">0</span>  frame <span class="number">0</span></span><br><span class="line">        TX packets <span class="number">903</span>  bytes <span class="number">83248</span> (<span class="number">81.2</span> KiB)</span><br><span class="line">        TX errors <span class="number">0</span>  dropped <span class="number">0</span> overruns <span class="number">0</span>  carrier <span class="number">0</span>  collisions <span class="number">0</span></span><br><span class="line"></span><br><span class="line">wlp2s0: flags=<span class="number">4163</span>&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="number">1500</span></span><br><span class="line">        inet <span class="number">192.168</span><span class="number">.0</span><span class="number">.103</span>  netmask <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span>  broadcast <span class="number">192.168</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line">        inet6 fe80::d867:<span class="number">4</span>afc:<span class="number">2669</span>:aa56  prefixlen <span class="number">64</span>  scopeid <span class="number">0x20</span>&lt;link&gt;</span><br><span class="line">        ether d4:<span class="number">25</span>:<span class="number">8</span>b:<span class="number">84</span>:<span class="number">99</span>:d2  txqueuelen <span class="number">1000</span>  (Ethernet)</span><br><span class="line">        RX packets <span class="number">1485897</span>  bytes <span class="number">1946655368</span> (<span class="number">1.8</span> GiB)</span><br><span class="line">        RX errors <span class="number">0</span>  dropped <span class="number">0</span>  overruns <span class="number">0</span>  frame <span class="number">0</span></span><br><span class="line">        TX packets <span class="number">1239346</span>  bytes <span class="number">183909644</span> (<span class="number">175.3</span> MiB)</span><br><span class="line">        TX errors <span class="number">0</span>  dropped <span class="number">0</span> overruns <span class="number">0</span>  carrier <span class="number">0</span>  collisions <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> uname</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># uname -a</span><br><span class="line">Linux feng <span class="number">5.5</span><span class="number">.4</span>-arch1<span class="number">-1</span> #<span class="number">1</span> SMP PREEMPT Sat, <span class="number">15</span> Feb <span class="number">2020</span> <span class="number">00</span>:<span class="number">36</span>:<span class="number">29</span> +<span class="number">0000</span> x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">3.</span> uptime</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># uptime</span><br><span class="line"> <span class="number">19</span>:<span class="number">08</span>:<span class="number">39</span> up  <span class="number">1</span>:<span class="number">00</span>,  <span class="number">7</span> users,  load average: <span class="number">0.46</span>, <span class="number">0.55</span>, <span class="number">0.43</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">4.</span> free</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># free -h</span><br><span class="line">              总计         已用        空闲      共享    缓冲/缓存    可用</span><br><span class="line">内存：       <span class="number">7.7</span>Gi       <span class="number">1.7</span>Gi       <span class="number">4.2</span>Gi       <span class="number">314</span>Mi       <span class="number">1.7</span>Gi       <span class="number">5.4</span>Gi</span><br><span class="line">交换：          <span class="number">0</span>B          <span class="number">0</span>B          <span class="number">0</span>B</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">5.</span> who</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># who</span><br><span class="line">feng     tty1         <span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">18</span>:<span class="number">09</span> (:<span class="number">0</span>)</span><br><span class="line">feng     pts/<span class="number">0</span>        <span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">18</span>:<span class="number">09</span> (:<span class="number">0</span>)</span><br><span class="line">feng     pts/<span class="number">1</span>        <span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">18</span>:<span class="number">10</span> (:<span class="number">0</span>)</span><br><span class="line">feng     pts/<span class="number">2</span>        <span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">18</span>:<span class="number">18</span> (:<span class="number">0</span>)</span><br><span class="line">feng     pts/<span class="number">3</span>        <span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">19</span>:<span class="number">04</span> (:<span class="number">0</span>)</span><br><span class="line">feng     pts/<span class="number">4</span>        <span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">19</span>:<span class="number">00</span> (:<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">6.</span> last<br>查看所有系统的登录记录</p>
+<p><span id="inline-toc">7.</span> history<br>显示出当前用户在本地计算机中执行过的最近1000条命令记录。</p>
+<h2 id="工作目录切换命令"><a href="#工作目录切换命令" class="headerlink" title="工作目录切换命令"></a>工作目录切换命令</h2><p><span id="inline-toc">1.</span> pwd</p>
+<p><span id="inline-toc">2.</span> cd</p>
+<p><span id="inline-toc">3.</span> ls</p>
+<h2 id="文件编辑命令"><a href="#文件编辑命令" class="headerlink" title="文件编辑命令"></a>文件编辑命令</h2><p><span id="inline-toc">1.</span> cat<br>-n 显示行号</p>
+<p><span id="inline-toc">2.</span> more<br>空格回车向下翻页</p>
+<p><span id="inline-toc">3.</span> head<br>head -n 20</p>
+<p><span id="inline-toc">4.</span> tail<br>tail -n 20</p>
+<p>tail -f 持续刷新</p>
+<p><span id="inline-toc">5.</span> tr<br>替换文本中的一些词汇</p>
+<p>cat xxx.cf | tr [a-z] [A-Z]</p>
+<p><span id="inline-toc">6.</span> wc<br><strong>统计指定文本的行数、字数、字节数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>只显示行数</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>只显示单词数</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>只显示字节数</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">7.</span> stat<br>用于查看文件的具体存储信息和时间等信息。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  文件：blog</span><br><span class="line">  大小：<span class="number">4096</span>            块：<span class="number">8</span>          IO 块：<span class="number">4096</span>   目录</span><br><span class="line">设备：<span class="number">802</span>h/<span class="number">2050</span>d        Inode：<span class="number">12590930</span>    硬链接：<span class="number">24</span></span><br><span class="line">权限：(<span class="number">0755</span>/drwxr-xr-x)  Uid：( <span class="number">1000</span>/    feng)   Gid：( <span class="number">1000</span>/    feng)</span><br><span class="line">最近访问：<span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">10</span>:<span class="number">05</span>:<span class="number">25.992278525</span> +<span class="number">0800</span></span><br><span class="line">最近更改：<span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">10</span>:<span class="number">04</span>:<span class="number">57.989327115</span> +<span class="number">0800</span></span><br><span class="line">最近改动：<span class="number">2020</span><span class="number">-02</span><span class="number">-21</span> <span class="number">10</span>:<span class="number">04</span>:<span class="number">57.989327115</span> +<span class="number">0800</span></span><br><span class="line">创建时间：<span class="number">2020</span><span class="number">-02</span><span class="number">-18</span> <span class="number">09</span>:<span class="number">10</span>:<span class="number">08.235778039</span> +<span class="number">0800</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">8.</span> cut<br>用于按列提取文本字符<br>-f 设置需要的列数<br>-d 设置间隔符号</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#head -d: -f1 /etc/passwd</span></span><br><span class="line"><span class="symbol">root:</span><span class="symbol">x:</span><span class="number">0</span><span class="symbol">:</span><span class="number">0</span><span class="symbol">:</span><span class="symbol">:/root</span><span class="symbol">:/bin/bash</span></span><br><span class="line"><span class="symbol">bin:</span><span class="symbol">x:</span><span class="number">1</span><span class="symbol">:</span><span class="number">1</span><span class="symbol">:</span><span class="symbol">:/</span><span class="symbol">:/usr/bin/nologin</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#cut -d: -f1 /etc/passwd</span></span><br><span class="line">root</span><br><span class="line">bin</span><br><span class="line">daemon</span><br><span class="line">mail</span><br><span class="line">ftp</span><br><span class="line">http</span><br><span class="line">nobody</span><br><span class="line">dbus</span><br><span class="line">systemd-journal-remote</span><br><span class="line">systemd-network</span><br><span class="line">systemd-resolve</span><br><span class="line">systemd-timesync</span><br><span class="line">systemd-coredump</span><br><span class="line">uuidd</span><br><span class="line">polkitd</span><br><span class="line">avahi</span><br><span class="line">colord</span><br><span class="line">rtkit</span><br><span class="line">sddm</span><br><span class="line">usbmux</span><br><span class="line">feng</span><br><span class="line">git</span><br><span class="line">geoclue</span><br></pre></td></tr></table></figure>
+
+
+<p><span id="inline-toc">9.</span> diff</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">diff --brief <span class="number">1024</span>.<span class="keyword">c</span> <span class="number">2048</span>.<span class="keyword">c</span></span><br><span class="line">文件 <span class="number">1024</span>.<span class="keyword">c</span> 和 <span class="number">2048</span>.<span class="keyword">c</span> 不同</span><br><span class="line"></span><br><span class="line">diff -<span class="keyword">c</span> <span class="number">1024</span>.<span class="keyword">c</span> <span class="number">20148</span>.<span class="keyword">c</span></span><br><span class="line">描述文件内容具体的不同</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件目录管理命令"><a href="#文件目录管理命令" class="headerlink" title="文件目录管理命令"></a>文件目录管理命令</h2><p><span id="inline-toc">1.</span> touch</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>- a</td>
+<td>仅修改“读取时间”(atime)</td>
+</tr>
+<tr>
+<td>- m</td>
+<td>仅修改“修改时间”(mtime)</td>
+</tr>
+<tr>
+<td>- d</td>
+<td>同时修改 atime 与 mtime</td>
+</tr>
+</tbody></table>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">touch</span> -d <span class="string">"2017-05-04 15:44"</span> <span class="number">1024.</span>c</span><br><span class="line">ls -l <span class="number">1024.</span>c</span><br><span class="line">-rw-r--r-- <span class="number">1</span> feng feng <span class="number">2020</span>  <span class="number">5</span>月  <span class="number">4</span>  <span class="number">2017</span> <span class="number">1024.</span>c</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> mkdir<br>-p 可以创建出具有嵌套叠层关系目录。</p>
+<p><span id="inline-toc">3.</span> cp<br>cp [选项] 源文件 目标文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-p</td>
+<td>保留原始文件的属性</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>若对象为“链接文件”，则保留该“链接文件”的属性</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归持续复制（用于目录）</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>若目标文件存在则询问是否覆盖</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>相当于-pdr(p.d.r为上述参数)</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">4.</span> mv<br>mv [选项] 源文件 [目标路径|目标文件名]</p>
+<p><span id="inline-toc">5.</span> rm<br>-f 强制删除<br>-r 删除文件夹</p>
+<p><span id="inline-toc">6.</span> dd<br>按照大小和个数的数据块来复制文件或转换文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>if</td>
+<td>输入的文件名称</td>
+</tr>
+<tr>
+<td>of</td>
+<td>输出的文件名称</td>
+</tr>
+<tr>
+<td>bs</td>
+<td>设置每个“块”的大小</td>
+</tr>
+<tr>
+<td>count</td>
+<td>设置要复制“块”的个数</td>
+</tr>
+</tbody></table>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=<span class="number">1</span>G_file count=<span class="number">1</span> bs=<span class="number">1</span>G</span><br><span class="line">记录了<span class="number">1</span>+<span class="number">0</span> 的读入</span><br><span class="line">记录了<span class="number">1</span>+<span class="number">0</span> 的写出</span><br><span class="line"><span class="number">1073741824</span> bytes (<span class="number">1.1</span> GB, <span class="number">1.0</span> GiB) copied, <span class="number">1.58115</span> s, <span class="number">679</span> MB/s</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">7.</span> file</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">file <span class="number">1024.</span>c </span><br><span class="line"><span class="number">1024.</span>c: C source, UTF<span class="number">-8</span> Unicode text</span><br></pre></td></tr></table></figure>
+
+<h2 id="打包压缩与搜索命令"><a href="#打包压缩与搜索命令" class="headerlink" title="打包压缩与搜索命令"></a>打包压缩与搜索命令</h2><p><span id="inline-toc">1.</span> tar</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>创建压缩文件</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>解开压缩文件</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>查看压缩包内有哪些文件</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>用Gzip压缩或解压</td>
+</tr>
+<tr>
+<td>-j</td>
+<td>用bzip2压缩或解压</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示压缩或解压的过程</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>目标文件名</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>保留原始的权限与属性</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>使用绝对路径来压缩</td>
+</tr>
+<tr>
+<td>-C</td>
+<td>指定解压到的目录</td>
+</tr>
+</tbody></table>
+<p><code>tar -czvf 压缩包名称.tar.gz 要打包的目录</code><br><code>tar -xzvf 压缩包名称.tar.gz</code></p>
+<p><span id="inline-toc">2.</span> grep</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>将可执行文件（binary）当作文本文件(text)来搜索</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>仅显示找到的行数</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>忽略大小写</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示换号</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>反向选择–仅列出没有“关键词”的行</td>
+</tr>
+</tbody></table>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">grep /bin/nologin /etc/passwd</span><br><span class="line"><span class="symbol">nobody:</span><span class="symbol">x:</span><span class="number">65534:65534</span><span class="symbol">:Nobody</span><span class="symbol">:/</span><span class="symbol">:/usr/bin/nologin</span></span><br><span class="line"><span class="symbol">dbus:</span><span class="symbol">x:</span><span class="number">81:81</span><span class="symbol">:System</span> Message <span class="symbol">Bus:</span>/<span class="symbol">:/usr/bin/nologin</span></span><br><span class="line">systemd-journal-<span class="symbol">remote:</span><span class="symbol">x:</span><span class="number">982:982</span><span class="symbol">:systemd</span> Journal <span class="symbol">Remote:</span>/<span class="symbol">:/usr/bin/nologin</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">3.</span> find</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-name</td>
+<td>匹配名称</td>
+</tr>
+<tr>
+<td>-perm</td>
+<td>匹配权限（mode 为完全匹配 -mode为包含即可）</td>
+</tr>
+<tr>
+<td>-user</td>
+<td>匹配所有者</td>
+</tr>
+<tr>
+<td>-group</td>
+<td>匹配所有组</td>
+</tr>
+<tr>
+<td>-mtime -n +n</td>
+<td>匹配修改内容的时间（-n 指n天以内，+n指n天以前）</td>
+</tr>
+<tr>
+<td>-atime -n +n</td>
+<td>匹配访问文件的时间（-n 指n天以内，+n指n天以前）</td>
+</tr>
+<tr>
+<td>-ctime -n +n</td>
+<td>匹配修改文件权限的时间（-n 指n天以内，+n指n天以前）</td>
+</tr>
+<tr>
+<td>-nouser</td>
+<td>匹配无所有者的文件</td>
+</tr>
+<tr>
+<td>-nogroup</td>
+<td>匹配无所有组的文件</td>
+</tr>
+<tr>
+<td>-newer f1 !f2</td>
+<td>匹配比文件f1新但比f2旧的文件</td>
+</tr>
+<tr>
+<td>–type b/d/c/p/l/f</td>
+<td>匹配文件类型（后面的字母参数一次表示块设备，目录，字符设备，管道，链接文件，文本文件）</td>
+</tr>
+<tr>
+<td>-size</td>
+<td>匹配文件的大小（+50KB为查找超过50KB的文件，而-50KB为查找小于50KB的文件）</td>
+</tr>
+<tr>
+<td>-prune</td>
+<td>忽略某个目录</td>
+</tr>
+<tr>
+<td>-exec ……{};</td>
+<td>后面可跟进一步处理搜索结果的命令</td>
+</tr>
+</tbody></table>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># find / -user feng -exec cp -a &#123;&#125; ~/findresults/ \;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="管道符、重定向与环境变量"><a href="#管道符、重定向与环境变量" class="headerlink" title="管道符、重定向与环境变量"></a>管道符、重定向与环境变量</h2><h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>标准输入重定向：STDIN (文件描述符为0)<br>标准输出重定向：STDOUT (文件符号为1)<br>标准输出错误重定向: STDERR (文件符号为2)</p>
+<p><strong>输入重定向</strong> </p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>命令 &lt;  文件</td>
+<td>将文件作为命令的标准输入</td>
+</tr>
+<tr>
+<td>命令 &lt;&lt; 分界符号</td>
+<td>从标准输入中读入，直到遇见分界符才停止</td>
+</tr>
+<tr>
+<td>命令 &lt; 文件1 &gt; 文件2</td>
+<td>将文件1作为命令的标准输入，并标准输出到文件2</td>
+</tr>
+</tbody></table>
+<p><strong>输出重定向</strong> </p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>命令 &gt; 文件</td>
+<td>标准输出重定向到一个文件</td>
+</tr>
+<tr>
+<td>命令2&gt; 文件</td>
+<td>将错误输出到一个文件中</td>
+</tr>
+<tr>
+<td>命令 &gt;&gt; 文件</td>
+<td>标准输入重定向到一个文件(追加)</td>
+</tr>
+<tr>
+<td>命令2&gt;&gt; 文件</td>
+<td>将错误输出到一个文件中(追加)</td>
+</tr>
+<tr>
+<td>命令&amp;&gt;&gt; 文件</td>
+<td>将标准输出和错误输出共同写入到文件中</td>
+</tr>
+</tbody></table>
+<h3 id="管道符"><a href="#管道符" class="headerlink" title="管道符"></a>管道符</h3><p><strong>把前一个命令将要输出到屏幕的数据当作是后一个命令的标准输入</strong> </p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p>[0-9] 匹配0-9<br>? 匹配单个字符</p>
+<h2 id="vim-amp-amp-shell"><a href="#vim-amp-amp-shell" class="headerlink" title="vim &amp;&amp; shell"></a>vim &amp;&amp; shell</h2><h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><p>?字符串 自下而上的搜索<br>/字符串 自上而下的搜索</p>
+<h3 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h3><p>$0 shell脚本名称<br>$* 所有位置的参数值<br>$# 总共有几个参数<br>$? 显示上一命令执行的返回值</p>
+<p>&amp;&amp; 逻辑与<br>|| 逻辑或<br>！ 逻辑非</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> [ ! <span class="variable">$USER</span> = root ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"user"</span> || <span class="built_in">echo</span> <span class="string">"root"</span></span></span><br><span class="line"></span><br><span class="line">user</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>整数运算比较</strong></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-eq</td>
+<td>是否等于</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>是否不等于</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>是否大于</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>是否小于</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>小于等于</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>大于等于</td>
+</tr>
+</tbody></table>
+<p><strong>字符串比较运算符</strong></p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>比较字符串内容是否相同</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>比较字符串内容是否不同</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>字符串内容是否为空</td>
+</tr>
+</tbody></table>
+<p><strong>判断ip是否能够连的通</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">ping -c 3 -i 0.2 -w 3 <span class="variable">$1</span> &amp;&gt; /dev/null</span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Host <span class="variable">$1</span> is on-line."</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Host <span class="variable">$1</span> is off-line."</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>判断用户是否存在，不存在则添加用户</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"Enter The Users Password:"</span> PASSWD</span><br><span class="line"><span class="keyword">for</span> UNAME <span class="keyword">in</span> <span class="string">'cat users.txt'</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">id <span class="variable">$UNAME</span> &amp;&gt; /dev/null</span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Already exists"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">useradd <span class="variable">$UNAME</span> &amp;&gt; /dev/null</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$PASSWD</span>"</span> | passwd --stdin <span class="variable">$UNAME</span> &amp;&gt; /dev/null</span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$UNAME</span>, Create success"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$UNAME</span>, Create failure"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><p>sudo pacman -S cronie<br>systemctl enable cronie.service<br>systemctl start cronie.service</p>
+<p>“分、时、日、月、星期 命令”</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># crontab -e</span></span><br><span class="line">1 * * * * * <span class="keyword">echo</span> <span class="string">"hello"</span> &gt; <span class="string">/home/feng/abc.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>所有命令使用绝对路径</p>
+<h2 id="用户身份与文件权限"><a href="#用户身份与文件权限" class="headerlink" title="用户身份与文件权限"></a>用户身份与文件权限</h2><h3 id="用户身份"><a href="#用户身份" class="headerlink" title="用户身份"></a>用户身份</h3><p><span id="inline-toc">1.</span> 用户身份：</p>
+<ul>
+<li>管理员UID为0： 系统的管理员用户</li>
+<li>系统用户为1~999</li>
+<li>普通用户UID从1000开始</li>
+</ul>
+<p><span id="inline-toc">2.</span> useradd</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>- d</td>
+<td>指定用户的家目录（默认为/home/username）</td>
+</tr>
+<tr>
+<td>- e</td>
+<td>账户的到期时间，格式为YYYY-MM-DD.</td>
+</tr>
+<tr>
+<td>- u</td>
+<td>指定该用户的默认id</td>
+</tr>
+<tr>
+<td>- g</td>
+<td>指定一个初始的用户基本组（必须已存在）</td>
+</tr>
+<tr>
+<td>- G</td>
+<td>指定一个或多个扩展用户组</td>
+</tr>
+<tr>
+<td>- N</td>
+<td>不创建与用户同名的基本用户组</td>
+</tr>
+<tr>
+<td>- s</td>
+<td>指定该用户的默认Shell 解释器</td>
+</tr>
+</tbody></table>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># useradd -d /home/linux -u 8888 -s /sbin/nologin linuxprobe</span></span><br><span class="line"><span class="comment"># id feng</span></span><br><span class="line"><span class="attribute">uid</span>=1000(feng) <span class="attribute">gid</span>=1000(feng) <span class="attribute">groups</span>=1000(feng),998(wheel)</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">3.</span> groupadd<br>group [ 选项 ] 群组名</p>
+<p><span id="inline-toc">4.</span> usermod</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>- c</td>
+<td>填写用户账户的备注信息</td>
+</tr>
+<tr>
+<td>- d - m</td>
+<td>参数-m与参数-d连用，可重新指定用户的家目录并自动把旧的数据转移过去</td>
+</tr>
+<tr>
+<td>- e</td>
+<td>账户的到期时间，格式为YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>- g</td>
+<td>变更所属用户组</td>
+</tr>
+<tr>
+<td>- G</td>
+<td>变更扩展用户组</td>
+</tr>
+<tr>
+<td>- L</td>
+<td>锁定用户禁止其登录系统</td>
+</tr>
+<tr>
+<td>- U</td>
+<td>解锁用户，允许其登录系统</td>
+</tr>
+<tr>
+<td>- s</td>
+<td>变更默认终端</td>
+</tr>
+<tr>
+<td>- u</td>
+<td>修改用户的UID</td>
+</tr>
+</tbody></table>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ id feng</span><br><span class="line"><span class="attribute">uid</span>=1000(feng) <span class="attribute">gid</span>=1000(feng) <span class="attribute">groups</span>=1000(feng),998(wheel)</span><br><span class="line">➜  ~ sudo usermod -G root feng</span><br><span class="line">➜  ~ id feng</span><br><span class="line"><span class="attribute">uid</span>=1000(feng) <span class="attribute">gid</span>=1000(feng) <span class="attribute">groups</span>=1000(feng),0(root)</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">5.</span> passwd<br>passwd [选项] [用户名]</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>- l</td>
+<td>锁定用户，禁止其登录</td>
+</tr>
+<tr>
+<td>- u</td>
+<td>解除锁定，允许用户登录</td>
+</tr>
+<tr>
+<td>–stdin</td>
+<td>允许通过标准输入修改用户密码，</td>
+</tr>
+<tr>
+<td>- d</td>
+<td>使该用户可用空密码登录系统</td>
+</tr>
+<tr>
+<td>- e</td>
+<td>强制用户在下次登录时修改密码</td>
+</tr>
+<tr>
+<td>- S</td>
+<td>显示用户的密码是否被锁定，以及密码所采用的加密算法名称</td>
+</tr>
+</tbody></table>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># passwd -l feng</span></span><br></pre></td></tr></table></figure>
+
+
+<p><span id="inline-toc">6.</span> userdel<br>userdel [选项] 用户名</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>强制删除用户</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>同时删除用户及用户家目录</td>
+</tr>
+</tbody></table>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># userdel -r feng</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="文件权限与归属"><a href="#文件权限与归属" class="headerlink" title="文件权限与归属"></a>文件权限与归属</h3><p>-: 普通文件<br>d: 目录文件<br>l: 链表文件<br>b: 块设备文件<br>c: 字符设备文件<br>p: 管道文件</p>
+<h3 id="文件的特殊权限"><a href="#文件的特殊权限" class="headerlink" title="文件的特殊权限"></a>文件的特殊权限</h3><p><span id="inline-toc">1.</span> SUID<br>对二进制程序进行设置的特殊权限，可以让二进制程序的执行者临时拥有属主的权限。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ ls -l /etc/shadow</span><br><span class="line">-rw------- <span class="number">1</span> root root <span class="number">788</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">25</span> /etc/shadow</span><br><span class="line">➜  ~ ls -l /bin/passwd </span><br><span class="line">-rwsr-xr-x <span class="number">1</span> root root <span class="number">63640</span> Feb  <span class="number">4</span> <span class="number">20</span>:<span class="number">31</span> /bin/passwd</span><br></pre></td></tr></table></figure>
+<p>使用passwd命令时如果加上SUID特殊权限位，就可让普通用户临时获得程序所有这身份，把变更的密码信息写入到shadow文件中。</p>
+<p><span id="inline-toc">2.</span> SGID<br>让执行者实现如下两种功能</p>
+<ol>
+<li>让执行者临时拥有属组的权限（对拥有执行权限的二进制程序进行设置）</li>
+<li>在某个目录中创建的文件自动继承该目录的用户组（只可以对目录进行设置）</li>
+</ol>
+<p><span id="inline-toc">3.</span> SBIT<br>当对某个目录设置了SBIT位权限后，那么该目录中的文件就只能被其所有这执行删除操作了。</p>
+<h3 id="文件的隐藏属性"><a href="#文件的隐藏属性" class="headerlink" title="文件的隐藏属性"></a>文件的隐藏属性</h3><p><span id="inline-toc">1.</span> chattr<br>用于设置文件的隐藏权限</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>无法对文件修改；若对目录设置了该参数，则仅能修改其中的子文件内容而不能新建或删除文件</td>
+</tr>
+<tr>
+<td>a</td>
+<td>仅允许补充（追加）内容，无法覆盖、删除内容（Append Only）</td>
+</tr>
+<tr>
+<td>S</td>
+<td>文件内容在变更后立即同步到硬盘（sync）</td>
+</tr>
+<tr>
+<td>s</td>
+<td>彻底从硬盘中删除，不可回复（用0填充原文件所在硬盘区域）</td>
+</tr>
+<tr>
+<td>A</td>
+<td>不再修改这个文件或目录的最后访问时间（atime）</td>
+</tr>
+<tr>
+<td>b</td>
+<td>不再修改文件或目录的存取时间</td>
+</tr>
+<tr>
+<td>D</td>
+<td>检查压缩文件中的错误</td>
+</tr>
+<tr>
+<td>d</td>
+<td>使用dump命令备份时忽略本文件、目录</td>
+</tr>
+<tr>
+<td>c</td>
+<td>默认将文件或目录进行压缩</td>
+</tr>
+<tr>
+<td>u</td>
+<td>当删除该文件后依然保留其在硬盘中的数据，方便日后恢复</td>
+</tr>
+<tr>
+<td>t</td>
+<td>让文件系统支持尾部合并（tail-merging）</td>
+</tr>
+<tr>
+<td>x</td>
+<td>可以直接访问压缩文件中的内容</td>
+</tr>
+</tbody></table>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@feng feng]<span class="comment"># chattr +a linuxprobe </span></span><br><span class="line">[root@feng feng]<span class="comment"># rm linuxprobe </span></span><br><span class="line">rm: cannot remove <span class="string">'linuxprobe'</span>: Operation <span class="keyword">not</span> permitted</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> lsattr<br>需要使用lsattr命令，文件的隐藏权限才能看到</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@feng feng]<span class="comment"># lsattr linuxprobe </span></span><br><span class="line"><span class="comment">-----a--------e----- linuxprobe</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="文件访问控制列表"><a href="#文件访问控制列表" class="headerlink" title="文件访问控制列表"></a>文件访问控制列表</h3><p>指定某一类用户设置权限。<br><span id="inline-toc">1.</span> setfacl<br>-R 针对目录文件<br>-m 针对普通文件<br>-b 删除某个文件的ACL</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">root@</span>feng feng]# setfacl -Rm u:feng:rwx /root</span><br><span class="line">[<span class="symbol">root@</span>feng feng]# ls -ld /root/</span><br><span class="line">drwxrwx---+ <span class="number">10</span> root root <span class="number">4096</span> Feb <span class="number">27</span> <span class="number">13</span>:<span class="number">24</span> /root/</span><br></pre></td></tr></table></figure>
+<p>文件的权限(+),这就意味着该文件已经设置了ACL了。</p>
+<p><span id="inline-toc">2.</span> getfacl</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ getfacl /root </span><br><span class="line"><span class="symbol">getfacl:</span> Removing leading <span class="string">'/'</span> from absolute path names</span><br><span class="line"><span class="meta"># file: root</span></span><br><span class="line"><span class="meta"># owner: root</span></span><br><span class="line"><span class="meta"># group: root</span></span><br><span class="line"><span class="symbol">user:</span>:rwx</span><br><span class="line"><span class="symbol">user:</span>feng:rwx</span><br><span class="line"><span class="symbol">group:</span>:r-<span class="built_in">x</span></span><br><span class="line"><span class="symbol">mask:</span>:rwx</span><br><span class="line"><span class="symbol">other:</span>:---</span><br></pre></td></tr></table></figure>
+
+<h2 id="存储结构与磁盘划分"><a href="#存储结构与磁盘划分" class="headerlink" title="存储结构与磁盘划分"></a>存储结构与磁盘划分</h2><p><strong>Linux 系统中常见的目录名称以及相应内容</strong></p>
+<table>
+<thead>
+<tr>
+<th>目录名称</th>
+<th>应放置文件的内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/boot</td>
+<td>开机所需文件–内核、开机菜单以及所需配置文件等</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>以文件形式存放任何设备与接口</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>配置文件</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>用户家目录</td>
+</tr>
+<tr>
+<td>/bin</td>
+<td>存放单用户模式下还可以操作的命令</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td>开机时用到的函数库，以及/bin 与/sbin 下面的命令要调用的函数</td>
+</tr>
+<tr>
+<td>/sbin</td>
+<td>开机过程中需要的命令</td>
+</tr>
+<tr>
+<td>/media</td>
+<td>用于挂载设备文件的目录</td>
+</tr>
+<tr>
+<td>/opt</td>
+<td>放置第三方的软件</td>
+</tr>
+<tr>
+<td>/root</td>
+<td>系统管理员的家目录</td>
+</tr>
+<tr>
+<td>/srv</td>
+<td>一些网络服务的数据文件目录</td>
+</tr>
+<tr>
+<td>/tmp</td>
+<td>任何人均可使用的”共享”临时目录</td>
+</tr>
+<tr>
+<td>/proc</td>
+<td>虚拟文件系统，例如系统内核、进程、外部设备及网络状态等</td>
+</tr>
+<tr>
+<td>/usr/local</td>
+<td>用户自行安装的软件</td>
+</tr>
+<tr>
+<td>/usr/sbin</td>
+<td>Linux 系统开机时不会用到的软件、命令、脚本</td>
+</tr>
+<tr>
+<td>/usr/share</td>
+<td>帮助与说明文件，也可放置共享文件</td>
+</tr>
+<tr>
+<td>/var</td>
+<td>主要存放经常变化的文件，如日志</td>
+</tr>
+<tr>
+<td>/lost+found/</td>
+<td>当文件系统发生错误是，将一些丢失的片段存放在这里</td>
+</tr>
+</tbody></table>
+<h3 id="物理设备的命名规则"><a href="#物理设备的命名规则" class="headerlink" title="物理设备的命名规则"></a>物理设备的命名规则</h3><table>
+<thead>
+<tr>
+<th>硬件设备</th>
+<th>文件名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IDE设备</td>
+<td>/dev/hd[a-d]</td>
+</tr>
+<tr>
+<td>SCSI/SATA/U盘</td>
+<td>/dev/sd[a-p]</td>
+</tr>
+<tr>
+<td>软驱</td>
+<td>/dev/fd[0-1]</td>
+</tr>
+<tr>
+<td>打印机</td>
+<td>/dev/lp[0-15]</td>
+</tr>
+<tr>
+<td>光驱</td>
+<td>/dev/cdrom</td>
+</tr>
+<tr>
+<td>鼠标</td>
+<td>/dev/mouse</td>
+</tr>
+<tr>
+<td>磁带机</td>
+<td>/dev/st0或/dev/ht0</td>
+</tr>
+</tbody></table>
+<p><img src="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200227160340.png" alt=""><br>/dev/ 目录中保存的应当是硬件设备文件<br>sd 表示存储设备<br>a 表示系统中同类接口中第一个被识别到的设备<br>5 表示这个设备是一个逻辑分区<br>/dev/sda5 这是系统中第一块被识别到的硬件设备中分区编号为5的逻辑分区的设备文件</p>
+<p><span id="inline-toc">1.</span> mount</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>挂载所在/etc/fstab中定义的文件系统</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>指定文件系统的类型</td>
+</tr>
+</tbody></table>
+<p><strong>/etc/fstab</strong> </p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设备文件</td>
+<td>一般为设备的路径+设备名称，也可以些唯一的识别码（UUID）</td>
+</tr>
+<tr>
+<td>挂载目录</td>
+<td>指定要挂载到的目录，需在挂载钱创建好</td>
+</tr>
+<tr>
+<td>格式类型</td>
+<td>指定文件系统的格式</td>
+</tr>
+<tr>
+<td>权限选项</td>
+<td>若设置为defaults, 则默认权限为：rw, suid, dev, exec, auto, nouser, async</td>
+</tr>
+<tr>
+<td>自检</td>
+<td>若为1则开机后进行磁盘自检，为0则不自检</td>
+</tr>
+<tr>
+<td>优先级</td>
+<td>若“自检”字段为1，则可对多块磁盘进行自检优先设置</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">2.</span> umout</p>
+<p><span id="inline-toc">3.</span> fdisk</p>
+<p><span id="inline-toc">4.</span> du</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ du -<span class="keyword">sh</span> /<span class="keyword">boot</span></span><br><span class="line">82M     /<span class="keyword">boot</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><span id="inline-toc">5.</span> edquota<br>sudo pacman -S quota-tools</p>
+<p>限制用户的硬盘可用容量或所能创建的最大文件个数</p>
+<p>-u 表示针对哪个用户进行设置<br>-g 表示要对哪个用户组进行设置</p>
+<p><span id="inline-toc">6.</span> ln</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-s</td>
+<td>创建”符号链接”（如果不带-s参数，则默认创建硬链接）</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>强制创建文件或目录的链接</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>覆盖前先询问</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示创建链接的过程</td>
+</tr>
+</tbody></table>
+<h2 id="使用RAID与LVM磁盘阵列技术"><a href="#使用RAID与LVM磁盘阵列技术" class="headerlink" title="使用RAID与LVM磁盘阵列技术"></a>使用RAID与LVM磁盘阵列技术</h2><p><strong>RAID</strong> 独立冗余磁盘阵列技术方案的特性，并通过实际部署RAID10，RAID5+备份盘等方案来更直观地查看RAID的强大效果，以便进一步满足生存环境对磁盘设备IO读写速度与数据冗余备份机制的需求。</p>
+<h3 id="RAID（独立冗余磁盘阵列）"><a href="#RAID（独立冗余磁盘阵列）" class="headerlink" title="RAID（独立冗余磁盘阵列）"></a>RAID（独立冗余磁盘阵列）</h3><p>RAID 0: 把两块物理磁盘设备（至少两块）通过硬件或软件的方式串联在一起，组成一个大的卷组，并将数据依次写入到各个物理硬盘中。这样依赖，在最理想的状态下，硬盘设备的读写性能会提升数倍，但是若任意一块硬盘发生故障将导致整个系统的数据都受到破坏。<br><img src="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305092538.png" alt=""></p>
+<p>RAID 1: 它是把两块以上的硬盘设备进行绑定，在写入数据时，是将数据同时写入到多块硬盘设备上。当其中一块硬盘发生故障后，一般会立即自动以热交换的方式来恢复数据的正常使用。<br><img src="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091029.png" alt=""></p>
+<p>RAID 5： (兼顾读写速度，数据安全性，成本)是把磁盘设备的奇偶效验信息保存到其他硬盘设备中。RAID5磁盘阵列组中的数据的奇偶效验信息并不是单独保存到某一块硬盘设备中，而是存储到除自身意外的其他每一块硬盘设备上，这样的好处是其中任何一设备损坏后不至于出现致命缺陷。<br><img src="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091553.png" alt=""></p>
+<p>RAID 10: 是RAID1和RAID0技术的一个组合体。 RAID10技术需要至少4块硬盘来组建，其中先分别两两制作成RAID1磁盘整列，以保证数据的安全性，然后再对两个RAID1磁盘阵列实施RAID0技术，进一步提高硬盘设备的读写。从理论上来将，只要坏的不是同一组的所有硬盘，那么最多可以损坏50%的硬盘设备而不丢失数据。<br><img src="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200305091920.png" alt=""></p>
+<h3 id="部署磁盘阵列"><a href="#部署磁盘阵列" class="headerlink" title="部署磁盘阵列"></a>部署磁盘阵列</h3><p><strong>mdadm</strong> 用于管理Linux系统中的软件RAID磁盘阵列.<br>mdadm[模式]&lt;RAID 设备名称&gt;[选项][成员设备名称]</p>
+<p><strong>mdadm命令的常用参数和作用</strong> </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>检测设备名称</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>指定设备数量</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>指定RAID级别</td>
+</tr>
+<tr>
+<td>-C</td>
+<td>创建</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示过程</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>模拟设备损坏</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>移除设备</td>
+</tr>
+<tr>
+<td>-Q</td>
+<td>查看摘要信息</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>查看详细信息</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>停止RAID磁盘阵列</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">1.</span> 使用mdadm命令创建RAID 10，名称为”/dev/md0”</p>
+<p><code>mdadm -Cv /dev/md0 -a yes -n 4 -l 10 /dev/sdb /dev/sdc /dev/sdd /dev/sde</code></p>
+<p><span id="inline-toc">2.</span> 把制作号的RAID磁盘整列格式化为ext4格式。</p>
+<p><code>mkfs.ext4 /dev/md0</code></p>
+<p><span id="inline-toc">3.</span> 创建挂载点然后把磁盘设备进行挂载操作</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="string">/RAID</span></span><br><span class="line">mount <span class="string">/dev/md0</span> <span class="string">/RAID</span></span><br><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">4.</span> 查看/dev/md0磁盘阵列的详细信息，并把挂载信息写入到配置文件中，并把挂载信息写入到配置文件中，使其永久生效。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">madadm -D <span class="string">/dev/md0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"/dev/md0 /RAID ext4 defaults 0 0"</span> &gt;&gt; <span class="string">/etc/fstab</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="损坏磁盘整列及修复"><a href="#损坏磁盘整列及修复" class="headerlink" title="损坏磁盘整列及修复"></a>损坏磁盘整列及修复</h3><p><strong>模拟设备损坏</strong> </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">mdadm</span> <span class="string">/dev/md0</span> <span class="string">-f</span> <span class="string">/dev/sdb</span></span><br><span class="line"></span><br><span class="line"><span class="string">madam</span> <span class="string">-D</span> <span class="string">/dev/md0</span></span><br><span class="line"><span class="string">/dev/md0:</span></span><br><span class="line">        <span class="attr">Version :</span> <span class="number">1.2</span></span><br><span class="line">  <span class="attr">Creation Time :</span> <span class="string">Thu</span> <span class="string">Mar</span>  <span class="number">5</span> <span class="number">09</span><span class="string">:58:27</span> <span class="number">2020</span></span><br><span class="line">     <span class="attr">Raid Level :</span> <span class="string">raid10</span></span><br><span class="line">     <span class="attr">Array Size :</span> <span class="number">4191232</span> <span class="string">(4.00</span> <span class="string">GiB</span> <span class="number">4.29</span> <span class="string">GB)</span></span><br><span class="line">  <span class="attr">Used Dev Size :</span> <span class="number">2095616</span> <span class="string">(2046.84</span> <span class="string">MiB</span> <span class="number">2145.91</span> <span class="string">MB)</span></span><br><span class="line">   <span class="attr">Raid Devices :</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">Total Devices :</span> <span class="number">4</span></span><br><span class="line">    <span class="attr">Persistence :</span> <span class="string">Superblock</span> <span class="string">is</span> <span class="string">persistent</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">Update Time :</span> <span class="string">Thu</span> <span class="string">Mar</span>  <span class="number">5</span> <span class="number">10</span><span class="string">:07:51</span> <span class="number">2020</span></span><br><span class="line">          <span class="attr">State :</span> <span class="string">clean,</span> <span class="string">degraded</span> </span><br><span class="line"> <span class="attr">Active Devices :</span> <span class="number">3</span></span><br><span class="line"><span class="attr">Working Devices :</span> <span class="number">3</span></span><br><span class="line"> <span class="attr">Failed Devices :</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">Spare Devices :</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">         <span class="attr">Layout :</span> <span class="string">near=2</span></span><br><span class="line">     <span class="attr">Chunk Size :</span> <span class="string">512K</span></span><br><span class="line"></span><br><span class="line">           <span class="attr">Name :</span> <span class="string">localhost.localdomain:0</span>  <span class="string">(local</span> <span class="string">to</span> <span class="string">host</span> <span class="string">localhost.localdomain)</span></span><br><span class="line">           <span class="attr">UUID :</span> <span class="string">bdf4a631:f2a3651f:32d0fc2c:01dd60fe</span></span><br><span class="line">         <span class="attr">Events :</span> <span class="number">19</span></span><br><span class="line"></span><br><span class="line">    <span class="string">Number</span>   <span class="string">Major</span>   <span class="string">Minor</span>   <span class="string">RaidDevice</span> <span class="string">State</span></span><br><span class="line">       <span class="number">0</span>       <span class="number">0</span>        <span class="number">0</span>        <span class="number">0</span>      <span class="string">removed</span></span><br><span class="line">       <span class="number">1</span>       <span class="number">8</span>       <span class="number">32</span>        <span class="number">1</span>      <span class="string">active</span> <span class="string">sync</span>   <span class="string">/dev/sdc</span></span><br><span class="line">       <span class="number">2</span>       <span class="number">8</span>       <span class="number">48</span>        <span class="number">2</span>      <span class="string">active</span> <span class="string">sync</span>   <span class="string">/dev/sdd</span></span><br><span class="line">       <span class="number">3</span>       <span class="number">8</span>       <span class="number">64</span>        <span class="number">3</span>      <span class="string">active</span> <span class="string">sync</span>   <span class="string">/dev/sde</span></span><br><span class="line"></span><br><span class="line">       <span class="number">0</span>       <span class="number">8</span>       <span class="number">16</span>        <span class="bullet">-</span>      <span class="string">faulty</span>   <span class="string">/dev/sdb</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>重启系统，然后再把新的硬盘添加到RAID磁盘阵列中</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">umount</span> <span class="string">/RAID</span></span><br><span class="line"><span class="string">mdadm</span> <span class="string">/dev/md0</span> <span class="string">0a</span> <span class="string">/dev/sdb</span></span><br><span class="line"><span class="string">mdadm</span> <span class="string">-D</span> <span class="string">/dev/md0</span></span><br><span class="line"><span class="string">/dev/md0:</span></span><br><span class="line">        <span class="attr">Version :</span> <span class="number">1.2</span></span><br><span class="line">  <span class="attr">Creation Time :</span> <span class="string">Thu</span> <span class="string">Mar</span>  <span class="number">5</span> <span class="number">09</span><span class="string">:58:27</span> <span class="number">2020</span></span><br><span class="line">     <span class="attr">Raid Level :</span> <span class="string">raid10</span></span><br><span class="line">     <span class="attr">Array Size :</span> <span class="number">4191232</span> <span class="string">(4.00</span> <span class="string">GiB</span> <span class="number">4.29</span> <span class="string">GB)</span></span><br><span class="line">  <span class="attr">Used Dev Size :</span> <span class="number">2095616</span> <span class="string">(2046.84</span> <span class="string">MiB</span> <span class="number">2145.91</span> <span class="string">MB)</span></span><br><span class="line">   <span class="attr">Raid Devices :</span> <span class="number">4</span></span><br><span class="line">  <span class="attr">Total Devices :</span> <span class="number">4</span></span><br><span class="line">    <span class="attr">Persistence :</span> <span class="string">Superblock</span> <span class="string">is</span> <span class="string">persistent</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">Update Time :</span> <span class="string">Thu</span> <span class="string">Mar</span>  <span class="number">5</span> <span class="number">10</span><span class="string">:13:07</span> <span class="number">2020</span></span><br><span class="line">          <span class="attr">State :</span> <span class="string">clean</span> </span><br><span class="line"> <span class="attr">Active Devices :</span> <span class="number">4</span></span><br><span class="line"><span class="attr">Working Devices :</span> <span class="number">4</span></span><br><span class="line"> <span class="attr">Failed Devices :</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">Spare Devices :</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">         <span class="attr">Layout :</span> <span class="string">near=2</span></span><br><span class="line">     <span class="attr">Chunk Size :</span> <span class="string">512K</span></span><br><span class="line"></span><br><span class="line">           <span class="attr">Name :</span> <span class="string">localhost.localdomain:0</span>  <span class="string">(local</span> <span class="string">to</span> <span class="string">host</span> <span class="string">localhost.localdomain)</span></span><br><span class="line">           <span class="attr">UUID :</span> <span class="string">bdf4a631:f2a3651f:32d0fc2c:01dd60fe</span></span><br><span class="line">         <span class="attr">Events :</span> <span class="number">46</span></span><br><span class="line"></span><br><span class="line">    <span class="string">Number</span>   <span class="string">Major</span>   <span class="string">Minor</span>   <span class="string">RaidDevice</span> <span class="string">State</span></span><br><span class="line">       <span class="number">4</span>       <span class="number">8</span>       <span class="number">16</span>        <span class="number">0</span>      <span class="string">active</span> <span class="string">sync</span>   <span class="string">/dev/sdb</span></span><br><span class="line">       <span class="number">1</span>       <span class="number">8</span>       <span class="number">32</span>        <span class="number">1</span>      <span class="string">active</span> <span class="string">sync</span>   <span class="string">/dev/sdc</span></span><br><span class="line">       <span class="number">2</span>       <span class="number">8</span>       <span class="number">48</span>        <span class="number">2</span>      <span class="string">active</span> <span class="string">sync</span>   <span class="string">/dev/sdd</span></span><br><span class="line">       <span class="number">3</span>       <span class="number">8</span>       <span class="number">64</span>        <span class="number">3</span>      <span class="string">active</span> <span class="string">sync</span>   <span class="string">/dev/sde</span></span><br><span class="line"></span><br><span class="line"><span class="string">mount</span> <span class="string">-a</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="磁盘阵列-备份盘"><a href="#磁盘阵列-备份盘" class="headerlink" title="磁盘阵列+备份盘"></a>磁盘阵列+备份盘</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span> -n 3 代表创建这个RAID5磁盘阵列所需的硬盘数</span><br><span class="line"><span class="string">//</span> -l 5 代表RAID 级别</span><br><span class="line"><span class="string">//</span> -x -l 代表有一块备份盘</span><br><span class="line">mdadm -Cv <span class="string">/dev/md1</span> -n 3 -l 5 -x 1 <span class="string">/dev/sdb</span> <span class="string">/dev/sdc/</span> dev/sdd <span class="string">/dev/sde</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> 查看磁盘阵列</span><br><span class="line">mdadm -D <span class="string">/dev/md0</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> 格式化</span><br><span class="line">mkfs.ext4 <span class="string">/dev/md0</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> 自动挂载</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"/dev/md0 ext4 defaults 0 0"</span> &gt;&gt; <span class="string">/etc/fstab</span></span><br><span class="line">mkdir <span class="string">/RAID</span></span><br><span class="line">mount -a</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试</strong></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span> 将<span class="regexp">/dev/</span>sdb移除磁盘阵列</span><br><span class="line">mdadm <span class="regexp">/dev/m</span>d0 -f <span class="regexp">/dev/</span>sdb</span><br><span class="line"></span><br><span class="line">mdadm -D <span class="regexp">/dev/m</span>d0</span><br></pre></td></tr></table></figure>
+
+<h3 id="LVM-逻辑卷"><a href="#LVM-逻辑卷" class="headerlink" title="LVM (逻辑卷)"></a>LVM (逻辑卷)</h3><p>LVM 可以允许用户对磁盘资源进行动态调整.</p>
+<p>物理卷(PV Physical Volume)： 处于LVM中的最底层，可以将其理解为物理硬盘，硬盘分区或者RAID磁盘阵列。<br>卷组(VG Volume Group)： 建立在物理卷之上，一个卷组可以包含多个物理卷，而且在卷组创建之后也可以继续向其中添加新的物理卷.<br>逻辑卷(PE Physical Extent)： 使用卷组中空闲的资源建立的，并且逻辑卷在建立后可以动态地扩展或缩小空间.</p>
+<p><strong>部署逻辑卷</strong></p>
+<p><strong>常用的LVM部署命令</strong> </p>
+<table>
+<thead>
+<tr>
+<th>功能/命令</th>
+<th>物理卷管理</th>
+<th>卷组管理</th>
+<th>逻辑卷管理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>扫描</td>
+<td>pvscan</td>
+<td>vgscan</td>
+<td>lvscan</td>
+</tr>
+<tr>
+<td>建立</td>
+<td>pvcreate</td>
+<td>vgcreate</td>
+<td>lvcreate</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>pvdisplay</td>
+<td>vgdisplay</td>
+<td>lvdisplay</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>pvremove</td>
+<td>vgremove</td>
+<td>lvremove</td>
+</tr>
+<tr>
+<td>扩展</td>
+<td></td>
+<td>vgextend</td>
+<td>lvextend</td>
+</tr>
+<tr>
+<td>缩小</td>
+<td></td>
+<td>vgreduce</td>
+<td>lvreduce</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">1.</span> 让新添加的两块磁盘设备支持LVM技术</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvcreate <span class="regexp">/dev/</span>sdb <span class="regexp">/dev/</span>sdc</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> 把两块硬盘设备加入到storage卷组中，然后查看卷组的状态。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vgcreate storage <span class="regexp">/dev/</span>sdb <span class="regexp">/dev/</span>sdc</span><br><span class="line"></span><br><span class="line">vgdisplay</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">3.</span> 切割出一个约150MB的逻辑卷设备</p>
+<p>在对逻辑卷进行切割时有两种计量单位</p>
+<ol>
+<li><p>以容量为单位，所使用的参数为-L。<br> 例如，使用-L 150M 生成一个大小为150MB的逻辑卷。</p>
+</li>
+<li><p>一种是以基本单元的个数为单位，所使用的参数为-l, 每个基本单元的大小默认为4MB.</p>
+</li>
+</ol>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lvcreate -n vo -l <span class="number">37</span> storage</span><br><span class="line"></span><br><span class="line">lvdisplay</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">4.</span> 把生成好的逻辑卷进行格式化，然后挂载使用</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 <span class="string">/dev/storage/vo</span></span><br><span class="line"></span><br><span class="line">mkdir <span class="string">/linuxprobe</span></span><br><span class="line">mount <span class="string">/dev/storage/vo</span> <span class="string">/linuxprobe</span></span><br><span class="line"></span><br><span class="line">df -h</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"/dev/storage/vo /linuxprobe ext4 defaults 0 0"</span> &gt;&gt; <span class="string">/etc/fstab</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="扩容逻辑卷"><a href="#扩容逻辑卷" class="headerlink" title="扩容逻辑卷"></a>扩容逻辑卷</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">umount <span class="string">/linuxprobe</span></span><br><span class="line"><span class="string">//</span> 扩容</span><br><span class="line">lvextend -L 290M <span class="string">/dev/storage/vo</span></span><br><span class="line"><span class="string">//</span> 检查硬盘完整性</span><br><span class="line">e2fsck -f <span class="string">/dev/storage/vo</span></span><br><span class="line"><span class="string">//</span> 重置硬盘容量</span><br><span class="line">resize2fs <span class="string">/dev/storage/vo</span></span><br><span class="line"><span class="string">//</span> 重新挂载硬盘设备并查看挂载状态</span><br><span class="line">mount -a</span><br><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
+<h3 id="缩小逻辑卷"><a href="#缩小逻辑卷" class="headerlink" title="缩小逻辑卷"></a>缩小逻辑卷</h3><p>在生产环境中执行缩小逻辑卷操作时，一定要提前备份好数据。另外Linux系统规定，在对LVM逻辑卷进行缩容操作之前，先要检查文件系统的完整性.</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">umount <span class="string">/linuxprobe</span></span><br><span class="line"><span class="string">//</span> 检查文件系统的完整性。</span><br><span class="line">e2fsck -f <span class="string">/dev/storage/vo</span></span><br><span class="line"><span class="string">//</span> 把逻辑卷vo的容量减小到120M</span><br><span class="line">resize2fs <span class="string">/dev/storage/vo</span> 120M</span><br><span class="line">lvreduce -L 120M <span class="string">/dev/storage/vo</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> 重新挂载文件系统并查看系统状态</span><br><span class="line">mount -a</span><br><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
+<h3 id="逻辑卷快照"><a href="#逻辑卷快照" class="headerlink" title="逻辑卷快照"></a>逻辑卷快照</h3><p>LVM的快照卷功能的特点：</p>
+<ul>
+<li>快照卷的容量必须等同于逻辑卷的容量</li>
+<li>快照卷仅一次有效，一旦执行还原操作后则会被立即自动删除</li>
+</ul>
+<p><span id="inline-toc">1.</span> 使用-s参数生成一个快照卷，使用-L参数指定切割的大小。另外，还需要在命令后面写上是针对哪个逻辑卷执行的快照操作。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lvcreate -L <span class="number">120</span>M -s -n SNAP /dev/storage/vo</span><br><span class="line">lvdisplay</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> 在逻辑卷所挂载的目录中创建一个100MB的垃圾文件，然后再查看快照卷的状态，可以发现存储空间占的用量上升了。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="attribute">if</span>=/dev/zero <span class="attribute">of</span>=/linuxprobe/files <span class="attribute">count</span>=1 <span class="attribute">bs</span>=100M</span><br><span class="line">lvdisplay</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">3.</span> 为了效验SNAP快照卷的效果，需要对逻辑卷进行快照还原操作。再次之前记得先卸载卷设备与目录的挂载。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount <span class="string">/linuxprobe</span></span><br><span class="line">lvconvert <span class="params">--merge</span> <span class="string">/dev/storage/SNAP</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">4.</span> 快照卷会被自动删除掉，并且刚刚在逻辑卷设备被执行快照操作后再创建出来的100MB的垃圾文件也被删除了。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount -a</span><br><span class="line"><span class="keyword">ls</span> <span class="string">/linuxprobe/</span></span><br><span class="line">lost+found  readme.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除逻辑卷"><a href="#删除逻辑卷" class="headerlink" title="删除逻辑卷"></a>删除逻辑卷</h3><p><span id="inline-toc">1.</span> 取消逻辑卷与目录的挂载关联，删除配置文件中永久生效的设备参数。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">umount <span class="string">/linuxprobe</span></span><br><span class="line">vim <span class="string">/etc/fstab</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> 删除逻辑卷设备，需要输入y来确认操作</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lvremove <span class="regexp">/dev/</span>storage<span class="regexp">/vo</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">3.</span> 删除卷组，此处只要些卷组名称即可，不需要设备的绝对路径</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vgremove storage</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">4.</span> 删除物理卷设备</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvremove <span class="regexp">/dev/</span>sdb <span class="regexp">/dev/</span>sdc</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a>Apache</h2><h3 id="安装Apache"><a href="#安装Apache" class="headerlink" title="安装Apache"></a>安装Apache</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1.</span> <span class="string">将光盘设备中的系统镜像挂载到/media/cdrom目录。</span></span><br><span class="line"><span class="attr">mkdir</span> <span class="string">-p /media/cdrom</span></span><br><span class="line"><span class="attr">mount</span> <span class="string">/dev/cdrom /media/cdrom</span></span><br><span class="line"></span><br><span class="line"><span class="meta">2.</span> <span class="string">使用Vim 创建仓库的配置文件</span></span><br><span class="line"><span class="attr">vim</span> <span class="string">/etc/yum.repos.d/rhe17.repo</span></span><br><span class="line"><span class="attr">[rhe17]</span></span><br><span class="line"><span class="attr">name</span>=<span class="string">rhe17</span></span><br><span class="line"><span class="attr">baseurl</span>=<span class="string">file:///media/cdrom</span></span><br><span class="line"><span class="attr">enabled</span>=<span class="string">1</span></span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="string">0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">3.</span> <span class="string">安装Apache服务程序</span></span><br><span class="line"><span class="attr">yum</span> <span class="string">install httpd</span></span><br><span class="line"></span><br><span class="line"><span class="meta">4.</span> <span class="string">启动httpd服务程序</span></span><br><span class="line"><span class="attr">systemd</span> <span class="string">start httpd</span></span><br><span class="line"><span class="attr">systemd</span> <span class="string">enable httpd</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="配置服务文件参数"><a href="#配置服务文件参数" class="headerlink" title="配置服务文件参数"></a>配置服务文件参数</h3><p><strong>Linux 系统中的配置文件</strong> </p>
+<table>
+<thead>
+<tr>
+<th>配置文件的名称</th>
+<th>存放位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务目录</td>
+<td>/etc/httpd</td>
+</tr>
+<tr>
+<td>主配置目录</td>
+<td>/etc/httpd/conf/httpd.cof</td>
+</tr>
+<tr>
+<td>网站数据目录</td>
+<td>/var/www/html</td>
+</tr>
+<tr>
+<td>访问日志</td>
+<td>/var/log/httpd/access_log</td>
+</tr>
+<tr>
+<td>错误日志</td>
+<td>/var/log/httpd/error_log</td>
+</tr>
+</tbody></table>
+<p><strong>配置httpd服务程序时最常用的参数以及用途描述</strong> </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ServerRoot</td>
+<td>服务目录</td>
+</tr>
+<tr>
+<td>ServerAdmin</td>
+<td>服务员邮箱</td>
+</tr>
+<tr>
+<td>User</td>
+<td>运行服务的用户</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>允许服务的用户组</td>
+</tr>
+<tr>
+<td>ServerName</td>
+<td>网站服务器的域名</td>
+</tr>
+<tr>
+<td>DocumetRoot</td>
+<td>网站数据目录</td>
+</tr>
+<tr>
+<td>Directory</td>
+<td>网站数据目录的权限</td>
+</tr>
+<tr>
+<td>Listen</td>
+<td>监听的IP地址与端口号</td>
+</tr>
+<tr>
+<td>DirectoryIndex</td>
+<td>默认的索引页页面</td>
+</tr>
+<tr>
+<td>ErrorLog</td>
+<td>错误日志文件</td>
+</tr>
+<tr>
+<td>Timeout</td>
+<td>网页超时时间，默认为300秒</td>
+</tr>
+</tbody></table>
+<h3 id="SELinux-安全子系统"><a href="#SELinux-安全子系统" class="headerlink" title="SELinux 安全子系统"></a>SELinux 安全子系统</h3><p>使用此系统的目的是，让各个服务进程都受到约束，使其仅获取到本应获取的资源。</p>
+<p><strong>SELinux服务有三种配置模式</strong> </p>
+<ol>
+<li>enforcing : 强制启用安全策略模式，将拦截服务的不合法请求</li>
+<li>permissive: 遇到服务越权访问时，只发出警告而不强制拦截。</li>
+<li>disable: 对于越权的行为不警告也不拦截。</li>
+</ol>
+<p><span id="inline-toc">1.</span> <strong>getenforce</strong><br>获取当前SELinux服务的运行模式：</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># getenforce</span></span><br><span class="line">Enforcing</span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">2.</span> setenforce</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce <span class="number">0</span> [<span class="number">0</span> 为禁用，<span class="number">1</span>为启用]</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>原因分析</strong><br><code>httpd</code>服务程序的功能是允许用户访问网站的内容，因此SELinux肯定会默认放行用户对网站的请求操作。但是，我们将数据的默认保持目录修改为了<code>home/wwwroot/</code> 这就产生了问题了。<code>home</code>目录是用来存放普通用户的家目录数据的，而现在，<code>httpd</code>提供的网站服务却要获取普通用户家目录中的数据了，这显然违反了SELinux的监管原则。</p>
+<h3 id="semanage"><a href="#semanage" class="headerlink" title="semanage"></a>semanage</h3><p>用于管理SELinux的策略，格式为 semanage [选项] [文件]<br>-l 参数用于查询<br>-a 参数用于添加<br>-m 参数用于修改<br>-d 参数用于删除</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">semanage fcontext -a -t <span class="keyword">httpd_sys_content_t</span> /<span class="built_in">home</span>/wwwroot</span><br><span class="line">semanage fcontext -a -t <span class="keyword">httpd_sys_content_t</span> /<span class="built_in">home</span>/wwwroot<span class="comment">/*</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>restorecon</strong> 命令将设置好的SELinux安全上下文立即生效。</p>
+<ul>
+<li>Rv 参数对指定的目录进行递归操作。</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">restorecon -Rv /<span class="built_in">home</span>/wwwroot/</span><br></pre></td></tr></table></figure>
+
+<h3 id="个人用户主页功能"><a href="#个人用户主页功能" class="headerlink" title="个人用户主页功能"></a>个人用户主页功能</h3><ol>
+<li>httpd服务程序中，开启个人用户主页功能</li>
+</ol>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- userDir disable</span></span><br><span class="line"><span class="addition">+ # userDir disable</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">- # UserDir public_html </span></span><br><span class="line"><span class="addition">+ UserDir public_html</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在用户家目录中建立用于保持网站数据的目录及首页面文件。另外，还需要把家目录的权限修改为755,保证其他人也有权限读取里面的内容</li>
+</ol>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">su</span> <span class="string">- feng</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mkdir</span> <span class="string">public_html</span></span><br><span class="line"><span class="attr">ehco</span> <span class="string">"This is feng's website" &gt; public_html/index.html</span></span><br><span class="line"></span><br><span class="line"><span class="attr">chmod</span> <span class="string">-RF 755 /home/feng</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><p>重新启动http服务程序<br>systemctl restart httpd</p>
+</li>
+<li><p>修改SELinux安全上下文</p>
+</li>
+</ol>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getsebool -<span class="keyword">a</span> | grep <span class="keyword">http</span></span><br></pre></td></tr></table></figure>
+
+<p>setsebool </p>
+<p>-P 使修改后的SELinux策略规则永久生效且立即生效。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setsebool -P httpd_enable_homedirs=<span class="keyword">on</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过身份验证访问网站"><a href="#通过身份验证访问网站" class="headerlink" title="通过身份验证访问网站"></a>通过身份验证访问网站</h3><ol>
+<li>使用 htpasswd 命令生成密码数据库</li>
+</ol>
+<p>-c 参数表示第一次生成<br>用户名称（该用户不必是系统中已有的本地账户）</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -c <span class="regexp">/etc/</span>httpd<span class="regexp">/passwd feng</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编辑个人用户主页功能的配置文件</li>
+</ol>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/httpd/conf.d/userdir.conf</span><br><span class="line"></span><br><span class="line"><span class="variable">&lt;Directory "/home/*/public_html"&gt;</span></span><br><span class="line">AllowOverride <span class="literal">all</span></span><br><span class="line"><span class="comment"># 刚刚生成出来的密码验证文件保持路径</span></span><br><span class="line">authuserfile <span class="string">"/etc/httpd/passwd"</span></span><br><span class="line"><span class="comment">#当用户尝试访问个人用户网站时的提示信息</span></span><br><span class="line">authname <span class="string">"My privately website"</span></span><br><span class="line">authtype <span class="keyword">basic</span></span><br><span class="line"><span class="comment">#用户进行账户密码登录时需要验证的用户名称</span></span><br><span class="line">require <span class="keyword">user</span> feng</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="虚拟主机功能"><a href="#虚拟主机功能" class="headerlink" title="虚拟主机功能"></a>虚拟主机功能</h3><h4 id="基于IP地址"><a href="#基于IP地址" class="headerlink" title="基于IP地址"></a>基于IP地址</h4><h4 id="基于主机域名"><a href="#基于主机域名" class="headerlink" title="基于主机域名"></a>基于主机域名</h4><h4 id="基于端口号"><a href="#基于端口号" class="headerlink" title="基于端口号"></a>基于端口号</h4><h3 id="Apache-的访问控制"><a href="#Apache-的访问控制" class="headerlink" title="Apache 的访问控制"></a>Apache 的访问控制</h3><h2 id="iptables-与-firewalld-防火墙"><a href="#iptables-与-firewalld-防火墙" class="headerlink" title="iptables 与 firewalld 防火墙"></a>iptables 与 firewalld 防火墙</h2><h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><p><strong>规则</strong><br>在进行路由选择钱处理数据包（PREROUTING）<br>处理流入的数据包（INPUT）<br>处理流出的数据包（OUTPUT）<br>处理转发的数据包（FORWARD）<br>在进行路由选择后处理数据包（POSTROUTING）</p>
+<p><strong>动作</strong><br>允许流量通过（ACCEPT）<br>拒绝流量通过（REJECT） 流量发送方会看到端口不可达的响应<br>记录日志信息（LOG）<br>拒绝流量通过（DROP）流量方会看到响应超时的提醒，但是流量发送方无法判断流量是被拒绝，还是接收方主机当前不在线</p>
+<p><strong>iptables中常用的参数以及作用</strong> </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-P</td>
+<td>设置默认策略</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>清空规则链</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>查看规则链</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>在规则链的末尾加入新规则</td>
+</tr>
+<tr>
+<td>-I num</td>
+<td>在规则链的末尾的头部加入新规则</td>
+</tr>
+<tr>
+<td>-D num</td>
+<td>删除某一条规则</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>匹配来源地址 IP/MASK,加叹号“！”表示IP外</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>匹配目标地址</td>
+</tr>
+<tr>
+<td>-i 网卡名称</td>
+<td>匹配从这块网卡流入的数据</td>
+</tr>
+<tr>
+<td>-o 网卡名称</td>
+<td>匹配从这块网卡流出的数据</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>匹配协议，如TCP、UDP、ICMP</td>
+</tr>
+<tr>
+<td>–dport num</td>
+<td>匹配目标端口号</td>
+</tr>
+<tr>
+<td>–sport num</td>
+<td>匹配来源端口号</td>
+</tr>
+</tbody></table>
+<h2 id="使用ssh服务管理远程主机"><a href="#使用ssh服务管理远程主机" class="headerlink" title="使用ssh服务管理远程主机"></a>使用ssh服务管理远程主机</h2><h3 id="配置网络服务"><a href="#配置网络服务" class="headerlink" title="配置网络服务"></a>配置网络服务</h3><p><code>nmtui</code></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-enoxxxx</span><br><span class="line"></span><br><span class="line"><span class="attribute">TYPE</span>=Ethernet </span><br><span class="line"><span class="attribute">BOOTPROTO</span>=none </span><br><span class="line"><span class="attribute">DEFROUTE</span>=<span class="literal">yes</span> </span><br><span class="line"><span class="attribute">IPV4_FAILURE_FATAL</span>=<span class="literal">no</span> </span><br><span class="line"><span class="attribute">IPV6INIT</span>=<span class="literal">yes</span> </span><br><span class="line"><span class="attribute">IPV6_AUTOCONF</span>=<span class="literal">yes</span> </span><br><span class="line"><span class="attribute">IPV6_DEFROUTE</span>=<span class="literal">yes</span> </span><br><span class="line"><span class="attribute">IPV6_FAILURE_FATAL</span>=<span class="literal">no</span> </span><br><span class="line"><span class="attribute">NAME</span>=eno16777736 </span><br><span class="line"><span class="attribute">UUID</span>=ec77579b-2ced-481f-9c09-f562b321e268 </span><br><span class="line"><span class="attribute">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">IPADDR0</span>=192.168.10.10</span><br><span class="line"><span class="attribute">HWADDR</span>=00:0C:29:C4:A4:09 </span><br><span class="line"><span class="attribute">PREFIX0</span>=24 </span><br><span class="line"><span class="attribute">IPV6_PEERDNS</span>=<span class="literal">yes</span> </span><br><span class="line"><span class="attribute">IPV6_PEERROUTES</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">systemctl restart network</span><br><span class="line">ping -c 4 192.168.10.10</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建网络会话"><a href="#创建网络会话" class="headerlink" title="创建网络会话"></a>创建网络会话</h3><p><code>numcli</code></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 查看网络信息</span></span><br><span class="line">numcli connection <span class="keyword">show</span></span><br><span class="line"><span class="comment">// 查看网络状态</span></span><br><span class="line">numcli coc <span class="keyword">show</span> enp0s3</span><br></pre></td></tr></table></figure>
+
+<p><code>connection add con-name type ifname</code> 创建网络会话。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">numcli<span class="built_in"> connection </span><span class="builtin-name">add</span> con-name house<span class="built_in"> type ethernet </span>ifname</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ifname 参数指定本机的网卡名称</li>
+<li>con-name 参数指定公司所使用的网络会话名称company</li>
+</ul>
+<h3 id="绑定两块网卡"><a href="#绑定两块网卡" class="headerlink" title="绑定两块网卡"></a>绑定两块网卡</h3><p><span id="inline-toc">1.</span> 在虚拟机系统中添加一块网卡设备，确保两块网卡都处于同一个网络连接（即网卡模式相同）</p>
+<p><span id="inline-toc">2.</span> 使用Vim文本编辑器来配置网卡设备的绑定参数。这些原本独立的网卡设备此时需要被配置成一块”从属”网卡，服务与”主”网卡，不应该再有自己的IP地址等信息。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-xxx</span><br><span class="line"></span><br><span class="line"><span class="attribute">TYPE</span>=Ethernet</span><br><span class="line"><span class="attribute">BOOTPROTO</span>=none</span><br><span class="line"><span class="attribute">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">USERCTL</span>=<span class="literal">no</span></span><br><span class="line"><span class="attribute">DEVICE</span>=xxxx</span><br><span class="line"><span class="attribute">MASTER</span>=bond0</span><br><span class="line"><span class="attribute">SLAVE</span>=<span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-xxx</span><br><span class="line"></span><br><span class="line"><span class="attribute">TYPE</span>=Ethernet</span><br><span class="line"><span class="attribute">BOOTPROTO</span>=none</span><br><span class="line"><span class="attribute">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">USERCTL</span>=<span class="literal">no</span></span><br><span class="line"><span class="attribute">DEVICE</span>=xxxx</span><br><span class="line"><span class="attribute">MASTER</span>=bond0</span><br><span class="line"><span class="attribute">SLAVE</span>=<span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>还需要将绑定后的设备命名为bond0并把IP地址等信息填写进去，这样当用户访问相应服务的时候，实际上就是由这两块设备共同提供服务</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-bond0</span><br><span class="line"></span><br><span class="line"><span class="attribute">TYPE</span>=Ethernet</span><br><span class="line"><span class="attribute">BOOTPROTO</span>=none</span><br><span class="line"><span class="attribute">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attribute">USERCTL</span>=<span class="literal">no</span></span><br><span class="line"><span class="attribute">DEVICE</span>=bond0</span><br><span class="line"><span class="attribute">IPADDR</span>=192.168.56.101</span><br><span class="line"><span class="attribute">PREFIX</span>=24</span><br><span class="line"><span class="attribute">DNS</span>=255.255.255.0</span><br><span class="line"><span class="attribute">NM_CONTROLLED</span>=<span class="literal">no</span></span><br></pre></td></tr></table></figure>
+
+
+<p><span id="inline-toc">3.</span> 让Linux内核支持网卡绑定驱动。</p>
+<ul>
+<li>mode0 (平衡负载模式): 平时两块均工作，且自动备援，但需要咋与服务器本地网卡相连的交换机设备上进行端口聚合来支持绑定技术。</li>
+<li>mode1 (自动备援模式):平时只有一块网卡工作，在它故障后自动替换另外的网卡.</li>
+<li>mode6 (平衡负载模式): 平时两块网卡均工作，且自动备援，无须交换机设备提供辅助支持。</li>
+</ul>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">vim</span> /etc/modprode.d/<span class="keyword">bond.conf</span></span><br><span class="line"><span class="keyword">alias </span><span class="keyword">bond0 </span><span class="keyword">bonding</span></span><br><span class="line"><span class="keyword">options </span><span class="keyword">bond0 </span>miimon<span class="number">=100</span> mode<span class="number">=6</span></span><br></pre></td></tr></table></figure>
+
+<p><span id="inline-toc">4.</span> 重启网络服务后网卡绑定操作即可成功，正常情况下只有bond0网卡设备才会有IP地址等信息。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart network</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="远程传输命令"><a href="#远程传输命令" class="headerlink" title="远程传输命令"></a>远程传输命令</h3><p>scp(secure copy) 是一个基于SSH协议在网络之间进行安全传输的命令</p>
+<p><strong>scp命令中可用的参数及作用</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-v</td>
+<td>显示详细的连接进度</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>指定远程主机的sshd端口号</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>用于传送文件夹</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>使用IPv6协议</td>
+</tr>
+</tbody></table>
+<p>传送文件到远程服务器</p>
+<p>-r 进行递归操作</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp ~/readme.txt <span class="symbol">root@</span><span class="number">123.57</span><span class="number">.209</span><span class="number">.109</span>:/root</span><br><span class="line">readme.txt                                 <span class="number">100</span>%   <span class="number">26</span>     <span class="number">0.7</span>KB/s   <span class="number">00</span>:<span class="number">00</span>  </span><br><span class="line">scp <span class="number">192.168</span><span class="number">.10</span><span class="number">.20</span>:/etc/redhat-release /root</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="不间断会话服务"><a href="#不间断会话服务" class="headerlink" title="不间断会话服务"></a>不间断会话服务</h3><p>screen 可用实现的功能：<br>会话恢复： 即便网络中断，也可让会话随时恢复，确保用户不会失去对远程会话的控制<br>多窗口： 每个会话都是独立运行的，拥有各自独立的输入输出终端窗口，终端窗口内显示过的信息也将被分开隔离保持，以便下次使用依然能看到之前的操作记录。<br>会话共享： 当多个用户同时登录到远程服务器时，便可以使用会话共享功能让用户之间的输入输出信息共享。</p>
+<p><strong>创建linux会话</strong><br>screen -S linux</p>
+<p><strong>查看会话列表</strong><br>screen -ls</p>
+<p><strong>恢复会话</strong><br>screen -r</p>
+<p><strong>获取远程会话</strong><br>screen -x (Attach to a not detached screen session.(Multi display mode))</p>
+<h2 id="vsftpd"><a href="#vsftpd" class="headerlink" title="vsftpd"></a>vsftpd</h2><p>Ftp 是一种在互联网中进行文件传输的协议，基于客户端、服务器模式，默认使用20,21号端口。<br>20 数据端口: 用于进行数据传输。<br>21 命令端口：用于接受客户端发出的相关FTP命令与参数。</p>
+<p>ftp的两种工作模式：<br><strong>主动模式</strong> FTP服务器主动向客户端发起连接请求<br><strong>被动模式</strong> FTP服务器等待客户端发起连接请求(FTP的默认工作模式)</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo pacman -S vsftpd</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>vsftpd服务程序常用的参数以及作用</strong> </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>listen=[YES][NO]</td>
+<td>是否以独立允许的方式监听服务</td>
+</tr>
+<tr>
+<td>listen_address=IP 地址</td>
+<td>设置要监听的IP地址</td>
+</tr>
+<tr>
+<td>listen_port=21</td>
+<td>设置FTP服务的监听端口</td>
+</tr>
+<tr>
+<td>download_enable=[YES][NO]</td>
+<td>是否允许下载文件</td>
+</tr>
+<tr>
+<td>userlist_enhable=[YES][NO]</td>
+<td>用户列表“允许”</td>
+</tr>
+<tr>
+<td>userlist_deny=[YES][NO]</td>
+<td>用户列表”禁止“</td>
+</tr>
+<tr>
+<td>max_clients=0</td>
+<td>最大客户端连接数，0为不限制</td>
+</tr>
+<tr>
+<td>max_per_ip=0</td>
+<td>同一IP地址的最大连接数，0为不限制</td>
+</tr>
+<tr>
+<td>anonymous_enable=[YES][NO]</td>
+<td>是否允许匿名用户访问</td>
+</tr>
+<tr>
+<td>anno_upload_enable=[YES][NO]</td>
+<td>是否允许匿名用户上传文件</td>
+</tr>
+<tr>
+<td>anno_umask=022</td>
+<td>匿名用户上传文件的umask值</td>
+</tr>
+<tr>
+<td>anno_root=/var/ftp</td>
+<td>匿名用户的FTP根目录</td>
+</tr>
+<tr>
+<td>anno_mkdir_write_enable=[YES][NO]</td>
+<td>是否允许匿名用户创建目录</td>
+</tr>
+<tr>
+<td>anno_other_write_enable=[YES][NO]</td>
+<td>是否开放匿名用户的其他写入权限（包括重命名，删除等操作权限）</td>
+</tr>
+<tr>
+<td>anno_max_rate=0</td>
+<td>匿名用户的最大传输速率（字节/秒），0为不限制</td>
+</tr>
+<tr>
+<td>local_enable=[YES][NO]</td>
+<td>是否允许本地用户登录FTP</td>
+</tr>
+<tr>
+<td>local_umask=022</td>
+<td>本地用户上传文件的umask值</td>
+</tr>
+<tr>
+<td>local_root=/var/ftp</td>
+<td>本地用户的FTP根目录</td>
+</tr>
+<tr>
+<td>chroot_local_user=[YES][NO]</td>
+<td>是否将用户权限禁锢在FTP目录，以确保安全</td>
+</tr>
+<tr>
+<td>local_max_rate=0</td>
+<td>本地用户最大传输速率（字节/秒），0为不限制</td>
+</tr>
+</tbody></table>
+<h3 id="vsftpd-服务程序"><a href="#vsftpd-服务程序" class="headerlink" title="vsftpd 服务程序"></a>vsftpd 服务程序</h3><p><strong>匿名开放模式</strong> 是一种最不安全的认证模式，任何人都可以无需密码验证而直接登录到FTP服务器。<br><strong>本地用户模式</strong> 是通过Linux系统本地的账户密码信息进行认证的模式,相较于匿名开放模式更安全，而且配置起来也很简单。但是如果被黑客破解了账户的信息，就可以畅通无阻地登录FTP服务器，从而完全控制整台服务器。<br><strong>虚拟用户模式</strong> 是这三种模式中最安全的一种认证模式，它需要为FTP服务单独建立用户数据文件，虚拟出用来进行口令验证的账户信息，而这些账户信息在服务器系统中实际上是不存在，仅供FTP服务程序进行认证使用。这样，即使黑客破解了账户信息也无法登录服务器，从而有效降低了破坏范围和影响。</p>
+<h3 id="匿名开放模式"><a href="#匿名开放模式" class="headerlink" title="匿名开放模式"></a>匿名开放模式</h3><p>可以向匿名用户开放的权限参数以及作用</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>annoymous_enable=YES</td>
+<td>允许匿名访问模式</td>
+</tr>
+<tr>
+<td>anno_umask=022</td>
+<td>匿名用户上传文件的umask值</td>
+</tr>
+<tr>
+<td>anno_upload_enable=YES</td>
+<td>允许匿名用户上传文件</td>
+</tr>
+<tr>
+<td>anno_mkdir_write_enable=YES</td>
+<td>允许匿名用户创建目录</td>
+</tr>
+<tr>
+<td>anno_other_write_enable=YES</td>
+<td>允许匿名用户修改目录名称或删除目录</td>
+</tr>
+</tbody></table>
+<p>默认访问目录是<code>/var/ftp</code></p>
+<p><strong>赋权</strong><br>chown -Rf ftp /var/ftp/pub</p>
+<h3 id="本地用户模式"><a href="#本地用户模式" class="headerlink" title="本地用户模式"></a>本地用户模式</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>annoymous_enable=NO</td>
+<td>静止匿名访问模式</td>
+</tr>
+<tr>
+<td>local_enable=YES</td>
+<td>允许本地用户模式</td>
+</tr>
+<tr>
+<td>write_enable=YES</td>
+<td>设置可写权限</td>
+</tr>
+<tr>
+<td>local_umask=022</td>
+<td>本地用户创建文件的umask值</td>
+</tr>
+<tr>
+<td>userlist_enable=YES</td>
+<td>启用“静止用户名单”,名单文件为ftpusers和user_list</td>
+</tr>
+<tr>
+<td>userlist_deny=YES</td>
+<td>开启用户作用名单文件功能</td>
+</tr>
+</tbody></table>
+<p>/etc/vsftpd/usr_list</p>
+<h3 id="虚拟用户模式"><a href="#虚拟用户模式" class="headerlink" title="虚拟用户模式"></a>虚拟用户模式</h3><ol>
+<li>创建用于进行FTP认证的用于数据库文件，其中奇数行为账户名，偶数行为密码。</li>
+</ol>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /etc/vsftpd/</span><br><span class="line"></span><br><span class="line">vim vuser.<span class="keyword">list</span></span><br><span class="line"></span><br><span class="line">db_load -T -t hash -f vuser.<span class="keyword">list</span> vuser.<span class="keyword">db</span></span><br><span class="line"><span class="keyword">file</span> vuser.<span class="keyword">db</span></span><br><span class="line">vuser.<span class="keyword">db</span>: Berkeley <span class="keyword">DB</span> (Hash, <span class="keyword">version</span> 9, native byte-<span class="keyword">order</span>)</span><br><span class="line"></span><br><span class="line">chmod 600 vuser.<span class="keyword">db</span></span><br><span class="line"><span class="keyword">rm</span> -f vuser.<span class="keyword">list</span></span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>创建vsftpd服务程序用于存储文件的根目录以及虚拟用户的映射的系统本地用户。FTP服务用于存储文件的根目录指的是，当虚拟用户登录后访问的默认位置<br> 由于Linux系统中的每一个文件都有所有者、所属组属性。例如使用虚拟账户“张三”新建了一个文件，但是系统中找不到账户“张三”,就会导致这个文件的权限出现错误。<br> 为此，需要再创建一个可以映射到虚拟用户的系统本地用户。简单来说，就是让虚拟用户默认登录到与之有映射关系的这个系统本地用户的家目录中，虚拟用户创建的文件的属性都归属于这个系统本地用户，从而避免Linux系统无法处理虚拟用户所创建文件的属性全系。<br> 为了方便管理FTP服务器上的数据，可以把这个系统本地的家目录设置为/var目录（该目录用来存放经常发生改变的数据）.并且为了安全起见，我们将这个系统本地用户设置为不允许登录FTP服务器，这不会影响虚拟用户登录，而且还可以避免黑客通过这个系统本地用户进行登录。</li>
+</ol>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">usradd -d /<span class="keyword">var</span>/ftproot -s /sbin/nologin <span class="keyword">virtual</span></span><br><span class="line">ls -ld /<span class="keyword">var</span>/ftproot/</span><br><span class="line">  drwx------. <span class="number">3</span> <span class="keyword">virtual</span> <span class="keyword">virtual</span> <span class="number">74</span> Mar  <span class="number">3</span> <span class="number">11</span>:<span class="number">38</span> /<span class="keyword">var</span>/ftproot</span><br><span class="line">chmod -Rf <span class="number">755</span> /<span class="keyword">var</span>/ftproot/</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li>建立用于支持虚拟用户的PAM文件<br> PAM(可插拔认证模块)是一种认证机制，通过一些动态链接库和统一的API把系统提供的服务与认证方式分开，使得系统管理员可以根据需求灵活调整服务程序的不同认证方式。<br> PAM是一组安全机制的模块，系统管理员可以轻易地调整服务程序的认证方式，而不必对应用程序进行修改。PAM采取了分层设计（应用程序层，应用接口层，鉴别模块层）的思想。<br><img src="https://cdn.jsdelivr.net/gh/guangsizhongbin/picture//DeepinScreenshot_select-area_20200304101220.png" alt="PAM的分层设计结构"></li>
+</ol>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pam.d/vsftpd.vu</span><br><span class="line"></span><br><span class="line">auth required pam_userdb.so <span class="attribute">db</span>=/etc/vsftpd/vuser</span><br><span class="line">account required pam_userdb.so <span class="attribute">db</span>=/etc/vsftpd/vuser</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li>在vsftpd服务程序的主配置文件中通过 pam_service_name 参数将PAM认证文件的名称修改为 vsftpd.vu, pam作为应用程序层与鉴别模块层的连接纽带，可以让应用程序根据需求灵活地在自身插入所需的鉴别功能模块。当应用程序需要PAM认证时，则需要在应用程序中定义负责认证的PAM配置文件，实现所需的认证功能。</li>
+</ol>
+<p><strong>利用PAM文件进行认证时使用的参数以及作用</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>anonymous_enable=NO</td>
+<td>禁止匿名开放模式</td>
+</tr>
+<tr>
+<td>local_enable=YES</td>
+<td>允许本地用户模式</td>
+</tr>
+<tr>
+<td>quest_enable=YES</td>
+<td>开启虚拟用户模式</td>
+</tr>
+<tr>
+<td>quest_username=virtual</td>
+<td>指定虚拟用户账户</td>
+</tr>
+<tr>
+<td>pam_service_name=vsftpd.vu</td>
+<td>指定PAM文件</td>
+</tr>
+<tr>
+<td>allow_writeable_chroot=YES</td>
+<td>允许对禁锢的FTP根目录执行写入操作，而且不拒绝用户的登录请求</td>
+</tr>
+</tbody></table>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> /etc/vsftpd/vsftpd.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>为虚拟用户设置不同的权限。</li>
+</ol>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mkdir</span> <span class="string">/etc/vsftpd/vusers_dir/</span></span><br><span class="line"><span class="attr">cd</span> <span class="string">/etc/vsftpd/vusers_dir/</span></span><br><span class="line"><span class="attr">vim</span> <span class="string">feng</span></span><br><span class="line"></span><br><span class="line"><span class="attr">anno_upload_enable</span>=<span class="string">YES</span></span><br><span class="line"><span class="attr">anno_mkdir_write_enable</span>=<span class="string">YES</span></span><br><span class="line"><span class="attr">anno_other_write_enable</span>=<span class="string">YES</span></span><br></pre></td></tr></table></figure>
+
+<p>再次修改 vsftpd 主配置文件，通过添加 user_config_dir 参数来定义这两个虚拟用户不同权限的配置文件所存放的路径。为了让修改后的参数立即生效，需要重启 vsftpd 服务程序并将该服务添加到开机启动项中：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="meta-keyword">/etc/</span>vsftpd/vsftpd.conf</span><br><span class="line"></span><br><span class="line">user_config_dir=<span class="meta-keyword">/etc/</span>vsftpd/vusers_dir</span><br></pre></td></tr></table></figure>
+
+
+<ol start="6">
+<li>设置SELinux域允许策略，然后虚拟用户模式登录FTP服务器。</li>
+</ol>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gensebool -a | grep ftp</span></span><br><span class="line"></span><br><span class="line">setsebool -P ftpd_full_access=<span class="keyword">on</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="简单文件传输协议"><a href="#简单文件传输协议" class="headerlink" title="简单文件传输协议"></a>简单文件传输协议</h3><p>TFTP (Trivial File Transfer Protocol)是一种基于UDP协议的客户端和服务器之间进行简单文件传输的协议。<br>占用69号端口，效率高，安全性低。</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum isntall tftp-<span class="keyword">server</span> tftp</span><br></pre></td></tr></table></figure>
+
+<p>在RHEL 7系统中，TFTP服务是使用xinetd服务程序来管理的，xinetd服务可以用来管理多种轻量级的网络服务，而且具有强大的日志功能。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>xinetd.d/tftp</span><br><span class="line"> </span><br><span class="line">把默认禁用（disable）参数修改为<span class="string">no:</span></span><br></pre></td></tr></table></figure>
+
+<p>重启xinetd服务并将它添加到系统的开机启动项中，以确保TFTP服务在系统重启后依然处于允许状态。有些系统防火墙没有允许UDP协议的69端口，因此需要手动将该端口号加入到防火墙的允许策略中：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart xinetd</span><br><span class="line">systemctl enable xinetd</span><br><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --permanent --add-port=69/udp</span></span><br><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --reload</span></span><br></pre></td></tr></table></figure>
+
+<p>TFTP 的根目录为/var/lib/tftpboot</p>
+<p><strong>tftp命令中可用的参数以及作用</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>?</td>
+<td>帮助信息</td>
+</tr>
+<tr>
+<td>put</td>
+<td>上传文件</td>
+</tr>
+<tr>
+<td>get</td>
+<td>下载文件</td>
+</tr>
+<tr>
+<td>verbose</td>
+<td>显示详细的处理信息</td>
+</tr>
+<tr>
+<td>status</td>
+<td>显示当前的状态信息</td>
+</tr>
+<tr>
+<td>binary</td>
+<td>使用二进制进行传输</td>
+</tr>
+<tr>
+<td>ascii</td>
+<td>使用ASCII码进行传输</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>设置重传的超时时间</td>
+</tr>
+<tr>
+<td>quit</td>
+<td>退出</td>
+</tr>
+</tbody></table>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"i love linux"</span> &gt; /var/lib/tftpboot/readme.txt</span><br><span class="line">tftp <span class="number">192.168</span>.<span class="number">0.104</span></span><br><span class="line"></span><br><span class="line">tftp&gt; get readme.txt</span><br><span class="line">tftp&gt; quit</span><br><span class="line"></span><br><span class="line">cat readme.txt</span><br><span class="line"><span class="selector-tag">i</span> love linux</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用Samba-或-NFS实现文件共享"><a href="#使用Samba-或-NFS实现文件共享" class="headerlink" title="使用Samba 或 NFS实现文件共享"></a>使用Samba 或 NFS实现文件共享</h2><p>sudo pacman -S samba</p>
+<p><code>/etc/samba/private/smb.conf</code></p>
+<p>Samba : window 与 linux 文件共享<br>NFS: linux 与 linux 文件共享</p>
+<p><strong>Samba 服务程序中的参数以及作用</strong> </p>
+<table>
+<thead>
+<tr>
+<th>[global]</th>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>workgroup = MYGROUP</td>
+<td>#工作组名称</td>
+</tr>
+<tr>
+<td></td>
+<td>server string = Samba Server Versinon %v</td>
+<td>#服务器介绍信息，参数%v为显示SMB版本号</td>
+</tr>
+<tr>
+<td></td>
+<td>lon file = /var/log/samba/log.%m</td>
+<td>#定义日志文件的存放位置与名称，参数%m为来访的主机名</td>
+</tr>
+<tr>
+<td></td>
+<td>max log size</td>
+<td>#定义日志文件的最大容量为50KB</td>
+</tr>
+<tr>
+<td></td>
+<td>security = user</td>
+<td>#安全验证的方式，共有四种： share, user, server, domain</td>
+</tr>
+<tr>
+<td></td>
+<td>passdb backend = tdbsam</td>
+<td>#定义用户后台的类型, 共有三种: smbpassed, tdbsam, ldapsam</td>
+</tr>
+<tr>
+<td></td>
+<td>load printers = yes</td>
+<td>#设置在Samba服务启动时是否共享打印机设备</td>
+</tr>
+<tr>
+<td></td>
+<td>cups options = raw</td>
+<td># 打印机的选项</td>
+</tr>
+<tr>
+<td>[homes]</td>
+<td></td>
+<td># 共享参数</td>
+</tr>
+<tr>
+<td></td>
+<td>comment = Home Directories</td>
+<td># 描述信息</td>
+</tr>
+<tr>
+<td></td>
+<td>browseable = no</td>
+<td>#指定共享信息是否在”网上邻居“中可见</td>
+</tr>
+<tr>
+<td></td>
+<td>writable = yes</td>
+<td>#定义是否可以执行写入操作，与”read only“相反</td>
+</tr>
+<tr>
+<td>[printers]</td>
+<td></td>
+<td>#打印机共享参数</td>
+</tr>
+</tbody></table>
+<h3 id="配置共享资源"><a href="#配置共享资源" class="headerlink" title="配置共享资源"></a>配置共享资源</h3><p><strong>用于设置Samba服务程序的参数以及租用</strong> </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[database]</td>
+<td>共享名称为database</td>
+</tr>
+<tr>
+<td>comment = Do not arbitrarily modify the database file</td>
+<td>警告用户不要随意修改数据库</td>
+</tr>
+<tr>
+<td>path = /home/database</td>
+<td>共享目录为/home/databse/</td>
+</tr>
+<tr>
+<td>public = no</td>
+<td>关闭”所用人可见“</td>
+</tr>
+<tr>
+<td>writable = yes</td>
+<td>允许写入操作</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">1.</span> 创建用于访问共享资源的账户信息。</p>
+<p><strong>用于pdbedit 命令的参数以及作用</strong> </p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a 用户名</td>
+<td>建立Samba账户</td>
+</tr>
+<tr>
+<td>-x 用户名</td>
+<td>删除Samba账户</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>列出账户列表</td>
+</tr>
+<tr>
+<td>-Lv</td>
+<td>列出账户详细信息的列表</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">2.</span> 创建用户共享资源的文件目录</p>
+<p><span id="inline-toc">3.</span> 设置SELinux 服务与策略</p>
+<p><span id="inline-toc">4.</span> 在Samba 服务程序的主配置文件中，安装格式写入共享信息。</p>
+<p><span id="inline-toc">5.</span> Samba 服务程序的配置工作基本完毕。</p>
+<h3 id="NFS-网络文件系统"><a href="#NFS-网络文件系统" class="headerlink" title="NFS(网络文件系统)"></a>NFS(网络文件系统)</h3><p><span id="inline-toc">1.</span> 为了检验NFS服务配置的效果，需要两台Linux主机（一台充当NFS服务器，一台充当NFS客户端）</p>
+<p><span id="inline-toc">2.</span> 在NFS服务器上建立用于NFS文件共享的目录，并设置足够的权限确保其他人也有写入权限。</p>
+<p><span id="inline-toc">3.</span> NFS服务程序的配置文件为/etc/exports, 默认情况下里面没有任何内容。</p>
+<p><span id="inline-toc">4.</span> 启动和启用NFS服务程序。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/replay/20200225-love_replay.html" rel="prev" title="Love_replay">
+      <i class="fa fa-chevron-left"></i> Love_replay
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/english/20200221-null.html" rel="next" title="Kaikai-1-10-Replay">
+      Kaikai-1-10-Replay <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用系统命令"><span class="nav-number">1.</span> <span class="nav-text">常用系统命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统状态检测命令"><span class="nav-number">2.</span> <span class="nav-text">系统状态检测命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作目录切换命令"><span class="nav-number">3.</span> <span class="nav-text">工作目录切换命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件编辑命令"><span class="nav-number">4.</span> <span class="nav-text">文件编辑命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件目录管理命令"><span class="nav-number">5.</span> <span class="nav-text">文件目录管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包压缩与搜索命令"><span class="nav-number">6.</span> <span class="nav-text">打包压缩与搜索命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管道符、重定向与环境变量"><span class="nav-number">7.</span> <span class="nav-text">管道符、重定向与环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向"><span class="nav-number">7.1.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道符"><span class="nav-number">7.2.</span> <span class="nav-text">管道符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">7.3.</span> <span class="nav-text">环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-amp-amp-shell"><span class="nav-number">8.</span> <span class="nav-text">vim &amp;&amp; shell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">8.1.</span> <span class="nav-text">vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell"><span class="nav-number">8.2.</span> <span class="nav-text">shell</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#crontab"><span class="nav-number">9.</span> <span class="nav-text">crontab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户身份与文件权限"><span class="nav-number">10.</span> <span class="nav-text">用户身份与文件权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户身份"><span class="nav-number">10.1.</span> <span class="nav-text">用户身份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限与归属"><span class="nav-number">10.2.</span> <span class="nav-text">文件权限与归属</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的特殊权限"><span class="nav-number">10.3.</span> <span class="nav-text">文件的特殊权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件的隐藏属性"><span class="nav-number">10.4.</span> <span class="nav-text">文件的隐藏属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件访问控制列表"><span class="nav-number">10.5.</span> <span class="nav-text">文件访问控制列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储结构与磁盘划分"><span class="nav-number">11.</span> <span class="nav-text">存储结构与磁盘划分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理设备的命名规则"><span class="nav-number">11.1.</span> <span class="nav-text">物理设备的命名规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用RAID与LVM磁盘阵列技术"><span class="nav-number">12.</span> <span class="nav-text">使用RAID与LVM磁盘阵列技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RAID（独立冗余磁盘阵列）"><span class="nav-number">12.1.</span> <span class="nav-text">RAID（独立冗余磁盘阵列）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署磁盘阵列"><span class="nav-number">12.2.</span> <span class="nav-text">部署磁盘阵列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损坏磁盘整列及修复"><span class="nav-number">12.3.</span> <span class="nav-text">损坏磁盘整列及修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘阵列-备份盘"><span class="nav-number">12.4.</span> <span class="nav-text">磁盘阵列+备份盘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVM-逻辑卷"><span class="nav-number">12.5.</span> <span class="nav-text">LVM (逻辑卷)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#扩容逻辑卷"><span class="nav-number">12.6.</span> <span class="nav-text">扩容逻辑卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缩小逻辑卷"><span class="nav-number">12.7.</span> <span class="nav-text">缩小逻辑卷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑卷快照"><span class="nav-number">12.8.</span> <span class="nav-text">逻辑卷快照</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除逻辑卷"><span class="nav-number">12.9.</span> <span class="nav-text">删除逻辑卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Apache"><span class="nav-number">13.</span> <span class="nav-text">Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Apache"><span class="nav-number">13.1.</span> <span class="nav-text">安装Apache</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置服务文件参数"><span class="nav-number">13.2.</span> <span class="nav-text">配置服务文件参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SELinux-安全子系统"><span class="nav-number">13.3.</span> <span class="nav-text">SELinux 安全子系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#semanage"><span class="nav-number">13.4.</span> <span class="nav-text">semanage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人用户主页功能"><span class="nav-number">13.5.</span> <span class="nav-text">个人用户主页功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过身份验证访问网站"><span class="nav-number">13.6.</span> <span class="nav-text">通过身份验证访问网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟主机功能"><span class="nav-number">13.7.</span> <span class="nav-text">虚拟主机功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于IP地址"><span class="nav-number">13.7.1.</span> <span class="nav-text">基于IP地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于主机域名"><span class="nav-number">13.7.2.</span> <span class="nav-text">基于主机域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基于端口号"><span class="nav-number">13.7.3.</span> <span class="nav-text">基于端口号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-的访问控制"><span class="nav-number">13.8.</span> <span class="nav-text">Apache 的访问控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iptables-与-firewalld-防火墙"><span class="nav-number">14.</span> <span class="nav-text">iptables 与 firewalld 防火墙</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iptables"><span class="nav-number">14.1.</span> <span class="nav-text">iptables</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用ssh服务管理远程主机"><span class="nav-number">15.</span> <span class="nav-text">使用ssh服务管理远程主机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置网络服务"><span class="nav-number">15.1.</span> <span class="nav-text">配置网络服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建网络会话"><span class="nav-number">15.2.</span> <span class="nav-text">创建网络会话</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定两块网卡"><span class="nav-number">15.3.</span> <span class="nav-text">绑定两块网卡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程传输命令"><span class="nav-number">15.4.</span> <span class="nav-text">远程传输命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不间断会话服务"><span class="nav-number">15.5.</span> <span class="nav-text">不间断会话服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vsftpd"><span class="nav-number">16.</span> <span class="nav-text">vsftpd</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">16.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vsftpd-服务程序"><span class="nav-number">16.2.</span> <span class="nav-text">vsftpd 服务程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名开放模式"><span class="nav-number">16.3.</span> <span class="nav-text">匿名开放模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地用户模式"><span class="nav-number">16.4.</span> <span class="nav-text">本地用户模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟用户模式"><span class="nav-number">16.5.</span> <span class="nav-text">虚拟用户模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单文件传输协议"><span class="nav-number">16.6.</span> <span class="nav-text">简单文件传输协议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Samba-或-NFS实现文件共享"><span class="nav-number">17.</span> <span class="nav-text">使用Samba 或 NFS实现文件共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置共享资源"><span class="nav-number">17.1.</span> <span class="nav-text">配置共享资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NFS-网络文件系统"><span class="nav-number">17.2.</span> <span class="nav-text">NFS(网络文件系统)</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="TLP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">TLP</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/guangsizhongbin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;guangsizhongbin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/guangzizhongbin@gmail.com" title="E-Mail → guangzizhongbin@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">
+<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="noopener">鲁ICP备18035668号</a> 
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TLP</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">286k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">4:20</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":100},"mobile":{"show":"fasle"},"react":{"opacity":0.7}});</script></body>
+</html>

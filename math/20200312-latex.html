@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="latex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Math">
+<meta property="og:url" content="http://yoursite.com/math/20200312-latex.html">
+<meta property="og:site_name" content="TLP">
+<meta property="og:description" content="latex">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-12T07:01:42.000Z">
+<meta property="article:modified_time" content="2020-03-21T04:01:53.620Z">
+<meta property="article:author" content="TLP">
+<meta property="article:tag" content="math">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/math/20200312-latex.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Math | TLP</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TLP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/math/20200312-latex.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="TLP">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TLP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Math
+        </h1>
+
+        <div class="post-meta">
+				
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-12 15:01:42" itemprop="dateCreated datePublished" datetime="2020-03-12T15:01:42+08:00">2020-03-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-21 12:01:53" itemprop="dateModified" datetime="2020-03-21T12:01:53+08:00">2020-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index">
+                    <span itemprop="name">math</span>
+                  </a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+            <div class="post-description">latex</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>latex</p>
+<a id="more"></a>
+
+<p>行内公式： <code>$</code> 包裹 $a^2 + b^2 = c^2$</p>
+<p>行间公式 a^2 + b^2 = c^2 \tag</p>
+<p><span id="inline-toc">1.</span> 一般符号</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\alpha</td>
+<td>$\alpha$</td>
+</tr>
+<tr>
+<td>\beta</td>
+<td>$\beta$</td>
+</tr>
+<tr>
+<td>\theta</td>
+<td>$\theta$</td>
+</tr>
+<tr>
+<td>\delta</td>
+<td>$\delta$</td>
+</tr>
+<tr>
+<td>\sigma</td>
+<td>$\sigma$</td>
+</tr>
+<tr>
+<td>\eta</td>
+<td>$\eta$</td>
+</tr>
+<tr>
+<td>\xi</td>
+<td>$\xi$</td>
+</tr>
+<tr>
+<td>\varepsilon</td>
+<td>$\varepsilon$</td>
+</tr>
+<tr>
+<td>\mu</td>
+<td>$\mu$</td>
+</tr>
+<tr>
+<td>\Delta</td>
+<td>$\Delta$</td>
+</tr>
+<tr>
+<td>\infty</td>
+<td>$\infty$</td>
+</tr>
+<tr>
+<td>\dots</td>
+<td>$\dots$</td>
+</tr>
+<tr>
+<td>\Longleftrightarrow</td>
+<td>$\Longleftrightarrow$</td>
+</tr>
+<tr>
+<td>\forall</td>
+<td>$\forall$</td>
+</tr>
+<tr>
+<td>\exitsts</td>
+<td>$\exists$</td>
+</tr>
+<tr>
+<td>\in</td>
+<td>$\in$</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">2.</span> 指数、上下标和导数</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上标 a^2</td>
+<td>$a^2$</td>
+</tr>
+<tr>
+<td>下标 P_{ij}</td>
+<td>$P_{ij}$</td>
+</tr>
+<tr>
+<td>上下标综合 P^3{ij}</td>
+<td>$P^3_{ij}$</td>
+</tr>
+<tr>
+<td>导数 f’</td>
+<td>$f’$</td>
+</tr>
+<tr>
+<td>二阶导数 f’’^{2}(x)</td>
+<td>$f’’^{2}(x)$</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">3.</span> 分式和根式</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\frac{分子}{分母}</td>
+<td>$\frac{3}{8}$</td>
+</tr>
+<tr>
+<td>1又1/2: 1\frac{1}{2}</td>
+<td>$1\frac{1}{2}$</td>
+</tr>
+<tr>
+<td>根式: \sqrt{…}</td>
+<td>$\sqrt{x}$</td>
+</tr>
+<tr>
+<td>n次方根： \sqrt[n]{…}</td>
+<td>$\sqrt[2]{3}$</td>
+</tr>
+<tr>
+<td>综合： \sqrt{x^{2}+\sqrt{y}}</td>
+<td>$\sqrt{x^{2} + \sqrt{y}}$</td>
+</tr>
+<tr>
+<td>二项式： \binom{n}{k}</td>
+<td>$\binom{n}{k}$</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">4.</span> 关系符</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不等号 \ne</td>
+<td>$\ne$</td>
+</tr>
+<tr>
+<td>大于等于等号 \ge</td>
+<td>$\ge$</td>
+</tr>
+<tr>
+<td>小于等于等号 \le</td>
+<td>$\le$</td>
+</tr>
+<tr>
+<td>约等于 \approx</td>
+<td>$\approx$</td>
+</tr>
+<tr>
+<td>正比 \propto</td>
+<td>$\propto$</td>
+</tr>
+<tr>
+<td>相似 \sim</td>
+<td>$\sim$</td>
+</tr>
+</tbody></table>
+<p><span id="inline-toc">5.</span> 算符</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\sin</td>
+<td>$\sin$</td>
+</tr>
+<tr>
+<td>\cos</td>
+<td>$\cos$</td>
+</tr>
+<tr>
+<td>\tan</td>
+<td>$\tan$</td>
+</tr>
+<tr>
+<td>\cot</td>
+<td>$\cot$</td>
+</tr>
+<tr>
+<td>\min</td>
+<td>$\min$</td>
+</tr>
+<tr>
+<td>\max</td>
+<td>$\max$</td>
+</tr>
+</tbody></table>
+<p><code>\lim</code></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="formula">$<span class="tag">\<span class="name">[</span></span></span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">lim</span></span>_&#123;x <span class="tag">\<span class="name">rightarrow</span></span> 0&#125;</span></span><br><span class="line"><span class="formula"><span class="tag">\<span class="name">frac</span><span class="string">&#123;\sin x&#125;</span><span class="string">&#123;x&#125;</span>=<span class="number">1</span></span></span></span><br><span class="line"><span class="formula">$</span><span class="tag">\<span class="name">]</span></span></span><br></pre></td></tr></table></figure>
+
+<p>$[<br> \lim_{x \rightarrow 0}<br> \frac{\sin x}{x}=1<br>]$</p>
+<p><span id="inline-toc">8.</span> 巨算符</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>积分 \int</td>
+<td>$\int$</td>
+</tr>
+<tr>
+<td>求和 \sum</td>
+<td>$\sum$</td>
+</tr>
+</tbody></table>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span>\sum_&#123;i=<span class="number">1</span>&#125;^n<span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span>\int_0^&#123;\<span class="built-in">frac</span>&#123;\<span class="built-in">pi</span>&#125;&#123;<span class="number">2</span>&#125;&#125;<span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+
+<p>$\sum_{i=1}^n$</p>
+<p>$\int_0^{\frac{\pi}{2}}$</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">[</span></span>1 + <span class="tag">\<span class="name">left</span></span>(<span class="tag">\<span class="name">frac</span><span class="string">&#123;1&#125;</span><span class="string">&#123;1-x^&#123;2&#125;</span></span>&#125;</span><br><span class="line"><span class="tag">\<span class="name">right</span></span>)^3 <span class="tag">\<span class="name">qquad</span></span></span><br><span class="line"><span class="tag">\<span class="name">left</span></span>.<span class="tag">\<span class="name">frac</span><span class="string">&#123;\partial f&#125;</span><span class="string">&#123;\partial t&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">right</span></span>|_&#123;t=0&#125;<span class="tag">\<span class="name">]</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>$<br>[1 + \left(\frac{1}{1-x^{2}}<br>\right)^3 \qquad<br>\left.\frac{\partial f}{\partial t}<br>\right|_{t=0}]<br>$</p>
+<hr>
+<p>Reference:</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/math/" rel="tag"><i class="fa fa-tag"></i> math</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/english/20200313-34.html" rel="prev" title="34">
+      <i class="fa fa-chevron-left"></i> 34
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/english/20200312-writing-4.html" rel="next" title="Writing-4">
+      Writing-4 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="TLP"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">TLP</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/guangsizhongbin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;guangsizhongbin" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/guangzizhongbin@gmail.com" title="E-Mail → guangzizhongbin@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+<div class="copyright">
+<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="noopener">鲁ICP备18035668号</a> 
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TLP</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">Symbols count total: </span>
+    <span title="Symbols count total">286k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
+    <span title="Reading time total">4:20</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+        loader: {
+          load: ['[tex]/mhchem']
+        },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":100,"height":100},"mobile":{"show":"fasle"},"react":{"opacity":0.7}});</script></body>
+</html>
